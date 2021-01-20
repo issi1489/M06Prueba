@@ -1,4 +1,6 @@
+
 from django import forms
+'''
 from django.core import validators
 from django.core.exceptions import ValidationError
 import datetime
@@ -52,6 +54,7 @@ class Contacto(forms.Form):
                 attrs = {'style': 'background-color: yellow;'}),
                 validators=[ validators.MaxLengthValidator(100, "El nombre puede tener hasta 30 caracteres")])
 
+
 class rutPacientes(forms.Form):
 
      # Generar copia de los datos de usuarios
@@ -64,3 +67,4 @@ class rutPacientes(forms.Form):
         rut_pacs.append((p,p))
 
     rut_pac= forms.ChoiceField(choices=(rut_pacs))
+    '''
