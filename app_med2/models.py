@@ -1,9 +1,5 @@
 from django.db import models
 
-<<<<<<< HEAD
-
-# Vale
-
 class PerfilBioquimico(models.Model):
     id_pbioquimico = models.AutoField(primary_key=True,default=None)
     fk_rutUsuario = models.ForeignKey(Usuario,required=True, on_delete=models.CASCADE)
@@ -24,12 +20,11 @@ class PerfilBioquimico(models.Model):
     creatinina = models.DecimalField(decimal_places=3,required=True)
     observaciones_pbioquimico = models.CharField(max_length=100, required=True, default="Parametros normales")
 
+
 class Diagnostico(models.Model):
     fecha_diagnostico = models.DateTimeField(required=True)
     fk_rutUsuario = models.ForeignKey(Usuario, required=True, on_delete=models.CASCADE)
     diagnostico = models.CharField(max_length=100, required=True )
-=======
-# Create your models here.
 
 
 class Usuario(models.Model):
@@ -59,4 +54,26 @@ class Hemograma(models.Model):
     observaciones_hemograma = models.CharField(max_length=100)
 
 
->>>>>>> c000527ee0b6db7a94ce88d869f1edaaf355daae
+class coagulacion(models.Model):
+
+    paciente_rut = models.IntegerField()
+    id_coagulacion = models.AutoField(primary_key=True,default=None)
+    fecha = models.DateField()
+    nombre_coagulacion = models.CharField(max_length=50)
+    tiempo_protrombina = models.DecimalField(decimal_places=3)
+    porc_protrombina = models.DecimalField(decimal_places=3)
+    observaciones_coagulacion = models.CharField(max_length=50)
+
+
+class glicemia(models.Model):
+
+    paciente_rut = models.IntegerField()
+    id_glicemia = models.AutoField(primary_key=True,default=None)
+    fecha_glicemia = models.DateField()
+    nombre_glicemia = models.CharField(max_length=50)
+    glicemia_basal = models.DecimalField(decimal_places=3)
+    glicemia_120min= models.DecimalField(decimal_places=3)
+    observaciones_glicemia = models.CharField(max_length=50)
+
+
+
