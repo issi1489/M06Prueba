@@ -2,11 +2,11 @@ from django.shortcuts import render
 import json
 
 #Forms
-from .forms import CrearUsuario, rutPacientes
+#from .forms import CrearUsuario , rutPacientes
 
 def home(request):
 
-    return render(request,'home.html')
+    return render(request,'../templates/app_med2/home.html')
 
 def admin(request):
 
