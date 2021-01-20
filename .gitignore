@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> e4bfd58af289747fea4cbbb520b1e0019924d95b
 venv*
 *~
 *pyc
 *.log
 _pycache_*
 db.sqlite*
+<<<<<<< HEAD
+=======
+
+>>>>>>> e4bfd58af289747fea4cbbb520b1e0019924d95b
