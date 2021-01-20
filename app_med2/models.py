@@ -3,7 +3,7 @@ from django.db import models
 class Orina(models.Model):
     id_orina = models.AutoField(primary_key=True,default=None)
     fecha_orina = models.DateField()
-    nombre_orina = models.CharField(max_length=50, default="Examen de Orina")
+    nombre_examen = models.CharField(max_length=50, default="Examen de Orina")
     color = models.CharField(max_length=25)
     densidad = models.DecimalField(decimal_places=3)
     glucosa = densidad = models.DecimalField(decimal_places=3)
@@ -16,7 +16,7 @@ class Orina(models.Model):
 class PerfilLipidico(models.Model):
     id_plipidico = models.AutoField(primary_key=True,default=None)
     fecha_orina = models.DateField()
-    nombre_orina = models.CharField(max_length=50, default="Examen de Perfil Lipidico")
+    nombre_examen = models.CharField(max_length=50, default="Examen de Perfil Lipidico")
     colesterol = models.DecimalField(decimal_places=3)
     colesterol_ldl = models.DecimalField(decimal_places=3)
     colesterol_hdl = models.DecimalField(decimal_places=3)
