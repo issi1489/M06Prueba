@@ -1,0 +1,7 @@
+venv*
+*~
+*pyc
+*.log
+_pycache_*
+db.sqlite*
+
