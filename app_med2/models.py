@@ -139,29 +139,35 @@ class PerfilLipidico(models.Model):
 
 
 
-class CrearUsuario(models.Model):
-    rutUsuario = models.CharField(max_length=10)
-    
+class CrearUsuarioCBV(models.Model):
+    #pk
+    rutUsuario = models.CharField(primary_key=True, default=None,
+                    validators=[validators.MinLengthValidator(9, "Ingresar dni en el siguiente formato 77111666-5"), 
+                                validators.MaxLengthValidator(10, "Ingresar dni en el siguiente formato 77111666-5")]
+                    )
+
+    #atributos
     nombre = models.CharField(
-                max_length=80, 
-                validators=[validators.MinLengthValidator(
-                        4, 
-                        "Marca debe tener 4 caracteres mínimo!")]
-                )
-    edad = models.CharField(
-                max_length=50,
-                validators=[validators.MinLengthValidator(2, 
-                            "El modelo no puede ser de menos de 2 letras")] )
-                
+                    validators=[validators.MinLengthValidator(10, "El nombre debe tener minimo 10 caracteres"), 
+                                validators.MaxLengthValidator(45, "El nombre puede tener hasta 30 caracteres")]
+                    )
+
+    edad = models.IntegerField(
+                    validators=[validators.MinValueValidator(1, "Error, la edad no puede ser menor a 1 "),
+                                validators.MaxValueValidator(99, "Error, la edad no puede tener menos más de 3 numero")]
+                    )
+
     direccion = models.CharField(
-                max_length=50,
-                validators=[validators.MinLengthValidator(2, 
-                            "El modelo no puede ser de menos de 2 letras")] )
+                    validators=[validators.MinLengthValidator(10, "Error, la dirección debe contener más de 10 caracteres"),
+                                validators.MaxLengthValidator(45, "Error, la dirección puede contener hasta 30 caracteres ")]
+                    )
+    staff = models.BooleanField()
     
-    staff = models.BooleanField(null = True)
-
-    usuario1 = models.CharField(max_length=80)
-
-    password = models.CharField(max_length=80) 
-
-    
+    usuario = models.CharField(
+                    validators=[validators.MinLengthValidator(3, "Error, la dirección debe contener más de 10 caracteres"),
+                    validators.MaxLengthValidator(30, "Error, la dirección puede contener hasta 30 caracteres ")]
+                    )
+    password = models.CharField(
+                    validators=[validators.MinLengthValidator(6, "Error, la dirección debe contener más de 10 caracteres"),
+                    validators.MaxLengthValidator(30, "Error, la dirección puede contener hasta 30 caracteres ")]
+                    )

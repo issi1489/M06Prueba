@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from .forms import *
+from .forms import CrearUsuarioCBV
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView
 
 
 
@@ -164,7 +165,22 @@ def perfilLipidico(request):
     return render(request, 'app_med2/agregar/formulario8.html', data)
 
 
-class CrearUsuario(CreateView):
-    model=CrearUsuario
+class ListarUsuario(ListView):
+    model=CrearUsuarioCBV
     fields='__all__'
-    success_url=reverse_lazy('app_med2:CrearUsuario')
+    success_url=reverse_lazy('app_med2:lisar_usuario_cbv')
+
+class CrearUsuario(CreateView):
+    model=CrearUsuarioCBV
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:lista_usuarios_cbv')
+
+class UpdateUsuario(UpdateView):
+    model=CrearUsuarioCBV
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:lisar_usuario_cbv')
+
+class EliminarUsuario(DeleteView):
+    model=CrearUsuarioCBV
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:lisar_usuario_cbv')

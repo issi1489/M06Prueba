@@ -101,8 +101,8 @@ class PerfilLipidicoForms(forms.ModelForm):
             "Fecha_Fabricacion": forms.SelectDateWidget()
         }
 
-class FormularioUsuario(forms.ModelForm):
+class FormularioUsuarioCBV(forms.ModelForm):
     
     class Meta:
-        model=CrearUsuario
+        model=CrearUsuarioCBV
         fields='__all__'
