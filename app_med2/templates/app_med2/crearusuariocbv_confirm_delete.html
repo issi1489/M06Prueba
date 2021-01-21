@@ -8,7 +8,7 @@
 <body>
     <form action="{% url 'app_med2:eliminar_guitarra_cbv' pk=crearusuariocbv.id %}" method="POST"> 
         {% csrf_token %} 
-        Está seguro de eliminar el usuario con id = {{id}}? 
+        Está seguro de eliminar el usuario con id = {{crearusuariocbv.id}}? 
         <input type="submit" value="Sí" /> 
         <a href="{% url 'app_med2:listar_usuarios_cbv' %}">Cancelar</a> 
     </form> 
