@@ -1,0 +1,124 @@
+/*
+Awakelab
+Full Stack Python 2020
+*/
+
+/* FUENTES*/
+
+/*font-family: 'PT Serif', serif; */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap'); /*Regular   */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap');/*Regular Italic */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');/*Bold */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@1,700&display=swap');/*Bold italic */
+/*END FUENTES*/
+
+.body_med{
+    background-color: rgb(36, 34, 34);
+}
+
+#PerfilMedico{
+    opacity: 0.7;
+}
+
+#competencias, 
+#contacto {
+    padding-top: 60px;
+    min-height: 700px;
+}
+
+#compromiso {
+    padding: 100px 5% 20px;
+    min-height: 550px;
+}
+
+#noticias > div >  h3 {
+    color: white;
+}
+
+#proveedores {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+#enlaces {
+    color:white;
+    padding-top: 60px;
+    min-height: 100%;
+}
+
+.navbar a {
+    font-weight: bold;
+}
+
+.navbar-dark {
+    background-color:black;
+}
+
+
+
+
+
+h1, h2, h3, h4, h5, h6, .navbar, .modal,label,.card { 
+    font-family: 'PT Serif';
+}
+
+
+
+.bg-principal {
+    background-image: url('../img/medical_laptop.jpg');
+    background-size: cover;
+}
+
+.jumbotron {
+    color: white;
+    background: rgb(0, 0, 0); /* Para navegadores antiguos */
+    background: rgba(0, 0, 0, 0.5); 
+ }
+
+ .card {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.media {
+    margin: 20px 5% 50px 10%;
+}
+
+#contact-form { 
+    padding-top: 3rem; 
+} 
+
+textarea { 
+    resize: none; 
+}
+
+.footer p {
+    display: inline;
+}
+
+/* CALENDARIO*/
+table { width: 100%; box-sizing: border-box; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.1); font-family: 'Ubuntu'; /*border-collapse: collapse;*/ border-spacing: 0; background-color: #333333; }
+
+th, td { border: 1px solid rgba(255,255,255,0.1); box-sizing: border-box; }
+
+th { text-transform: uppercase; font-size:10px; font-weight:700; padding: 10px 0; color: rgba(255,255,255,0.5); background-color: #292929; letter-spacing: 1px; }
+
+td { width: 14.285%; transition: all 0.3s; font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 400; font-size: 14px; padding: 1.5% 1.5% 5%; vertical-align: initial; padding: 1.5% 0 ; height: 75px; }
+
+.day:hover { background-color: rgba(0,0,0,0.1); cursor:pointer; }
+
+.today { color: #FFF; background-color: rgba(0,0,0,.25) !important; }
+
+span.number { margin-left: 10% }
+
+span.event { height: 4px; background-color: rgba(0,0,0,.3); display: block; margin: 5px 10%; border-radius: 2px; background-color: #91c33b; }
+
+span.event-multiday { margin: 5px -2px; border-radius: 0; }
+span.event-multiday-start { margin-right: -4px;  }
+span.event-multiday-finish { margin-left: -4px;  }
+
+  
+  span.event-ghost { background-color:transparent; }
+/* FIN CALENDARIO*/
+
+
