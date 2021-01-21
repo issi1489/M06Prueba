@@ -141,14 +141,14 @@ class PerfilLipidico(models.Model):
 
 class CrearUsuarioCBV(models.Model):
     #pk
-    rutUsuario = models.CharField(primary_key=True, default=None,
+    rutUsuario = models.CharField(max_length =10, primary_key=True, default=None,
                     validators=[validators.MinLengthValidator(9, "Ingresar dni en el siguiente formato 77111666-5"), 
                                 validators.MaxLengthValidator(10, "Ingresar dni en el siguiente formato 77111666-5")]
                     )
 
     #atributos
-    nombre = models.CharField(
-                    validators=[validators.MinLengthValidator(10, "El nombre debe tener minimo 10 caracteres"), 
+    nombre = models.CharField(max_length =15,
+                    validators=[validators.MinLengthValidator(15, "El nombre debe tener minimo 10 caracteres"), 
                                 validators.MaxLengthValidator(45, "El nombre puede tener hasta 30 caracteres")]
                     )
 
@@ -157,17 +157,17 @@ class CrearUsuarioCBV(models.Model):
                                 validators.MaxValueValidator(99, "Error, la edad no puede tener menos más de 3 numero")]
                     )
 
-    direccion = models.CharField(
+    direccion = models.CharField(max_length =15,
                     validators=[validators.MinLengthValidator(10, "Error, la dirección debe contener más de 10 caracteres"),
                                 validators.MaxLengthValidator(45, "Error, la dirección puede contener hasta 30 caracteres ")]
                     )
     staff = models.BooleanField()
     
-    usuario = models.CharField(
+    usuario = models.CharField(max_length =30,
                     validators=[validators.MinLengthValidator(3, "Error, la dirección debe contener más de 10 caracteres"),
                     validators.MaxLengthValidator(30, "Error, la dirección puede contener hasta 30 caracteres ")]
                     )
-    password = models.CharField(
+    password = models.CharField(max_length =30,
                     validators=[validators.MinLengthValidator(6, "Error, la dirección debe contener más de 10 caracteres"),
                     validators.MaxLengthValidator(30, "Error, la dirección puede contener hasta 30 caracteres ")]
                     )
