@@ -81,7 +81,6 @@ class Coagulacion(models.Model):
     #fk
     rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
-    fecha_coagulacion = models.DateField()
     nombre_coagulacion = models.CharField(max_length=30,default='Examen de Coagulacion')
     tiempo_protrombina = models.DecimalField(max_digits=4, decimal_places=1)
     porc_protrombina = models.DecimalField(max_digits=4, decimal_places=1)
