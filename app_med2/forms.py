@@ -3,7 +3,15 @@ from django.forms import widgets
 from .models import *
 
 
+class FormularioUsuario(forms.ModelForm):
+    
+    class Meta:
+        model=Usuario
+        fields='__all__'
 
+
+
+"""
 class UsuarioForms(forms.ModelForm):
 
     #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
@@ -15,7 +23,7 @@ class UsuarioForms(forms.ModelForm):
         Widget = {
             "Fecha_Fabricacion": forms.SelectDateWidget()
         }
-class DiasnosticoForms(forms.ModelForm):
+class DiagnosticoForms(forms.ModelForm):
 
     #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
 
@@ -65,7 +73,7 @@ class CoagulacionForms(forms.ModelForm):
         }
 
 
-class glicemiaForms(forms.ModelForm):
+class GlicemiaForms(forms.ModelForm):
 
     #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
 
@@ -101,8 +109,4 @@ class PerfilLipidicoForms(forms.ModelForm):
             "Fecha_Fabricacion": forms.SelectDateWidget()
         }
 
-class FormularioUsuario(forms.ModelForm):
-    
-    class Meta:
-        model=CrearUsuario
-        fields='__all__'
+"""

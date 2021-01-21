@@ -1,0 +1,80 @@
+<body>
+    <h1> Sensores </h1>
+    <table id="customers" >
+        <tr >
+            <th>temperatura</th>
+            <th>humedad</th>
+            <th>luz</th>
+            <th>color</th>
+            <th>posicion</th>
+            <th>magnetico</th>
+            <th>velocidad</th>
+        </tr>
+        {% for sen in sensores1 %}
+        <tr>
+            <td>{{ sen.temperatura | title }}</td>
+            <td>{{ sen.humedad | title }}</td>
+            <td>{{ sen.luz | title }}</td>
+            <td>{{ sen.color | title }}</td>
+            <td>{{ sen.posicion | title }}</td>
+            <td>{{ sen.magnetico | title}}</td>
+            <td>{{ sen.velocidad | title}}</td>
+    
+    
+        </tr>
+        {% endfor %}
+    </table>
+    <h1>Apertura de puerta</h1>
+    <table id="customers">
+        <tr>
+            <th>proximidad</th>
+            <th>opticos</th>
+            <th>contacto</th>
+        </tr>
+        
+        {% for i in apertura1 %}
+        <tr>
+            <td>{{ i.proximidad | title }}</td>
+            <td>{{ i.opticos | title}}</td>
+            <td>{{ i.contacto | title}}</td>
+    
+        </tr>
+          
+        {% endfor %}
+    </table>
+    <h1>Nivel de gasolina</h1>
+    <table id="customers">
+        <tr>
+            <th>Ultrasónicos</th>
+            <th>Capacitivo</th>
+            <th>Flotador</th>
+        </tr>
+        
+        {% for i in Nivel %}
+        <tr>
+            <td>{{ i.Ultrasónicos | title }}</td>
+            <td>{{ i.Capacitivo | title}}</td>
+            <td>{{ i.Flotador | title}}</td>
+    
+        </tr>
+          
+        {% endfor %}
+    </table>
+    <h1>Nombre Sensor</h1>
+    <table id="customers">
+        <tr>
+            <th>nombre</th>
+            <th>fecha</th>
+            
+        </tr>
+        
+        {% for i in codigo %}
+        <tr>
+            <td>{{ i.nombre | title }}</td>
+            <td>{{ i.fecha | title }}</td>
+           
+    
+        </tr>
+          
+        {% endfor %}
+    </table>

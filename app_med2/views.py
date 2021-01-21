@@ -1,7 +1,32 @@
 from django.shortcuts import render
-from .forms import *
+from .models import Usuario, PerfilLipidico, Orina, Coagulacion, Glicemia, Diagnostico, Hemograma, PerfilBioquimico
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView
+
+
+
+class ListarUsuario(ListView):
+    model=Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+class CrearUsuario(CreateView):
+    model=Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+class UpdateUsuario(UpdateView):
+    model=Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+class EliminarUsuario(DeleteView):
+    model=Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+
 
 
 
@@ -41,12 +66,12 @@ def usuario(request):
 
 def diagnostico(request):
     data = {
-        'diagnostico': DiasnosticoForms()
+        'diagnostico': DiagnosticoForms()
     }
     
 
     if request.method == 'POST':
-        formulario = DiasnosticoForms(data=request.POST)
+        formulario = DiagnosticoForms(data=request.POST)
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "contacto guardado"
@@ -115,11 +140,11 @@ def coagulacion(request):
 
 def glicemia(request):
     data = {
-        'glicemia': glicemiaForms()
+        'glicemia': GlicemiaForms()
     }
 
     if request.method == 'POST':
-        formulario = glicemiaForms(data=request.POST)
+        formulario = GlicemiaForms(data=request.POST)
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "contacto guardado"
@@ -164,7 +189,3 @@ def perfilLipidico(request):
     return render(request, 'app_med2/agregar/formulario8.html', data)
 
 
-class CrearUsuario(CreateView):
-    model=CrearUsuario
-    fields='__all__'
-    success_url=reverse_lazy('app_med2:CrearUsuario')
