@@ -3,7 +3,15 @@ from django.forms import widgets
 from .models import *
 
 
+class FormularioUsuarioCBV(forms.ModelForm):
+    
+    class Meta:
+        model=Usuario
+        fields='__all__'
 
+
+
+"""
 class UsuarioForms(forms.ModelForm):
 
     #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
@@ -101,8 +109,4 @@ class PerfilLipidicoForms(forms.ModelForm):
             "Fecha_Fabricacion": forms.SelectDateWidget()
         }
 
-class FormularioUsuarioCBV(forms.ModelForm):
-    
-    class Meta:
-        model=CrearUsuarioCBV
-        fields='__all__'
+"""

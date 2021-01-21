@@ -1,8 +1,32 @@
 from django.shortcuts import render
-from .forms import CrearUsuarioCBV, UsuarioForms, PerfilLipidicoForms, OrinaForms, CoagulacionForms, GlicemiaForms, DiagnosticoForms, HemogramaForms, PerfilBioquimicoForms
+from .models import Usuario, PerfilLipidico, Orina, Coagulacion, Glicemia, Diagnostico, Hemograma, PerfilBioquimico
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
+
+
+
+class ListarUsuario(ListView):
+    model=Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+class CrearUsuario(CreateView):
+    model=Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+class UpdateUsuario(UpdateView):
+    model=Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+class EliminarUsuario(DeleteView):
+    model=Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+
 
 
 
@@ -165,22 +189,3 @@ def perfilLipidico(request):
     return render(request, 'app_med2/agregar/formulario8.html', data)
 
 
-class ListarUsuario(ListView):
-    model=CrearUsuarioCBV
-    fields='__all__'
-    success_url=reverse_lazy('app_med2:listar_usuarios_cbv')
-
-class CrearUsuario(CreateView):
-    model=CrearUsuarioCBV
-    fields='__all__'
-    success_url=reverse_lazy('app_med2:listar_usuarios_cbv')
-
-class UpdateUsuario(UpdateView):
-    model=CrearUsuarioCBV
-    fields='__all__'
-    success_url=reverse_lazy('app_med2:listar_usuarios_cbv')
-
-class EliminarUsuario(DeleteView):
-    model=CrearUsuarioCBV
-    fields='__all__'
-    success_url=reverse_lazy('app_med2:listar_usuarios_cbv')
