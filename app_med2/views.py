@@ -1,6 +1,7 @@
 from django.shortcuts import render
-import json
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+#import json
 #Forms
 #from .forms import CrearUsuario , rutPacientes
 
@@ -45,8 +46,20 @@ def admin(request):
 
     return render(request,'../templates/app_med2/admin.html',context_us)
 
+
+from django.shortcuts import render
+from .models import Usuario, Diagnostico, PerfilBioquimico, Hemograma, Coagulacion, Glicemia, Orina,PerfilLipidico
+ 
 def paciente(request):
-    return render(request,'../templates/app_med2/paciente.html')
+    diagnostico = Diagnostico.objects
+    
+    context={ 'diagnostico':diagnostico } 
+    return render(request, '../templates/app_med2/paciente.html',context )
+
+
+#def paciente(request):
+
+#    return render(request,'../templates/app_med2/paciente.html')
     '''
     # ----------- Generar copia de los datos de pacientes y exámenes -----------
     # Pacientes
