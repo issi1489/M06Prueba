@@ -1,22 +1,11 @@
 from django.shortcuts import render
-<<<<<<< HEAD
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
-#import json
-#Forms
-#from .forms import CrearUsuario , rutPacientes
-=======
 from .models import Usuario, PerfilLipidico, Orina, Coagulacion, Glicemia, Diagnostico, Hemograma, PerfilBioquimico
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 
->>>>>>> 117f807af2810a14463d52f2f6385cfc93a1d497
 
 
-<<<<<<< HEAD
-    return render(request,'../templates/app_med2/home.html')
-=======
 class ListarUsuario(ListView):
     model=Usuario
     fields='__all__'
@@ -45,7 +34,6 @@ class EliminarUsuario(DeleteView):
 def base(request):
 
     return render(request, 'app_med2/agregar/base.html')
->>>>>>> 117f807af2810a14463d52f2f6385cfc93a1d497
 
 def admin(request):
 
@@ -82,78 +70,6 @@ def diagnostico(request):
     }
     
 
-<<<<<<< HEAD
-    #datos a entregar al html
-    context_us={'nombre_us':nombre_us,'edad_us':edad_us, 'direccion_us':direccion_us,'lpacientes':lpacientes,'form_pac': add_user}
-
-    return render(request,'../templates/app_med2/admin.html',context_us)
-
-
-from django.shortcuts import render
-from .models import Usuario, Diagnostico, PerfilBioquimico, Hemograma, Coagulacion, Glicemia, Orina,PerfilLipidico
- 
-def paciente(request):
-    diagnostico = Diagnostico.objects
-    
-    context={ 'diagnostico':diagnostico } 
-    return render(request, '../templates/app_med2/paciente.html',context )
-
-
-#def paciente(request):
-
-#    return render(request,'../templates/app_med2/paciente.html')
-    '''
-    # ----------- Generar copia de los datos de pacientes y exámenes -----------
-    # Pacientes
-    with open('../proyecto_web/app_med2/data/usuarios.json', 'r') as file:
-        pacientes=json.load(file)
-    # Examenes
-    with open('../proyecto_web/app_med2/data/examenes.json', 'r') as file:
-        examenes=json.load(file)
-
-    # ----------- FUNCIÓN PARA CARGA DE DATOS DEL USUARIO SELECCIONADO -----------
-    def info_paciente(rut,pacientes):
-        
-        Función info_paciente: extrae los datos asociados al paciente para visualización en html
-        Parámetros:
-            * rut: rut del paciente --> asociado a datos del usuario
-            * pacientes: json de pacientes
-        
-        # Extracción de los datos del paciente
-        data_pac=pacientes[rut]
-        
-        #Datos paciente
-        rut=data_pac['rut']
-        nombre=data_pac['nombre']+" "+data_pac['apellido']
-        edad=data_pac['edad']
-        direccion=data_pac['direccion'] 
-        img_src=data_pac['foto_src']
- 
-        return nombre, edad, direccion,img_src
-
-
-    #Extraer ruts para lista desplegable de cambio de usuario
-    rut_pacs=[]
-    for p in pacientes:
-        rut_pacs.append(p)
-        break
-
-    #Extraer primer rut
-    f_pac=rut_pacs[0]
-    nombre_pac,edad_pac,direccion_pac,img_src =info_paciente(f_pac,pacientes)
-
-    # --------------------- Datos de vista por defecto --------------------- 
-
-    #Examenes por el rut 
-    diag_rut= examenes[f_pac]['diagnosticos']
-    hemo_rut=examenes[f_pac]['hemograma']
-    pbio_rut=examenes[f_pac]['perfil_bioquimico']
-    plip_rut=examenes[f_pac]['perfil_lipidico']
-    orin_rut=examenes[f_pac]['orina']
-    coag_rut=examenes[f_pac]['coagulacion']
-    glic_rut=examenes[f_pac]['glicemia']
-    elec_rut=examenes[f_pac]['electrocardiograma']
-=======
     if request.method == 'POST':
         formulario = DiagnosticoForms(data=request.POST)
         if formulario.is_valid():
@@ -170,7 +86,6 @@ def PerBioquimico(request):
     data = {
         'perfil':PerfilBioquimicoForms()
     }
->>>>>>> 117f807af2810a14463d52f2f6385cfc93a1d497
     
 
     if request.method == 'POST':
@@ -192,15 +107,6 @@ def hemograma(request):
     }
     
 
-<<<<<<< HEAD
-    #Datos a entregar al html
-    context_pac={'nombre_us':nombre_pac,'edad_us':edad_pac, 'direccion_us':direccion_pac,'rut_pacs':rut_pacs,
-    'form_rut':form_rut,'img_src':img_src,'diag_rut':diag_rut,'hemo_rut':hemo_rut,'pbio_rut':pbio_rut,
-    'plip_rut':plip_rut,'orin_rut':orin_rut,'coag_rut':coag_rut,'glic_rut':glic_rut,'elec_rut':elec_rut}'''
-    
-    
-    #,context_pac
-=======
     if request.method == 'POST':
         formulario = HemogramaForms(data=request.POST)
         if formulario.is_valid():
@@ -283,4 +189,5 @@ def perfilLipidico(request):
     return render(request, 'app_med2/agregar/formulario8.html', data)
 
 
->>>>>>> 117f807af2810a14463d52f2f6385cfc93a1d497
+def paciente(request):
+    return render(request,'../templates/app_med2/paciente.html')
