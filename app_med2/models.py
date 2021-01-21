@@ -1,4 +1,6 @@
 from django.db import models
+#acceder a rutUsuario con rutUsuario_id
+
 
 class Usuario(models.Model):
     #pk
@@ -14,9 +16,9 @@ class Usuario(models.Model):
 
 class Diagnostico(models.Model):
     #pk
-    fecha_diagnostico = models.DateTimeField(primary_key=True, default=None)
+    fecha_diagnostico = models.DateField(primary_key=True, default=None)
     #fk
-    fk_rutUsuario = models.ForeignKey(Usuario,on_delete=models.CASCADE, default=None)
+    rutUsuario = models.ForeignKey(Usuario,on_delete=models.CASCADE, default=None)
     #atributos
     diagnostico = models.CharField(max_length=100)
 
@@ -26,9 +28,9 @@ class PerfilBioquimico(models.Model):
     #pk
     id_pbioquimico = models.AutoField(primary_key=True,default=None)
     #fk
-    fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+    rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
-    fecha_pbioquimico = models.DateTimeField()
+    fecha_pbioquimico = models.DateField()
     nombre_pbioquimico = models.CharField(max_length=30,default='Examen de Perfil Bioquimico')
     glucosa = models.DecimalField(max_digits=4, decimal_places=1 )
     nitrogeno_ureico = models.DecimalField(max_digits=4, decimal_places=1)
@@ -51,9 +53,9 @@ class Hemograma(models.Model):
     #pk
     id_hemograma = models.AutoField(primary_key=True,default=None)
     #fk
-    fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+    rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
-    fecha_hemograma = models.DateTimeField()
+    fecha_hemograma = models.DateField()
     nombre_hemograma = models.CharField(max_length=30,default='Examen de Hemograma')
     eritrocito = models.DecimalField(max_digits=4, decimal_places=1)
     leucocitos = models.DecimalField(max_digits=4, decimal_places=1)
@@ -70,9 +72,9 @@ class Coagulacion(models.Model):
     #pk
     id_coagulacion = models.AutoField(primary_key=True,default=None)
     #fk
-    fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+    rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
-    fecha_coagulacion = models.DateTimeField()
+    fecha_coagulacion = models.DateField()
     nombre_coagulacion = models.CharField(max_length=30,default='Examen de Coagulacion')
     tiempo_protrombina = models.DecimalField(max_digits=4, decimal_places=1)
     porc_protrombina = models.DecimalField(max_digits=4, decimal_places=1)
@@ -84,9 +86,9 @@ class Glicemia(models.Model):
     #pk
     id_glicemia = models.AutoField(primary_key=True,default=None)
     #fk
-    fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+    rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
-    fecha_glicemia = models.DateTimeField()
+    fecha_glicemia = models.DateField()
     nombre_glicemia = models.CharField(max_length=30,default='Examen de Glicemia')
     glicemia_basal = models.DecimalField(max_digits=4, decimal_places=1)
     glicemia_120min= models.DecimalField(max_digits=4, decimal_places=1)
@@ -98,9 +100,9 @@ class Orina(models.Model):
     #pk
     id_orina = models.AutoField(primary_key=True,default=None)
     #fk
-    fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+    rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
-    fecha_orina = models.DateTimeField()
+    fecha_orina = models.DateField()
     nombre_orina = models.CharField(max_length=30,default="Examen de Orina")
     color = models.CharField(max_length=25)
     densidad = models.DecimalField(max_digits=4, decimal_places=1)
@@ -116,9 +118,9 @@ class PerfilLipidico(models.Model):
     #pk
     id_plipidico = models.AutoField(primary_key=True,default=None)
     #fk
-    fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+    rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
-    fecha_plipidico = models.DateTimeField()
+    fecha_plipidico = models.DateField()
     nombre_plipidico = models.CharField(max_length=30,default="Examen de Perfil Lipidico")
     colesterol = models.DecimalField(max_digits=4, decimal_places=1)
     colesterol_ldl = models.DecimalField(max_digits=4, decimal_places=1)
