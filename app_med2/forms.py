@@ -10,6 +10,11 @@ class FormularioUsuario(forms.ModelForm):
         fields='__all__'
 
 
+class FormularioDiagnostico(forms.ModelForm):
+    
+    class Meta:
+        model=Diagnostico
+        fields='__all__'
 
 """
 class UsuarioForms(forms.ModelForm):

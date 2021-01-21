@@ -14,7 +14,8 @@ urlpatterns = [
     path('orina', views.orina, name= 'orina'),
     path('perfilLipidico', views.perfilLipidico, name= 'perfilLipidico'),
     path('base', views.base, name='base'),
-
+    
+    #path crud usuario
     path('crear_usuario/', views.CrearUsuario.as_view(), name="crear_usuario"),
     path('listar_usuarios/', views.ListarUsuario.as_view(), name="listar_usuarios"),
     path('<pk>/editar_usuario', views.UpdateUsuario.as_view(), name="editar_usuario"),

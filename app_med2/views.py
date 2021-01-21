@@ -5,7 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 
 
-
+# CRUD usuario
 class ListarUsuario(ListView):
     model=Usuario
     fields='__all__'
@@ -23,6 +23,29 @@ class UpdateUsuario(UpdateView):
 
 class EliminarUsuario(DeleteView):
     model=Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+
+
+# CRUD diagnostico
+class ListarDiagnostico(ListView):
+    model=Diagnostico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+class CrearDiagnostico(CreateView):
+    model=Diagnostico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+class UpdateDiagnostico(UpdateView):
+    model=Diagnostico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+class EliminarDiagnostico(DeleteView):
+    model=Diagnostico
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_usuarios')
 

@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="{% static 'app_med2/css/med_style.css' %}">
 </head>
 <body>
+
+    <div> 
     <h2>Listado Actualizado de Nuestros Usuarios</h2>
     <h4><a class= "boton" href="{% url 'app_med2:crear_usuario' %}">Crear otro Usuario</a></h4>
+
     <table class="table">
         <tr>
          
@@ -43,7 +46,8 @@
         </tr>
     {% endfor %}
     </table>
-
+    
+    </div>
     
 </body>
 </html>

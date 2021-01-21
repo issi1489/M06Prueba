@@ -65,6 +65,8 @@ class Diagnostico(models.Model):
     diagnostico = models.CharField(max_length=100,  )
 
 
+
+
 class PerfilBioquimico(models.Model):
 
     #pk
@@ -165,7 +167,7 @@ class PerfilLipidico(models.Model):
     #fk
     fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None,)
     #atributos
-    fecha_plipidico = models.DateTimeField( )
+    fecha_plipidico = models.DateField( )
     nombre_plipidico = models.CharField(max_length =15,default="Examen de Perfil Lipidico")
     colesterol = models.DecimalField(max_digits= 2, decimal_places=1, )
     colesterol_ldl = models.DecimalField(max_digits= 2, decimal_places=1, )
