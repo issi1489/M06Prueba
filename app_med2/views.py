@@ -28,7 +28,26 @@ class EliminarUsuario(DeleteView):
     success_url=reverse_lazy('app_med2:listar_usuarios')
 
 
+# CRUD diagnostico
+class ListarDiagnostico(ListView):
+    model=Diagnostico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_diagnosticos')
 
+class CrearDiagnostico(CreateView):
+    model=Diagnostico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_diagnosticos')
+    
+class UpdateDiagnostico(UpdateView):
+    model=Diagnostico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_diagnosticos')
+
+class EliminarDiagnostico(DeleteView):
+    model=Diagnostico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_diagnosticos')
 
 
 
@@ -193,13 +212,11 @@ def perfilLipidico(request):
 def paciente(request):
     return render(request,'../templates/app_med2/paciente.html')
 
-<<<<<<< HEAD
     
 class VerUsuarios(ListView):
     model = Usuario
     template_name = "app_med2/ver_usuarios.html"
     context_object_name = "usuarios"
-=======
 
 # NO TOCAR DE AQUI EN ADELANTE!
 
@@ -280,4 +297,3 @@ def registroExamen(request, template="pruebas_forms.html"):
                 data["usuario"] = formulario    
 
     return render(request, 'app_med2/agregar/reg_examen.html', data)
->>>>>>> ffdfb6d1889422f4adbbe25c9858f2ab1e059a94
