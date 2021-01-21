@@ -125,11 +125,39 @@
            
         </div>
         <!-- Navigation Links -->
-      </nav>
+    </nav>
     <!-- End Navigation Bar (Paciente)-->
     
     <br>
     <br>
+
+    <!-- DATOS DIAGNOSTICOS -->
+    <div class="row">
+        <div class="col-sm-12">
+            <table>
+
+                <td>fecha_diagnostico</td><td>rutUsuario</td><td>diagnostico</td>
+                {{diagnostico}}
+                {% for d in diagnostico.all %}
+          
+                    {% if d.rutUsuario= '17684562-7' %}
+                 <br>
+                  <p > {{ d.fecha_diagnostico}}</p>
+                  <p > {{ d.rutUsuario}}</p>
+                  <p > {{ d.diagnostico}}</p>
+                    {% endif %}
+                <hr>
+             
+                {% endfor %}      
+        </div>
+    </div>
+
+
+
+
+
+
+
     <!-- Combobox para cambiar la vista de cada usuario-->
     <div class="row">
         <div class="col-sm-9"></div><div class="col-sm-3">
@@ -143,6 +171,10 @@
         </div>
     </div>
     
+
+
+
+
     <!-- BODY PERFIL USUARIO -->
     <div class="card col-sm-12">
       <!--información del usuario-->

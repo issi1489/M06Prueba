@@ -8,4 +8,20 @@ urlpatterns = [
     path('paciente/', views.paciente, name= 'paciente'),
     path('ver_usuarios', views.VerUsuarios.as_view(), name="ver_usuarios"),
 
+
+    
+    path('usuario', views.usuario, name= 'usuario'),
+    path('diagnostico', views.diagnostico, name= 'diagnostico'),
+    path('perfil', views.PerBioquimico, name= 'perfil'),
+    path('hemograma', views.hemograma, name= 'hemograma'),
+    path('coagulacion', views.coagulacion, name= 'coagolacion'),
+    path('glicemia', views.glicemia, name= 'glicemia'),
+    path('orina', views.orina, name= 'orina'),
+    path('perfilLipidico', views.perfilLipidico, name= 'perfilLipidico'),
+    path('base', views.base, name='base'),
+
+    path('crear_usuario/', views.CrearUsuario.as_view(), name="crear_usuario"),
+    path('listar_usuarios/', views.ListarUsuario.as_view(), name="listar_usuarios"),
+    path('<pk>/editar_usuario', views.UpdateUsuario.as_view(), name="editar_usuario"),
+    path('<pk>/eliminar_usuario', views.EliminarUsuario.as_view(), name="eliminar_usuario")
 ]
