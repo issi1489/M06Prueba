@@ -58,7 +58,7 @@ class Usuario(models.Model):
 
 class Diagnostico(models.Model):
     #pk
-    fecha_diagnostico = models.DateTimeField(primary_key=True, default=None)
+    fecha_diagnostico = models.DateField(primary_key=True, default=None)
     #fk
     fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None,)
     #atributos
@@ -74,7 +74,7 @@ class PerfilBioquimico(models.Model):
     #fk
     fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None,)
     #atributos
-    fecha_pbioquimico = models.DateTimeField( )
+    fecha_pbioquimico = models.DateField( )
     nombre_pbioquimico = models.CharField(max_length =15, default='Examen de Perfil Bioquimico')
     glucosa = models.DecimalField(max_digits= 2,decimal_places=1, )
     nitrogeno_ureico = models.DecimalField(max_digits= 2, decimal_places=1, )
@@ -99,7 +99,7 @@ class Hemograma(models.Model):
     #fk
     fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None,)
     #atributos
-    fecha_hemograma = models.DateTimeField( )
+    fecha_hemograma = models.DateField( )
     nombre_hemograma = models.CharField( max_length=100, default ='Examen de Hemograma')
     eritrocito = models.DecimalField(max_digits= 2,decimal_places=1, )
     leucocitos = models.DecimalField(max_digits= 2,decimal_places=1, )
@@ -118,7 +118,7 @@ class Coagulacion(models.Model):
     #fk
     fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None,)
     #atributos
-    fecha_solicitud = models.DateTimeField()
+    fecha_solicitud = models.DateField()
     nombre_examen = models.CharField(max_length =50,default='Examen de Coagulacion')
     tiempo_protrombina = models.DecimalField(max_digits=2, decimal_places=2)
     porc_protrombina = models.DecimalField(max_digits=2, decimal_places=2)
@@ -134,7 +134,7 @@ class Glicemia(models.Model):
     #fk
     fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None,)
     #atributos
-    fecha_glicemia = models.DateTimeField()
+    fecha_glicemia = models.DateField()
     nombre_examen = models.CharField(max_length=50, default='Examen de Glicemia')
     glicemia_basal = models.DecimalField(max_digits=2, decimal_places=2 )
     glicemia_120min= models.DecimalField( max_digits=2, decimal_places=1)
@@ -149,7 +149,7 @@ class Orina(models.Model):
     #fk
     fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None,)
     #atributos
-    fecha_orina = models.DateTimeField( )
+    fecha_orina = models.DateField( )
     nombre_orina = models.CharField(max_length =15, default="Examen de Orina")
     color = models.CharField(max_length=25, )
     densidad = models.DecimalField(max_digits= 2,decimal_places=1, )
