@@ -75,7 +75,6 @@ WSGI_APPLICATION = 'sistema_medico.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-<<<<<<< HEAD
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'centro_medico',
@@ -84,16 +83,6 @@ DATABASES = {
             'HOST': 'localhost',
             'PORT': '5432',
  }
-=======
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'centro_medico',
-        'USER': 'usuario_3',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT':'5432'
-    }
->>>>>>> 2af186c88d3d083b840152ec6491eef229f2256a
 }
 
 
