@@ -43,10 +43,11 @@ def admin(request):
     #datos a entregar al html
     context_us={'nombre_us':nombre_us,'edad_us':edad_us, 'direccion_us':direccion_us,'lpacientes':lpacientes,'form_pac': add_user}
 
-    return render(request,'admin.html',context_us)
+    return render(request,'../templates/app_med2/admin.html',context_us)
 
 def paciente(request):
-
+    return render(request,'../templates/app_med2/paciente.html')
+    '''
     # ----------- Generar copia de los datos de pacientes y exámenes -----------
     # Pacientes
     with open('../proyecto_web/app_med2/data/usuarios.json', 'r') as file:
@@ -57,12 +58,12 @@ def paciente(request):
 
     # ----------- FUNCIÓN PARA CARGA DE DATOS DEL USUARIO SELECCIONADO -----------
     def info_paciente(rut,pacientes):
-        '''
+        
         Función info_paciente: extrae los datos asociados al paciente para visualización en html
         Parámetros:
             * rut: rut del paciente --> asociado a datos del usuario
             * pacientes: json de pacientes
-        '''
+        
         # Extracción de los datos del paciente
         data_pac=pacientes[rut]
         
@@ -110,18 +111,7 @@ def paciente(request):
     #Datos a entregar al html
     context_pac={'nombre_us':nombre_pac,'edad_us':edad_pac, 'direccion_us':direccion_pac,'rut_pacs':rut_pacs,
     'form_rut':form_rut,'img_src':img_src,'diag_rut':diag_rut,'hemo_rut':hemo_rut,'pbio_rut':pbio_rut,
-    'plip_rut':plip_rut,'orin_rut':orin_rut,'coag_rut':coag_rut,'glic_rut':glic_rut,'elec_rut':elec_rut}
-    return render(request,'paciente.html',context_pac)
-
-
-def noticia(request):
+    'plip_rut':plip_rut,'orin_rut':orin_rut,'coag_rut':coag_rut,'glic_rut':glic_rut,'elec_rut':elec_rut}'''
     
-    return render(request, 'noticiarios.html')
-
-def provedor(request):
     
-    return render(request, 'provedores.html')
-
-def admin1(request):
-
-    return render(request, 'admin.html')
+    #,context_pac
