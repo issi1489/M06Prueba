@@ -4,6 +4,8 @@ from django.forms import widgets
 from .models import *
 
 
+
+
 class FormularioUsuario(forms.ModelForm):
     
     class Meta:
@@ -22,6 +24,8 @@ class UsuarioForms(forms.ModelForm):
         Widget = {
             "Fecha_Fabricacion": forms.SelectDateWidget()
         }
+
+
 class DiagnosticoForms(forms.ModelForm):
 
     #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
@@ -33,6 +37,9 @@ class DiagnosticoForms(forms.ModelForm):
         Widget = {
             "Fecha_Fabricacion": forms.SelectDateWidget()
         }
+
+
+
 class PerfilBioquimicoForms(forms.ModelForm):
 
     #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
