@@ -3,7 +3,7 @@ from django.forms import widgets
 from .models import *
 
 
-class FormularioUsuarioCBV(forms.ModelForm):
+class FormularioUsuario(forms.ModelForm):
     
     class Meta:
         model=Usuario
