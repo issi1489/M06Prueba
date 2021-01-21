@@ -4,6 +4,10 @@ from . import views
 app_name = 'app_med2'
 urlpatterns = [
     path('', views.home, name='home'),
+    path('admin/', views.admin, name='admin'),
+    path('paciente/', views.paciente, name= 'paciente'),
+
+    
     path('admin', views.admin, name='admin'),
    
    
@@ -22,7 +26,7 @@ urlpatterns = [
 
 
     path('base', views.base, name='base'),
-
+    path('registroExamen',views.registroExamen, name='registroExamen'),
     path('crear_usuario/', views.CrearUsuario.as_view(), name="crear_usuario"),
     path('listar_usuarios/', views.ListarUsuario.as_view(), name="listar_usuarios"),
     path('<pk>/editar_usuario', views.UpdateUsuario.as_view(), name="editar_usuario"),

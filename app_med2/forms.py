@@ -1,3 +1,4 @@
+
 from django import forms
 from django.forms import widgets
 from .models import *
@@ -10,7 +11,11 @@ class FormularioUsuario(forms.ModelForm):
         fields='__all__'
 
 
+<<<<<<< HEAD
 
+=======
+class UsuarioForms(forms.ModelForm):
+>>>>>>> ffdfb6d1889422f4adbbe25c9858f2ab1e059a94
 
 class DiagnosticoForms(forms.ModelForm):
 
@@ -84,3 +89,7 @@ class PerfilLipidicoForms(forms.ModelForm):
     
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ffdfb6d1889422f4adbbe25c9858f2ab1e059a94
