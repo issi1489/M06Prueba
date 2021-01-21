@@ -13,6 +13,7 @@ class ListarUsuario(ListView):
 
 class CrearUsuario(CreateView):
     model=Usuario
+    template_name='app_med2/usuario_form.html'
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_usuarios')
 
@@ -22,7 +23,7 @@ class UpdateUsuario(UpdateView):
     success_url=reverse_lazy('app_med2:listar_usuarios')
 
 class EliminarUsuario(DeleteView):
-    model=Usuario
+    model= Usuario
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_usuarios')
 
@@ -192,8 +193,91 @@ def perfilLipidico(request):
 def paciente(request):
     return render(request,'../templates/app_med2/paciente.html')
 
+<<<<<<< HEAD
     
 class VerUsuarios(ListView):
     model = Usuario
     template_name = "app_med2/ver_usuarios.html"
     context_object_name = "usuarios"
+=======
+
+# NO TOCAR DE AQUI EN ADELANTE!
+
+def registroExamen(request, template="pruebas_forms.html"):
+    """
+    Handle Multiple <form></form> elements
+    """
+    data = {'plipidico':PerfilLipidicoForms(), 'orina': OrinaForms(),
+            'glicemia':GlicemiaForms(), 'coagulacion':CoagulacionForms(),
+            'hemograma':HemogramaForms(), 'bioquimico': PerfilBioquimicoForms(),
+            'diagnostico': DiagnosticoForms(), 'usuario':UsuarioForms()}
+
+
+    if request.method == 'POST':
+        if request.POST.get("form_type") == 'formLip':
+            #Perfil lipidico
+            formulario = PerfilLipidicoForms(data=request.POST)
+            if formulario.is_valid():
+                formulario.save()
+                data["mensaje"] = "contacto guardado"
+            else:
+                data["plipidico"] = formulario
+        elif request.POST.get("form_type") == 'formOrin':
+            # Orina
+            formulario = OrinaForms(data=request.POST)
+            if formulario.is_valid():
+                formulario.save()
+                data["mensaje"] = "contacto guardado"
+            else:
+                data["orina"] = formulario
+        elif request.POST.get("form_type") == 'formOrin':
+            # Glicemia
+            formulario = GlicemiaForms(data=request.POST)
+            if formulario.is_valid():
+                formulario.save()
+                data["mensaje"] = "contacto guardado"
+            else:
+                data["glicemia"] = formulario
+        elif request.POST.get("form_type") == 'formOrin':
+            # coagulacion
+            formulario = CoagulacionForms(data=request.POST)
+            if formulario.is_valid():
+                formulario.save()
+                data["mensaje"] = "contacto guardado"
+            else:
+                data["coagulacion"] = formulario
+        elif request.POST.get("form_type") == 'formOrin':
+            # Hemograma
+            formulario = HemogramaForms(data=request.POST)
+            if formulario.is_valid():
+                formulario.save()
+                data["mensaje"] = "contacto guardado"
+            else:
+                data["hemograma"] = formulario
+        elif request.POST.get("form_type") == 'formOrin':
+            # Bioquimico
+            formulario = PerfilBioquimicoForms(data=request.POST)
+            if formulario.is_valid():
+                formulario.save()
+                data["mensaje"] = "contacto guardado"
+            else:
+                data["bioquimico"] = formulario
+        elif request.POST.get("form_type") == 'formOrin':
+            # diagnostico
+            formulario = DiagnosticoForms(data=request.POST)
+            if formulario.is_valid():
+                formulario.save()
+                data["mensaje"] = "contacto guardado"
+            else:
+                data["diagnostico"] = formulario
+        elif request.POST.get("form_type") == 'formOrin':
+            # Glicemia
+            formulario = UsuarioForms(data=request.POST)
+            if formulario.is_valid():
+                formulario.save()
+                data["mensaje"] = "contacto guardado"
+            else:
+                data["usuario"] = formulario    
+
+    return render(request, 'app_med2/agregar/reg_examen.html', data)
+>>>>>>> ffdfb6d1889422f4adbbe25c9858f2ab1e059a94

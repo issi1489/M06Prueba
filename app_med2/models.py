@@ -5,7 +5,6 @@ from django.core import validators
 from django.forms.formsets import ORDERING_FIELD_NAME
 
 
-
 """
 class Usuario(models.Model):
     #pk
