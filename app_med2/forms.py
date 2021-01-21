@@ -11,8 +11,6 @@ class FormularioUsuario(forms.ModelForm):
         fields='__all__'
 
 
-
-
 class UsuarioForms(forms.ModelForm):
 
     #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
