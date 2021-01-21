@@ -4,4 +4,6 @@ venv*
 *.log
 __pycache__*
 db.sqlite*
-
+vscode*
+*vscode
+vscode
