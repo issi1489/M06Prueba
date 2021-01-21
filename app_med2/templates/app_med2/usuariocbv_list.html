@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'formularios/css/styles.css' %}">
+  
+</head>
+<body>
+
+    {% if messages %} 
+        <div id="mensaje">
+            {% for mensaje in messages %}
+            <h4>{{mensaje}}</h4>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <h2>Listado Actualizada de Usuarios</h2>
+    <h4><a class= "boton" href="{% url 'app_med2:lista_usuario' %}">Crear otro usuario</a></h4>
+    <table class="table">
+        <tr>
+            <th>rutUsuario</th>
+            <th>nombre</th>
+            <th>edad</th>
+            <th>direccion</th>
+            <th>staff</th>
+            <th>usuario</th>
+            <th>password</th>
+            <th></th>
+            <th></th>
+        </tr>    
+
+    {% for usuario in usuariocbv_list %}
+        <tr>
+            <td>{{usuario.rutUsuario}}</td>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.edad}}</td>
+            <td>{{usuario.direccion}}</td>
+            <td>{{usuario.staff}}</td>
+            <td>{{usuario.usuario}}</td>
+            <td>{{usuario.password}}</td>
+            <td>
+                <a class="boton" href="{% url 'app_med2:editar_usuario' pk=usuario.rutUsuario %}"> Editar</a>
+            </td>
+            <td>
+                <a class="boton" href="{% url 'app_med2:eliminar_usuario' pk=usuario.rutUsuario %}"> Eliminar</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+<script>
+    var msg = document.getElementById('mensaje');
+    setTimeout(function(){
+        if (typeof(msg) != 'undefined' && msg != null){
+            msg.remove();
+        }
+    },3000)
+</script>
+    
+</body>
+</html>

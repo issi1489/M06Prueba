@@ -1,5 +1,10 @@
 from django.db import models
 
+from django.core import validators
+from django.core.exceptions import ValidationError
+import datetime
+
+"""
 class Usuario(models.Model):
     #pk
     rutUsuario = models.CharField(max_length=10,primary_key=True, default=None)
@@ -10,13 +15,54 @@ class Usuario(models.Model):
     staff = models.BooleanField()
     usuario = models.CharField(max_length=10)
     password = models.CharField(max_length=10)
+"""
+
+
+# Modelos para vistas basadas en clases
+
+class UsuarioCBV(models.Model):
+    #pk
+    rutUsuario = models.CharField(max_length=10,
+        primary_key=True, 
+        default=None,
+        #validators=[
+        #            validators.MinValueValidator(8,"el rut debe tener entre 9 y 10 caracteres incluido el guion")]
+        )
+    #atributos
+    nombre = models.CharField(
+        max_length=45,
+        validators=[validators.MinLengthValidator(3, "el nombre debe tener al menos 3 letras ")]
+
+        )
+
+    edad = models.IntegerField(validators=[validators.MinValueValidator(10,"debe tener al menos 10 años")]
+        )  
+
+    direccion = models.CharField(
+        max_length=45,
+        validators=[validators.MinLengthValidator(3, "la direccion debe tener al menos 3 letras ")]
+        )
+
+    staff = models.BooleanField()
+
+    usuario = models.CharField(
+        max_length=10,
+        validators=[validators.MinLengthValidator(3, "el usuario debe tener al menos 3 letras ")]
+        )
+
+    password = models.CharField(
+        max_length=10,
+        validators=[validators.MinLengthValidator(3, "el password debe tener al menos 3 letras ")]
+        )
+
+
 
 
 class Diagnostico(models.Model):
     #pk
     fecha_diagnostico = models.DateField(primary_key=True, default=None)
     #fk
-    fk_rutUsuario = models.ForeignKey(Usuario,on_delete=models.CASCADE, default=None)
+    fk_rutUsuario = models.ForeignKey(UsuarioCBV,on_delete=models.CASCADE, default=None)
     #atributos
     diagnostico = models.CharField(max_length=100)
 
@@ -26,7 +72,7 @@ class PerfilBioquimico(models.Model):
     #pk
     id_pbioquimico = models.AutoField(primary_key=True,default=None)
     #fk
-    fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+    fk_rutUsuario = models.ForeignKey(UsuarioCBV, on_delete=models.CASCADE, default=None)
     #atributos
     fecha_pbioquimico = models.DateField()
     nombre_pbioquimico = models.CharField(max_length=30,default='Examen de Perfil Bioquimico')
@@ -51,7 +97,7 @@ class Hemograma(models.Model):
     #pk
     id_hemograma = models.AutoField(primary_key=True,default=None)
     #fk
-    fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+    fk_rutUsuario = models.ForeignKey(UsuarioCBV, on_delete=models.CASCADE, default=None)
     #atributos
     fecha_hemograma = models.DateField()
     nombre_hemograma = models.CharField(max_length=30,default='Examen de Hemograma')
@@ -70,7 +116,7 @@ class Coagulacion(models.Model):
     #pk
     id_coagulacion = models.AutoField(primary_key=True,default=None)
     #fk
-    fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+    fk_rutUsuario = models.ForeignKey(UsuarioCBV, on_delete=models.CASCADE, default=None)
     #atributos
     fecha_coagulacion = models.DateField()
     nombre_coagulacion = models.CharField(max_length=30,default='Examen de Coagulacion')
@@ -84,7 +130,7 @@ class Glicemia(models.Model):
     #pk
     id_glicemia = models.AutoField(primary_key=True,default=None)
     #fk
-    fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+    fk_rutUsuario = models.ForeignKey(UsuarioCBV, on_delete=models.CASCADE, default=None)
     #atributos
     fecha_glicemia = models.DateField()
     nombre_glicemia = models.CharField(max_length=30,default='Examen de Glicemia')
@@ -98,7 +144,7 @@ class Orina(models.Model):
     #pk
     id_orina = models.AutoField(primary_key=True,default=None)
     #fk
-    fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+    fk_rutUsuario = models.ForeignKey(UsuarioCBV, on_delete=models.CASCADE, default=None)
     #atributos
     fecha_orina = models.DateField()
     nombre_orina = models.CharField(max_length=30,default="Examen de Orina")
@@ -116,7 +162,7 @@ class PerfilLipidico(models.Model):
     #pk
     id_plipidico = models.AutoField(primary_key=True,default=None)
     #fk
-    fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+    fk_rutUsuario = models.ForeignKey(UsuarioCBV, on_delete=models.CASCADE, default=None)
     #atributos
     fecha_plipidico = models.DateField()
     nombre_plipidico = models.CharField(max_length=30,default="Examen de Perfil Lipidico")

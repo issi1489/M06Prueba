@@ -1,5 +1,47 @@
 from django.shortcuts import render
-import json
+
+
+from .models import UsuarioCBV, Diagnostico, PerfilBioquimico, Hemograma, Coagulacion, Glicemia, Orina, PerfilLipidico
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+from django.urls import reverse_lazy
+
+# CRUD vistas basadas en clases
+
+class ListaUsuario(ListView):
+
+    model = UsuarioCBV
+    fields = '__all__'
+    succes_url = reverse_lazy('app_med2:lista_usuarios')
+
+
+class CrearUsuario(CreateView):
+
+    model = UsuarioCBV
+    fields = '__all__'
+    succes_url = reverse_lazy('app_med2:lista_usuarios')
+
+
+class EditarUsuario(UpdateView):
+
+    model = UsuarioCBV
+    fields = '__all__'
+    succes_url = reverse_lazy('app_med2:lista_usuarios')
+
+
+class EliminarUsuario(DeleteView):
+
+    model = UsuarioCBV
+    fields = '__all__'
+    succes_url = reverse_lazy('app_med2:lista_usuarios')
+
+
+
+
+
+
+
 
 #Forms
 #from .forms import CrearUsuario , rutPacientes
@@ -125,3 +167,5 @@ def provedor(request):
 def admin1(request):
 
     return render(request, 'admin.html')
+
+
