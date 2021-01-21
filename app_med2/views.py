@@ -168,19 +168,19 @@ def perfilLipidico(request):
 class ListarUsuario(ListView):
     model=CrearUsuarioCBV
     fields='__all__'
-    success_url=reverse_lazy('app_med2:lisar_usuario_cbv')
+    success_url=reverse_lazy('app_med2:listar_usuarios_cbv')
 
 class CrearUsuario(CreateView):
     model=CrearUsuarioCBV
     fields='__all__'
-    success_url=reverse_lazy('app_med2:lista_usuarios_cbv')
+    success_url=reverse_lazy('app_med2:listar_usuarios_cbv')
 
 class UpdateUsuario(UpdateView):
     model=CrearUsuarioCBV
     fields='__all__'
-    success_url=reverse_lazy('app_med2:lisar_usuario_cbv')
+    success_url=reverse_lazy('app_med2:listar_usuarios_cbv')
 
 class EliminarUsuario(DeleteView):
     model=CrearUsuarioCBV
     fields='__all__'
-    success_url=reverse_lazy('app_med2:lisar_usuario_cbv')
+    success_url=reverse_lazy('app_med2:listar_usuarios_cbv')
