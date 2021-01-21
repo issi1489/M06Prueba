@@ -77,8 +77,13 @@ WSGI_APPLICATION = 'sistema_medico.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+<<<<<<< HEAD
         'NAME': 'centro_medico',
         'USER': 'usuario_3',
+=======
+        'NAME': 'sistema_medico',
+        'USER': 'usuario1',
+>>>>>>> 117f807af2810a14463d52f2f6385cfc93a1d497
         'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT':'5432'
@@ -108,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 

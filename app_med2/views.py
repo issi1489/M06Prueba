@@ -1,46 +1,88 @@
 from django.shortcuts import render
+<<<<<<< HEAD
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 #import json
 #Forms
 #from .forms import CrearUsuario , rutPacientes
+=======
+from .models import Usuario, PerfilLipidico, Orina, Coagulacion, Glicemia, Diagnostico, Hemograma, PerfilBioquimico
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView
 
-def home(request):
+>>>>>>> 117f807af2810a14463d52f2f6385cfc93a1d497
 
+
+<<<<<<< HEAD
     return render(request,'../templates/app_med2/home.html')
+=======
+class ListarUsuario(ListView):
+    model=Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+class CrearUsuario(CreateView):
+    model=Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+class UpdateUsuario(UpdateView):
+    model=Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+class EliminarUsuario(DeleteView):
+    model=Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+
+
+
+
+
+def base(request):
+
+    return render(request, 'app_med2/agregar/base.html')
+>>>>>>> 117f807af2810a14463d52f2f6385cfc93a1d497
 
 def admin(request):
 
-    #-------------- Lectura de datos del usuario del .json --------------
-    # Generar copia de los datos de usuarios
-    with open('../proyecto_web/app_med2/data/usuarios.json', 'r') as file:
-        usuarios=json.load(file)
-    #Seleccionar el usuario requerido y extraer los datos asociados
-    usuario=usuarios['9999999-9']
-    nombre_us=usuario['nombre']+" "+usuario['apellido']
-    edad_us=usuario['edad']
-    direccion_us=usuario['direccion']
+    return render(request, 'app_med2/admin.html')
 
-    #-------------- Lectura de datos de pacientes del .json --------------
-    # Generar copia de los datos de pacientes
-    with open('../proyecto_web/app_med2/data/usuarios.json', 'r') as file:
-        pacientes=json.load(file)
 
-    lpacientes=pacientes
+def home(request):
 
-    #-------------- Creación de usuario por formulario --------------
-    add_user = CrearUsuario(request.POST or None)
-    
-    if add_user.is_valid():
-        form_data = add_user.cleaned_data
-        #form_data['fecha_creacion']=form_data['fecha_creacion'].strftime("%Y-%m-%d")
-        
-        #usuarios.append(form_data)
-        with open('../proyecto_web/app_med2/data/usuarios.json', 'w') as file:
-            json.dump(usuarios, file)
-        #return redirect('formularios:usuario_creado')
+    return render(request, 'app_med2/home.html')
+
+
+
+def usuario(request):
+    data = {
+        'usuario': UsuarioForms()
+    }
     
 
+    if request.method == 'POST':
+        formulario = UsuarioForms(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "contacto guardado"
+        else:
+            data["usuario"] = formulario
+			
+
+    return render(request, 'app_med2/agregar/formulario1.html', data)
+
+
+def diagnostico(request):
+    data = {
+        'diagnostico': DiagnosticoForms()
+    }
+    
+
+<<<<<<< HEAD
     #datos a entregar al html
     context_us={'nombre_us':nombre_us,'edad_us':edad_us, 'direccion_us':direccion_us,'lpacientes':lpacientes,'form_pac': add_user}
 
@@ -111,16 +153,46 @@ def paciente(request):
     coag_rut=examenes[f_pac]['coagulacion']
     glic_rut=examenes[f_pac]['glicemia']
     elec_rut=examenes[f_pac]['electrocardiograma']
+=======
+    if request.method == 'POST':
+        formulario = DiagnosticoForms(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "contacto guardado"
+        else:
+            data["diagnostico"] = formulario
+			
+
+    return render(request, 'app_med2/agregar/formulario2.html', data)
+
+
+def PerBioquimico(request):
+    data = {
+        'perfil':PerfilBioquimicoForms()
+    }
+>>>>>>> 117f807af2810a14463d52f2f6385cfc93a1d497
     
 
-    #Gráficos
-    #Formulario Exámenes
+    if request.method == 'POST':
+        formulario = PerfilBioquimicoForms(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "contacto guardado"
+        else:
+            data["perfil"] = formulario
+			
 
-    # --------------------- Vista del usuario --------------------- 
-
-    form_rut = rutPacientes(request.POST or None)
+    return render(request, 'app_med2/agregar/formulario3.html', data)
 
 
+    #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
+def hemograma(request):
+    data = {
+        'hemograma': HemogramaForms()
+    }
+    
+
+<<<<<<< HEAD
     #Datos a entregar al html
     context_pac={'nombre_us':nombre_pac,'edad_us':edad_pac, 'direccion_us':direccion_pac,'rut_pacs':rut_pacs,
     'form_rut':form_rut,'img_src':img_src,'diag_rut':diag_rut,'hemo_rut':hemo_rut,'pbio_rut':pbio_rut,
@@ -128,3 +200,87 @@ def paciente(request):
     
     
     #,context_pac
+=======
+    if request.method == 'POST':
+        formulario = HemogramaForms(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["hemograma"] = "contacto guardado"
+        else:
+            data["hemogram"] = formulario
+			
+
+    return render(request, 'app_med2/agregar/formulario4.html', data)
+
+
+def coagulacion(request):
+    data = {
+        'coagulacion': CoagulacionForms()
+    }
+    
+
+    if request.method == 'POST':
+        formulario = CoagulacionForms(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "contacto guardado"
+        else:
+            data["coagulacion"] = formulario
+			
+
+    return render(request, 'app_med2/agregar/formulario5.html', data)
+
+
+
+def glicemia(request):
+    data = {
+        'glicemia': GlicemiaForms()
+    }
+
+    if request.method == 'POST':
+        formulario = GlicemiaForms(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "contacto guardado"
+        else:
+            data["glicemia"] = formulario
+
+    return render(request, 'app_med2/agregar/formulario6.html', data)
+        
+def orina(request):
+    data = {
+        'orina': OrinaForms()
+    }
+    
+
+    if request.method == 'POST':
+        formulario = OrinaForms(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "contacto guardado"
+        else:
+            data["orina"] = formulario
+			
+
+    return render(request, 'app_med2/agregar/formulario7.html', data)
+
+
+def perfilLipidico(request):
+    data = {
+        'perfil1':PerfilLipidicoForms()
+    }
+    
+
+    if request.method == 'POST':
+        formulario = PerfilLipidicoForms(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "contacto guardado"
+        else:
+            data["perfil1"] = formulario
+			
+
+    return render(request, 'app_med2/agregar/formulario8.html', data)
+
+
+>>>>>>> 117f807af2810a14463d52f2f6385cfc93a1d497

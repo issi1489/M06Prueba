@@ -1,5 +1,6 @@
 
 from django import forms
+<<<<<<< HEAD
 '''
 from django.core import validators
 from django.core.exceptions import ValidationError
@@ -41,30 +42,126 @@ class CrearUsuario(forms.Form):
     #fecha_creacion = forms.DateField(validators=[validar_fecha])
 
 class Contacto(forms.Form):
+=======
+from django.forms import widgets
+from .models import *
+
+
+class FormularioUsuario(forms.ModelForm):
+>>>>>>> 117f807af2810a14463d52f2f6385cfc93a1d497
     
-    nombre = forms.CharField(widget = forms.TextInput(
-                attrs = {'style': 'background-color: green;'}),
-                validators=[validators.MinLengthValidator(10, "El nombre debe tener minimo 10 caracteres"), 
-                validators.MaxLengthValidator(30, "El nombre puede tener hasta 30 caracteres")])
+    class Meta:
+        model=Usuario
+        fields='__all__'
 
-    email = forms.EmailField(widget = forms.TextInput(
-                attrs = {'style': 'background-color: pink;'}))
 
-    mensaje_email = forms.CharField(widget = forms.TextInput(
-                attrs = {'style': 'background-color: yellow;'}),
-                validators=[ validators.MaxLengthValidator(100, "El nombre puede tener hasta 30 caracteres")])
 
+"""
+class UsuarioForms(forms.ModelForm):
+
+    #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
+
+    class Meta:
+        model = Usuario
+        #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
+        fields = '__all__'
+        Widget = {
+            "Fecha_Fabricacion": forms.SelectDateWidget()
+        }
+class DiagnosticoForms(forms.ModelForm):
+
+    #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
+
+    class Meta:
+        model = Diagnostico
+        #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
+        fields = '__all__'
+        Widget = {
+            "Fecha_Fabricacion": forms.SelectDateWidget()
+        }
+class PerfilBioquimicoForms(forms.ModelForm):
+
+    #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
+
+    class Meta:
+        model = PerfilBioquimico
+        #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
+        fields = '__all__'
+        Widget = {
+            "Fecha_Fabricacion": forms.SelectDateWidget()
+
+        }
+class HemogramaForms(forms.ModelForm):
+
+    #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
+
+    class Meta:
+        model = Hemograma
+        #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
+        fields = '__all__'
+        Widget = {
+            "Fecha_Fabricacion": forms.SelectDateWidget()
+        }
+
+
+        
+class CoagulacionForms(forms.ModelForm):
+
+    #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
+
+    class Meta:
+        model = Coagulacion
+        #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
+        fields = '__all__'
+        Widget = {
+            "Fecha_Fabricacion": forms.SelectDateWidget()
+        }
+
+
+class GlicemiaForms(forms.ModelForm):
+
+    #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
+
+    class Meta:
+        model = Glicemia
+        #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
+        fields = '__all__'
+        Widget = {
+            "Fecha_Fabricacion": forms.SelectDateWidget()
+        }
+
+class OrinaForms(forms.ModelForm):
+
+    #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
+
+    class Meta:
+        model = Orina
+        #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
+        fields = '__all__'
+        Widget = {
+            "Fecha_Fabricacion": forms.SelectDateWidget()
+        }
+
+<<<<<<< HEAD
 
 class rutPacientes(forms.Form):
+=======
+class PerfilLipidicoForms(forms.ModelForm):
+>>>>>>> 117f807af2810a14463d52f2f6385cfc93a1d497
 
-     # Generar copia de los datos de usuarios
-    with open('../proyecto_web/app_med2/data/usuarios.json', 'r') as file:
-        pacientes=json.load(file)
+    #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
 
-    #Extraer ruts para lista desplegable de cambio de usuario
-    rut_pacs=[]
-    for p in pacientes:
-        rut_pacs.append((p,p))
+    class Meta:
+        model = PerfilLipidico
+        #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
+        fields = '__all__'
+        Widget = {
+            "Fecha_Fabricacion": forms.SelectDateWidget()
+        }
 
+<<<<<<< HEAD
     rut_pac= forms.ChoiceField(choices=(rut_pacs))
     '''
+=======
+"""
+>>>>>>> 117f807af2810a14463d52f2f6385cfc93a1d497
