@@ -3,8 +3,8 @@ from .models import Usuario, PerfilLipidico, Orina, Coagulacion, Glicemia, Diagn
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
-
-
+from .forms import FormularioUsuario, UsuarioForms, DiagnosticoForms, PerfilBioquimicoForms, HemogramaForms
+from .forms import CoagulacionForms, GlicemiaForms, OrinaForms, PerfilLipidicoForms
 
 class ListarUsuario(ListView):
     model=Usuario
@@ -173,7 +173,7 @@ def orina(request):
 
 def perfilLipidico(request):
     data = {
-        'perfil1':PerfilLipidicoForms()
+        'plipidico':PerfilLipidicoForms()
     }
     
 
@@ -183,7 +183,7 @@ def perfilLipidico(request):
             formulario.save()
             data["mensaje"] = "contacto guardado"
         else:
-            data["perfil1"] = formulario
+            data["plipidico"] = formulario
 			
 
     return render(request, 'app_med2/agregar/formulario8.html', data)
