@@ -1,4 +1,10 @@
 from django.db import models
+from django.db.models.fields import BooleanField, CharField
+from django.core import validators
+from django.forms.formsets import ORDERING_FIELD_NAME
+
+
+
 
 class Usuario(models.Model):
     #pk
@@ -79,8 +85,10 @@ class Coagulacion(models.Model):
     observaciones_coagulacion = models.CharField(max_length=100)
 
 
-class Glicemia(models.Model):
+                
 
+class Glicemia(models.Model):
+     
     #pk
     id_glicemia = models.AutoField(primary_key=True,default=None, )
     #fk
@@ -92,6 +100,7 @@ class Glicemia(models.Model):
     glicemia_120min= models.DecimalField( max_digits=2, decimal_places=1)
     observaciones_glicemia = models.CharField(max_length=100, default="Parametros normales")
 
+                     	  
 
 class Orina(models.Model):
 
@@ -130,3 +139,29 @@ class PerfilLipidico(models.Model):
 
 
 
+class CrearUsuario(models.Model):
+    rutUsuario = models.CharField(max_length=10)
+    
+    nombre = models.CharField(
+                max_length=80, 
+                validators=[validators.MinLengthValidator(
+                        4, 
+                        "Marca debe tener 4 caracteres mínimo!")]
+                )
+    edad = models.CharField(
+                max_length=50,
+                validators=[validators.MinLengthValidator(2, 
+                            "El modelo no puede ser de menos de 2 letras")] )
+                
+    direccion = models.CharField(
+                max_length=50,
+                validators=[validators.MinLengthValidator(2, 
+                            "El modelo no puede ser de menos de 2 letras")] )
+    
+    staff = models.BooleanField(null = True)
+
+    usuario1 = models.CharField(max_length=80)
+
+    password = models.CharField(max_length=80) 
+
+    

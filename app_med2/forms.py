@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import widgets
 from .models import *
-#from .models import Usuario,Diagnostico,PerfilBioquimico,Hemograma,Orina, Coagulacion, Glicemia,
+
 
 
 class UsuarioForms(forms.ModelForm):
@@ -100,3 +100,9 @@ class PerfilLipidicoForms(forms.ModelForm):
         Widget = {
             "Fecha_Fabricacion": forms.SelectDateWidget()
         }
+
+class FormularioUsuario(forms.ModelForm):
+    
+    class Meta:
+        model=CrearUsuario
+        fields='__all__'

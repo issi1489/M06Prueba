@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from .forms import *
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+
 
 
 def base(request):
@@ -121,7 +125,7 @@ def glicemia(request):
             data["mensaje"] = "contacto guardado"
         else:
             data["glicemia"] = formulario
-            
+
     return render(request, 'app_med2/agregar/formulario6.html', data)
         
 def orina(request):
@@ -158,3 +162,9 @@ def perfilLipidico(request):
 			
 
     return render(request, 'app_med2/agregar/formulario8.html', data)
+
+
+class CrearUsuario(CreateView):
+    model=CrearUsuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:CrearUsuario')
