@@ -14,7 +14,7 @@ class Usuario(models.Model):
 
 class Diagnostico(models.Model):
     #pk
-    fecha_diagnostico = models.DateTimeField(primary_key=True, default=None)
+    fecha_diagnostico = models.DateField(primary_key=True, default=None)
     #fk
     fk_rutUsuario = models.ForeignKey(Usuario,on_delete=models.CASCADE, default=None)
     #atributos

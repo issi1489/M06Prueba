@@ -75,10 +75,14 @@ WSGI_APPLICATION = 'sistema_medico.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'centro_medico',
+            'USER': 'usuario_3',
+            'PASSWORD': '1234',
+            'HOST': 'localhost',
+            'PORT': '5432',
+ }
 }
 
 
