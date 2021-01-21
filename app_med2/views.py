@@ -3,7 +3,7 @@ from .models import Usuario, PerfilLipidico, Orina, Coagulacion, Glicemia, Diagn
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
-
+from .forms import *
 
 
 class ListarUsuario(ListView):
@@ -45,8 +45,7 @@ def home(request):
     return render(request, 'app_med2/home.html')
 
 
-
-def usuario(request):
+'''def usuario(request):
     data = {
         'usuario': UsuarioForms()
     }
@@ -61,10 +60,15 @@ def usuario(request):
             data["usuario"] = formulario
 			
 
-    return render(request, 'app_med2/agregar/formulario1.html', data)
+    return render(request, 'app_med2/agregar/formulario1.html', data)'''
+
+class Diagnostico(CreateView):
+    model= Diagnostico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:formulario_form')
 
 
-def diagnostico(request):
+'''def diagnostico(request):
     data = {
         'diagnostico': DiagnosticoForms()
     }
@@ -79,10 +83,14 @@ def diagnostico(request):
             data["diagnostico"] = formulario
 			
 
-    return render(request, 'app_med2/agregar/formulario2.html', data)
+    return render(request, 'app_med2/agregar/formulario2.html', data)'''
 
+class Perfilbioquimico(CreateView):
+    model= PerfilBioquimico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:formulario3.html')
 
-def PerBioquimico(request):
+'''def PerBioquimico(request):
     data = {
         'perfil':PerfilBioquimicoForms()
     }
@@ -97,11 +105,14 @@ def PerBioquimico(request):
             data["perfil"] = formulario
 			
 
-    return render(request, 'app_med2/agregar/formulario3.html', data)
+    return render(request, 'app_med2/agregar/formulario3.html', data)'''
 
-
+class Hemograma(CreateView):
+    model= Hemograma
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:hemograma_form')
     #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
-def hemograma(request):
+'''def hemograma(request):
     data = {
         'hemograma': HemogramaForms()
     }
@@ -116,10 +127,14 @@ def hemograma(request):
             data["hemogram"] = formulario
 			
 
-    return render(request, 'app_med2/agregar/formulario4.html', data)
+    return render(request, 'app_med2/agregar/formulario4.html', data)'''
 
+class Coagulacion(CreateView):
+    model= Coagulacion
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:formulario5.html')
 
-def coagulacion(request):
+'''def coagulacion(request):
     data = {
         'coagulacion': CoagulacionForms()
     }
@@ -134,11 +149,14 @@ def coagulacion(request):
             data["coagulacion"] = formulario
 			
 
-    return render(request, 'app_med2/agregar/formulario5.html', data)
+    return render(request, 'app_med2/agregar/formulario5.html', data)'''
 
+class Glicemia(CreateView):
+    model= Glicemia
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:formulario6.html')
 
-
-def glicemia(request):
+'''def glicemia(request):
     data = {
         'glicemia': GlicemiaForms()
     }
@@ -151,9 +169,14 @@ def glicemia(request):
         else:
             data["glicemia"] = formulario
 
-    return render(request, 'app_med2/agregar/formulario6.html', data)
-        
-def orina(request):
+    return render(request, 'app_med2/agregar/formulario6.html', data)'''
+
+class Orina(CreateView):
+    model= Orina
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:formulario7.html')
+
+'''def orina(request):
     data = {
         'orina': OrinaForms()
     }
@@ -168,10 +191,14 @@ def orina(request):
             data["orina"] = formulario
 			
 
-    return render(request, 'app_med2/agregar/formulario7.html', data)
+    return render(request, 'app_med2/agregar/formulario7.html', data)'''
 
+class PerfilLipidico(CreateView):
+    model= PerfilLipidico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:formulario8.html')
 
-def perfilLipidico(request):
+'''def perfilLipidico(request):
     data = {
         'perfil1':PerfilLipidicoForms()
     }
@@ -186,6 +213,6 @@ def perfilLipidico(request):
             data["perfil1"] = formulario
 			
 
-    return render(request, 'app_med2/agregar/formulario8.html', data)
+    return render(request, 'app_med2/agregar/formulario8.html', data)'''
 
 

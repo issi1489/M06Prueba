@@ -11,18 +11,7 @@ class FormularioUsuario(forms.ModelForm):
 
 
 
-"""
-class UsuarioForms(forms.ModelForm):
 
-    #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
-
-    class Meta:
-        model = Usuario
-        #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
-        fields = '__all__'
-        Widget = {
-            "Fecha_Fabricacion": forms.SelectDateWidget()
-        }
 class DiagnosticoForms(forms.ModelForm):
 
     #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
@@ -31,9 +20,7 @@ class DiagnosticoForms(forms.ModelForm):
         model = Diagnostico
         #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
         fields = '__all__'
-        Widget = {
-            "Fecha_Fabricacion": forms.SelectDateWidget()
-        }
+       
 class PerfilBioquimicoForms(forms.ModelForm):
 
     #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
@@ -42,10 +29,7 @@ class PerfilBioquimicoForms(forms.ModelForm):
         model = PerfilBioquimico
         #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
         fields = '__all__'
-        Widget = {
-            "Fecha_Fabricacion": forms.SelectDateWidget()
-
-        }
+       
 class HemogramaForms(forms.ModelForm):
 
     #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
@@ -54,9 +38,7 @@ class HemogramaForms(forms.ModelForm):
         model = Hemograma
         #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
         fields = '__all__'
-        Widget = {
-            "Fecha_Fabricacion": forms.SelectDateWidget()
-        }
+       
 
 
         
@@ -68,9 +50,7 @@ class CoagulacionForms(forms.ModelForm):
         model = Coagulacion
         #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
         fields = '__all__'
-        Widget = {
-            "Fecha_Fabricacion": forms.SelectDateWidget()
-        }
+      
 
 
 class GlicemiaForms(forms.ModelForm):
@@ -81,9 +61,7 @@ class GlicemiaForms(forms.ModelForm):
         model = Glicemia
         #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
         fields = '__all__'
-        Widget = {
-            "Fecha_Fabricacion": forms.SelectDateWidget()
-        }
+      
 
 class OrinaForms(forms.ModelForm):
 
@@ -93,9 +71,7 @@ class OrinaForms(forms.ModelForm):
         model = Orina
         #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
         fields = '__all__'
-        Widget = {
-            "Fecha_Fabricacion": forms.SelectDateWidget()
-        }
+     
 
 class PerfilLipidicoForms(forms.ModelForm):
 
@@ -105,8 +81,6 @@ class PerfilLipidicoForms(forms.ModelForm):
         model = PerfilLipidico
         #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
         fields = '__all__'
-        Widget = {
-            "Fecha_Fabricacion": forms.SelectDateWidget()
-        }
+    
 
-"""
+

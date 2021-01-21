@@ -5,14 +5,22 @@ app_name = 'app_med2'
 urlpatterns = [
     path('', views.home, name='home'),
     path('admin', views.admin, name='admin'),
-    path('usuario', views.usuario, name= 'usuario'),
-    path('diagnostico', views.diagnostico, name= 'diagnostico'),
-    path('perfil', views.PerBioquimico, name= 'perfil'),
-    path('hemograma', views.hemograma, name= 'hemograma'),
-    path('coagulacion', views.coagulacion, name= 'coagolacion'),
-    path('glicemia', views.glicemia, name= 'glicemia'),
-    path('orina', views.orina, name= 'orina'),
-    path('perfilLipidico', views.perfilLipidico, name= 'perfilLipidico'),
+   
+   
+    path('perfil', views.Perfilbioquimico.as_view(), name= 'perfil'),
+
+
+    path('hemograma_form', views.Hemograma.as_view(), name= 'hemograma_form'),
+
+    path('coagulacion/', views.Coagulacion.as_view(), name= 'coagolacion'),
+
+    path('glicemia/', views.Glicemia.as_view(), name= 'glicemia'),
+
+    path('orina/', views.Orina.as_view(), name= 'orina'),
+
+    path('perfilLipidico/', views.PerfilLipidico.as_view(), name= 'perfilLipidico'),
+
+
     path('base', views.base, name='base'),
 
     path('crear_usuario/', views.CrearUsuario.as_view(), name="crear_usuario"),
