@@ -2,10 +2,16 @@ from django.shortcuts import render
 from .models import Usuario, PerfilLipidico, Orina, Coagulacion, Glicemia, Diagnostico, Hemograma, PerfilBioquimico
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView
+from django.views.generic import ListView,DetailView
 from .forms import FormularioUsuario, UsuarioForms, DiagnosticoForms, PerfilBioquimicoForms, HemogramaForms
 from .forms import CoagulacionForms, GlicemiaForms, OrinaForms, PerfilLipidicoForms
 from django.template.response import TemplateResponse
+
+
+class ListarExamenUsuario(ListView):
+    model = PerfilLipidico
+    fields = '__all__'
+    succes_url = reverse_lazy('app_med2:mostrar_examen_usuario')
 
 # Home 
 def home(request):

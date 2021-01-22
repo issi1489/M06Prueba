@@ -13,6 +13,7 @@ urlpatterns = [
     #path crud diagnostico
     path('listar_diagnosticos/', views.ListarDiagnostico.as_view(), name="listar_diagnosticos"),
     path('<pk>/editar_diagnostico', views.UpdateDiagnostico.as_view(), name="editar_diagnosticos"),
+    path('<rut>/mostrar_examen_usuario', views.ListarExamenUsuario.as_view(), name="mostrar_examen_usuario"),
     path('<pk>/eliminar_diagnostico', views.EliminarDiagnostico.as_view(), name="eliminar_diagnosticos"),
     
     path('listar_usuarios/', views.ListarUsuario.as_view(), name="listar_usuarios"),

@@ -50,44 +50,35 @@
         </div>
         <div class="col-sm-8">
           <!-- datos personales-->
-          <p style="font-size: xx-large; padding: 9%;">Listado actualizado de Examen Perfil Lipidico</p>
+          <p style="font-size: xx-large; padding: 9%;">Listado Actualizado de Diagnosticos</p>
         </div>
     </div>
     <!-- fin  Bienvenida: foto, texto, datos usuario admin-->
     <table class="table">
         <tr>
-
-            <th>Id</th>
-            <th>rutUsuario</th>
-            <th>fecha</th>
-            <th>colesterol total</th>
-            <th>ldh</th>
-            <th>hdl</th>
-            <th>trigliceridos</th>
-            <th>observacion</th>
+         
+            <th>Rut Usuario</th>
+            <th>FECHA</th>
+            <th>diagnostico</th>
             <th>EDITAR</th>
             <th>ELIMINAR</th>
-            <th>VER DIAGNOSTICO USUARIO</th>
+            <th>ELIMINAR</th>
+            <th>ELIMINAR</th>
+            <th>ELIMINAR</th>
+            <th>ELIMINAR</th>
         </tr>    
 
-    {% for perfillipidico in perfillipidico_list %}
+    {% for lipidico_usuario in perfillipido_list %}
         <tr>
-            <td>{{perfillipidico.id_plipidico}}</td>
-            <td>{{perfillipidico.rutUsuario_id}}</td>
-            <td>{{perfillipidico.fecha_plipidico}}</td>
-            <td>{{perfillipidico.colesterol}}</td>
-            <td>{{perfillipidico.colesterol_ldl}}</td>
-            <td>{{perfillipidico.colesterol_hdl}}</td>
-            <td>{{perfillipidico.trigliceridos}}</td>
-            <td>{{perfillipidico.observacion_plipidico}}</td>
+
+            <td>{{lipidico_usuario.fecha_diagnostico}}</td>
+            <td>{{lipidico_usuario.rutUsuario_id}}</td>
+            <td>{{lipidico_usuario.diagnostico}}</td>
             <td>
-                <a class="boton" href="{% url 'app_med2:editar_perfillipidico' pk=perfillipidico.id_plipidico %}">Editar</a>
+                <a class="boton" href="{% url 'app_med2:editar_diagnosticos' pk=diagnostico.fecha_diagnostico %}"> Editar </a>
             </td>
             <td>
-              <a class="boton" href="{% url 'app_med2:eliminar_perfillipidico' pk=perfillipidico.id_plipidico %}"> Eliminar</a>
-            </td>
-            <td>
-              <a class="boton" href="{% url 'app_med2:mostrar_examen_usuario' rut=perfillipidico.rutUsuario_id %}"> Ver Diagnostico Usuarios</a>
+                <a class="boton" href="{% url 'app_med2:eliminar_diagnosticos' pk=diagnostico.fecha_diagnostico %}"> Eliminar </a>
             </td>
         </tr>
     {% endfor %}
