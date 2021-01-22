@@ -140,4 +140,4 @@ def registroExamen(request):
             'hemograma_form': HemogramaForms()
         }
 
-    return TemplateResponse(request, 'app_med2/agregar/reg_examen.html', context)
+    return TemplateResponse(request, 'app_med2/registros_nuevos.html', context)
