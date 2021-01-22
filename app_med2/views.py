@@ -176,9 +176,53 @@ class EliminarPerfilLipidico(DeleteView):
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_perfillipidico')
 
+#CRUD GLICEMIA
+class ListarGlicemia(ListView):
+    model=Glicemia
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_glicemia')
+    
+class UpdateGlicemia(UpdateView):
+    model=Glicemia
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_glicemia')
 
+class EliminarGlicemia(DeleteView):
+    model=Glicemia
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_glicemia')
 
+#CRUD PerfilBioquimico
+class ListarPerfilBioquimico(ListView):
+    model=PerfilBioquimico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_perfilbioquimico')
+    
+class UpdatePerfilBioquimico(UpdateView):
+    model=PerfilBioquimico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_perfilbioquimico')
 
+class EliminarPerfilBioquimico(DeleteView):
+    model=PerfilBioquimico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_perfilbioquimico')
+
+#CRUD Orina
+class ListarOrina(ListView):
+    model=Orina
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_orina')
+    
+class UpdateOrina(UpdateView):
+    model=Orina
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_orina')
+
+class EliminarOrina(DeleteView):
+    model=Orina
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_orina')
 
 
 
