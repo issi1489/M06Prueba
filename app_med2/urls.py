@@ -31,10 +31,17 @@ urlpatterns = [
     path('<pk>/editar_perfilbioquimico', views.UpdatePerfilBioquimico.as_view(), name="editar_perfilbioquimico"),
     path('<pk>/eliminar_perfilbioquimico', views.EliminarPerfilBioquimico.as_view(), name="eliminar_perfilbioquimico"),
     #crud orina
-    #crud perfil bioquimico
     path('listar_orina/', views.ListarOrina.as_view(), name="listar_orina"),
     path('<pk>/editar_orina', views.UpdateOrina.as_view(), name="editar_orina"),
     path('<pk>/eliminar_orina', views.EliminarOrina.as_view(), name="eliminar_orina"),
+    #crud coagulacion
+    path('listar_coagulacion/', views.ListarCoagulacion.as_view(), name="listar_coagulacion"),
+    path('<pk>/editar_coagulacion', views.UpdateCoagulacion.as_view(), name="editar_coagulacion"),
+    path('<pk>/eliminar_coagulacion', views.EliminarCoagulacion.as_view(), name="eliminar_coagulacion"),
+    #crud hemograma
+    path('listar_hemograma/', views.ListarHemograma.as_view(), name="listar_hemograma"),
+    path('<pk>/editar_hemograma', views.UpdateHemograma.as_view(), name="editar_hemograma"),
+    path('<pk>/eliminar_hemograma', views.EliminarHemograma.as_view(), name="eliminar_hemograma"),
 
 
 ]

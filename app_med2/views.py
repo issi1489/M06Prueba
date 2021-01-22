@@ -224,6 +224,37 @@ class EliminarOrina(DeleteView):
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_orina')
 
+#CRUD Coagulacion
+class ListarCoagulacion(ListView):
+    model=Coagulacion
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_coagulacion')
+    
+class UpdateCoagulacion(UpdateView):
+    model=Coagulacion
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_coagulacion')
+
+class EliminarCoagulacion(DeleteView):
+    model=Coagulacion
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_coagulacion')
+
+#CRUD Hemograma
+class ListarHemograma(ListView):
+    model=Hemograma
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_hemograma')
+    
+class UpdateHemograma(UpdateView):
+    model=Hemograma
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_hemograma')
+
+class EliminarHemograma(DeleteView):
+    model=Hemograma
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_hemograma')
 
 
 # ----------- CODIGO QUE DEBE ELIMINARSE AL CONFIRMAR QUE NO SE USARÁ -------------
