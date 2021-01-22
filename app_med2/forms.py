@@ -16,6 +16,25 @@ class FormularioDiagnostico(forms.ModelForm):
         model=Diagnostico
         fields='__all__'
 
+
+
+# forms hemograma y coagulación
+
+class FormularioHemograma(forms.ModelForm):
+    
+    class Meta:
+        model=Hemograma
+        fields='__all__'
+
+
+class FormularioCoagulacion(forms.ModelForm):
+    
+    class Meta:
+        model=Coagulacion
+        fields='__all__'
+
+        
+
 """
 class UsuarioForms(forms.ModelForm):
 

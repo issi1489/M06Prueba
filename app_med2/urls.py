@@ -25,6 +25,20 @@ urlpatterns = [
     path('crear_diagnostico/',views.CrearDiagnostico.as_view(),  name="crear_diagnostico"),
     path('listar_diagnosticos/', views.ListarDiagnostico.as_view(), name="listar_diagnosticos"),
     path('<pk>/editar_diagnostico', views.UpdateDiagnostico.as_view(), name="editar_diagnostico"),
-    path('<pk>/eliminar_diagnostico', views.EliminarDiagnostico.as_view(), name="eliminar_diagnostico")
+    path('<pk>/eliminar_diagnostico', views.EliminarDiagnostico.as_view(), name="eliminar_diagnostico"),
+
+
+    #path crud hemograma
+    path('crear_hemograma/',views.CrearDiagnostico.as_view(),  name="crear_hemograma"),
+    path('listar_hemograma/', views.ListarDiagnostico.as_view(), name="listar_hemograma"),
+    path('<pk>/editar_hemograma', views.UpdateDiagnostico.as_view(), name="editar_hemograma"),
+    path('<pk>/eliminar_hemograma', views.EliminarDiagnostico.as_view(), name="eliminar_hemograma"),
+
+
+    #path crud coagulacion
+    path('crear_coagulacion/',views.CrearDiagnostico.as_view(),  name="crear_coagulacion"),
+    path('listar_coagulacion/', views.ListarDiagnostico.as_view(), name="listar_coagulacion"),
+    path('<pk>/editar_coagulacion', views.UpdateDiagnostico.as_view(), name="editar_coagulacion"),
+    path('<pk>/eliminar_coagulacion', views.EliminarDiagnostico.as_view(), name="eliminar_coagulacion"),
 
 ]

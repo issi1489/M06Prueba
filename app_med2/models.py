@@ -62,7 +62,7 @@ class Diagnostico(models.Model):
     #fk
     fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None,)
     #atributos
-    diagnostico = models.CharField(max_length=100,  )
+    diagnostico = models.CharField(max_length=100  )
 
 
 
@@ -91,6 +91,10 @@ class PerfilBioquimico(models.Model):
     creatinina = models.DecimalField(max_digits= 2,decimal_places=1, )
     observaciones_pbioquimico = models.CharField( max_length=100,  default="Parametros normales")
 
+    class Meta:
+        db_table='PerfilLipidico'
+
+
 
 class Hemograma(models.Model):
 
@@ -110,6 +114,9 @@ class Hemograma(models.Model):
     plaquetas = models.DecimalField(max_digits= 2,decimal_places=1, )
     observaciones_hemograma = models.CharField( max_length=100,  default="Parametros normales")
 
+    class Meta:
+        db_table='Hemograma'
+
 
 class Coagulacion(models.Model):
 
@@ -118,8 +125,8 @@ class Coagulacion(models.Model):
     #fk
     fk_rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None,)
     #atributos
-    fecha_solicitud = models.DateField()
-    nombre_examen = models.CharField(max_length =50,default='Examen de Coagulacion')
+    fecha_coagulacion = models.DateField()
+    nombre_coagulacion = models.CharField(max_length =50,default='Examen de Coagulacion')
     tiempo_protrombina = models.DecimalField(max_digits=2, decimal_places=2)
     porc_protrombina = models.DecimalField(max_digits=2, decimal_places=2)
     observaciones_coagulacion = models.CharField(max_length=100)

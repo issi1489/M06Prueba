@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'app_med2/css/med_style.css' %}">
+</head>
+<body>
+
+    
+    <h2> Coagulacion </h2>
+    <h4><a class= "boton" href="{% url 'app_med2:crear_coagulacion' %}">Crear Coagulacion </a></h4>
+
+    <table class="table">
+        <tr>
+         
+            <th>id_coagulacion</th>
+            <th>fk_rutUsuario</th>
+            <th>fecha_coagulacion</th>
+            <th>nombre_coagulacion</th>
+            <th>tiempo_protombina</th>
+            <th>porc_protombina</th>
+            <th>observaciones_coagulacion</th>
+            <th></th>
+            <th></th>
+        </tr>    
+
+    {% for usuario in coagulacion_list %}
+        <tr>
+
+            <td>{{coagulacion.id_coagulacion}}</td>
+            <td>{{coagulacion.fk_rutUsuario}}</td>
+            <td>{{coagulacion.fecha_coagulacion}}</td>
+            <td>{{coagulacion.nombre_coagulacion}}</td>
+            <td>{{coagulacion.tiempo_protrombina}}</td>
+            <td>{{coagulacion.porc_protrombina}}</td>
+            <td>{{coagulacion.observaciones_coagulacion}}</td>
+            <td>
+                <a class="boton" href="{% url 'app_med2:editar_coagulacion' pk=coagulacion.id_coagulacion %}"> Editar Coagulacion</a>
+            </td>
+            <td>
+                <a class="boton" href="{% url 'app_med2:eliminar_coagulacion' pk=coagulacion.id_coagulacion %}"> Eliminar Coagulacion</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'app_med2/css/med_style.css' %}">
+</head>
+<body>
+
+    
+    <h2> Hemograma</h2>
+    <h4><a class= "boton" href="{% url 'app_med2:crear_hemograma' %}">Crear Hemograma </a></h4>
+
+    <table class="table">
+        <tr>
+         
+            <th>id_hemograma</th>
+            <th>fk_rutUsuario</th>
+            <th>fecha_hemograma</th>
+            <th>nombre_hemograma</th>
+            <th>eritrocito</th>
+            <th>leucocitos</th>
+            <th>hemoglobina</th>
+            <th>hematocrito</th>
+            <th>vcm</th>
+            <th>chcm</th>
+            <th>plaquetas</th>
+            <th>observaciones_hemograma</th>
+            <th></th>
+            <th></th>
+        </tr>    
+
+    {% for usuario in hemograma_list %}
+        <tr>
+
+            <td>{{hemograma.id_hemograma}}</td>
+            <td>{{hemograma.fk_rutUsuario}}</td>
+            <td>{{hemograma.fecha_hemograma}}</td>
+            <td>{{hemograma.nombre_hemograma}}</td>
+            <td>{{hemograma.eritrocito}}</td>
+            <td>{{hemograma.leucocitos}}</td>
+            <td>{{hemograma.hemoglobina}}</td>
+            <td>{{hemograma.hematocrito}}</td>
+            <td>{{hemograma.vcm}}</td>
+            <td>{{hemograma.chcm}}</td>
+            <td>{{hemograma.plaquetas}}</td>
+            <td>{{hemograma.observaciones_hemograma}}</td>
+            <td>
+                <a class="boton" href="{% url 'app_med2:editar_hemograma' pk=hemograma.id_hemograma %}"> Editar Hemograma</a>
+            </td>
+            <td>
+                <a class="boton" href="{% url 'app_med2:eliminar_hemograma' pk=hemograma.id_hemograma %}"> Eliminar Hemograma</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+
+
+    
+</body>
+</html>

@@ -5,6 +5,15 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 
 
+"""
+def multiples_modelos_vista(request):
+    
+    datos1= PerfilLipidico.objects.all()
+    datos2= Orina.objects.all()
+    context_datos= {'datos1':datos1, 'datos2':datos2}
+    return render(request, 'vistamultiple.html', context=context_datos )
+"""
+
 # CRUD usuario
 class ListarUsuario(ListView):
     model=Usuario
@@ -33,12 +42,13 @@ class ListarDiagnostico(ListView):
     model=Diagnostico
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_diagnosticos')
+    #success_url=reverse_lazy('app_med2:listar_diagnosticos')
 
 class CrearDiagnostico(CreateView):
     model=Diagnostico
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_diagnosticos')
-    
+
 class UpdateDiagnostico(UpdateView):
     model=Diagnostico
     fields='__all__'
@@ -48,6 +58,57 @@ class EliminarDiagnostico(DeleteView):
     model=Diagnostico
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_diagnosticos')
+
+
+
+# views hemograma y coagulacion
+
+# CRUD hemograma
+class ListarHemograma(ListView):
+    model=Hemograma
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_hemograma')
+
+class CrearHemograma(ListView):
+    model=Hemograma
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_hemograma')
+
+class UpdateHemograma(ListView):
+    model=Hemograma
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_hemograma')
+
+class EliminarHemograma(ListView):
+    model=Hemograma
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_hemograma')
+
+
+
+# CRUD coagulación
+class ListarCoagulacion(ListView):
+    model=Coagulacion
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_coagulacion')
+
+class CrearCoagulacion(ListView):
+    model=Coagulacion
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_coagulacion')
+
+class UpdateCoagulacion(ListView):
+    model=Coagulacion
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_coagulacion')
+
+class EliminarCoagulacion(ListView):
+    model=Coagulacion
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_coagulacion')
+
+
+
 
 
 
@@ -66,6 +127,8 @@ def admin(request):
 def home(request):
 
     return render(request, 'app_med2/home.html')
+
+
 
 
 
@@ -210,5 +273,4 @@ def perfilLipidico(request):
 			
 
     return render(request, 'app_med2/agregar/formulario8.html', data)
-
 
