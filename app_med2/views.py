@@ -194,90 +194,94 @@ def paciente(request):
     return render(request,'../templates/app_med2/paciente.html')
 
 # CODIGO PRUEBA 1
-'''
 
-def registroExamen(request, template="pruebas_forms.html"):
-    """
-    Handle Multiple <form></form> elements
-    """
-    data = {'plipidico':PerfilLipidicoForms(), 'orina': OrinaForms(),
-            'glicemia':GlicemiaForms(), 'coagulacion':CoagulacionForms(),
-            'hemograma':HemogramaForms(), 'bioquimico': PerfilBioquimicoForms(),
-            'diagnostico': DiagnosticoForms(), 'usuario':UsuarioForms()}
-
-
-    if request.method == 'POST':
-        if request.POST.get("form_type") == 'formLip':
-            #Perfil lipidico
-            formulario = PerfilLipidicoForms(data=request.POST)
-            if formulario.is_valid():
-                formulario.save()
-                data["mensaje"] = "contacto guardado"
-            else:
-                data["plipidico"] = formulario
-        elif request.POST.get("form_type") == 'formOrin':
-            # Orina
-            formulario = OrinaForms(data=request.POST)
-            if formulario.is_valid():
-                formulario.save()
-                data["mensaje"] = "contacto guardado"
-            else:
-                data["orina"] = formulario
-        elif request.POST.get("form_type") == 'formOrin':
-            # Glicemia
-            formulario = GlicemiaForms(data=request.POST)
-            if formulario.is_valid():
-                formulario.save()
-                data["mensaje"] = "contacto guardado"
-            else:
-                data["glicemia"] = formulario
-        elif request.POST.get("form_type") == 'formOrin':
-            # coagulacion
-            formulario = CoagulacionForms(data=request.POST)
-            if formulario.is_valid():
-                formulario.save()
-                data["mensaje"] = "contacto guardado"
-            else:
-                data["coagulacion"] = formulario
-        elif request.POST.get("form_type") == 'formOrin':
-            # Hemograma
-            formulario = HemogramaForms(data=request.POST)
-            if formulario.is_valid():
-                formulario.save()
-                data["mensaje"] = "contacto guardado"
-            else:
-                data["hemograma"] = formulario
-        elif request.POST.get("form_type") == 'formOrin':
-            # Bioquimico
-            formulario = PerfilBioquimicoForms(data=request.POST)
-            if formulario.is_valid():
-                formulario.save()
-                data["mensaje"] = "contacto guardado"
-            else:
-                data["bioquimico"] = formulario
-        elif request.POST.get("form_type") == 'formOrin':
-            # diagnostico
-            formulario = DiagnosticoForms(data=request.POST)
-            if formulario.is_valid():
-                formulario.save()
-                data["mensaje"] = "contacto guardado"
-            else:
-                data["diagnostico"] = formulario
-        elif request.POST.get("form_type") == 'formOrin':
-            # Glicemia
-            formulario = UsuarioForms(data=request.POST)
-            if formulario.is_valid():
-                formulario.save()
-                data["mensaje"] = "contacto guardado"
-            else:
-                data["usuario"] = formulario    
-
-    return render(request, 'app_med2/agregar/reg_examen.html', data)
-'''
-# CODIGO PRUEBA 2
 from django.template.response import TemplateResponse
 
 def registroExamen(request):
+    context = {
+            'usuario_form': UsuarioForms(),
+            'diagnostico_form': DiagnosticoForms(),
+            'lipidico_form': PerfilLipidicoForms(),
+            'glicemia_form': GlicemiaForms(),
+            'coagulacion_form': CoagulacionForms(),
+            'bioquimico_form': PerfilBioquimicoForms(),
+            'orina_form': OrinaForms(),
+            'hemograma_form': HemogramaForms()
+        }
+    
+        
+    if request.method == 'POST':
+        
+
+        usuario_form = UsuarioForms(request.POST)
+        diagnostico_form = DiagnosticoForms(request.POST)
+        lipidico_form = PerfilLipidicoForms(request.POST)
+        glicemia_form = GlicemiaForms(request.POST)
+        coagulacion_form = CoagulacionForms(request.POST)
+        bioquimico_form = PerfilBioquimicoForms(request.POST)
+        orina_form = OrinaForms(request.POST)
+        hemograma_form = HemogramaForms(request.POST)
+
+
+        if usuario_form.is_valid():
+            usuario_form.save()
+            return render(request,'app_med2/agregar/reg_examen.html',context) 
+
+        elif diagnostico_form.is_valid():
+            diagnostico_form.save()
+            return render(request,'app_med2/agregar/reg_examen.html',context)     
+
+        elif lipidico_form.is_valid():
+            lipidico_form.save()
+            return render(request,'app_med2/agregar/reg_examen.html',context)
+
+        elif glicemia_form.is_valid():
+            glicemia_form.save()
+            return render(request,'app_med2/agregar/reg_examen.html',context)
+
+        elif coagulacion_form.is_valid():
+            coagulacion_form.save()
+            return render(request,'app_med2/agregar/reg_examen.html',context)
+
+        elif bioquimico_form.is_valid():
+            bioquimico_form.save()
+            return render(request,'app_med2/agregar/reg_examen.html',context)
+
+        elif orina_form.is_valid():
+            orina_form.save()
+            return render(request,'app_med2/agregar/reg_examen.html',context)
+
+        elif hemograma_form.is_valid():
+            hemograma_form.save()
+            return render(request,'app_med2/agregar/reg_examen.html',context)   
+
+        else:
+            context = {
+                'usuario_form': usuario_form,
+                'diagnostico_form': diagnostico_form,
+                'lipidico_form': lipidico_form,
+                'glicemia_form': glicemia_form,
+                'coagulacion_form': coagulacion_form,
+                'bioquimico_form': bioquimico_form,
+                'orina_form': orina_form,
+                'hemograma_form': hemograma_form
+
+            }
+
+    else:
+        context = {
+            'usuario_form': UsuarioForms(),
+            'diagnostico_form': DiagnosticoForms(),
+            'lipidico_form': PerfilLipidicoForms(),
+            'glicemia_form': GlicemiaForms(),
+            'coagulacion_form': CoagulacionForms(),
+            'bioquimico_form': PerfilBioquimicoForms(),
+            'orina_form': OrinaForms(),
+            'hemograma_form': HemogramaForms()
+        }
+
+    return TemplateResponse(request, 'app_med2/agregar/reg_examen.html', context)
+    '''
     if request.method == 'POST':
 
         usuario_form = UsuarioForms(request.POST)
@@ -326,5 +330,7 @@ def registroExamen(request):
             'orina_form': OrinaForms(),
             'hemograma_form': HemogramaForms()
         }
+    '''
+    
 
-    return TemplateResponse(request, 'app_med2/agregar/reg_examen.html', context)
+

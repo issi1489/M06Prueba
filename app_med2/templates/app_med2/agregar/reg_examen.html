@@ -54,7 +54,7 @@
     <!-- USUARIO -->
     <div class="card col-sm-6">
       <h4>Nuevo Usuario</h4>
-      <form id="formUs" method="post">
+      <form id="formUsuario" method="post">
         {% csrf_token %}
         <table>
           {{ usuario_form.as_p }}
@@ -62,14 +62,14 @@
         <div class="d-flex justify-content-center">
           <input type="reset" value="cancelar" class="btn btn-secondary">  
           &nbsp;
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" id="btnUsuario" class="btn btn-primary">Enviar</button>
         </div>  
       </form>
     </div>
     <!-- DIAGNOSTICO -->
     <div class="card col-sm-6">
       <h4>Nuevo diagnostico</h4>
-      <form id="formLip" method="post">
+      <form id="formDiagnostico" method="post">
         {% csrf_token %}
         <table>
           {{ diagnostico_form.as_p }}
@@ -77,7 +77,7 @@
         <div class="d-flex justify-content-center">
           <input type="reset" value="cancelar" class="btn btn-secondary">  
           &nbsp;
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit"  id="btnDiagnostico" class="btn btn-primary">Enviar</button>
         </div>
       </form>
     </div>
@@ -89,7 +89,7 @@
     <!-- LIPIDICO -->
     <div class="card col-sm-4">
       <h4>Ingresar exámen: Perfil lipidico</h4>
-      <form id="formUs" method="post">
+      <form id="formLipidico" method="post">
         {% csrf_token %}
         <table>
           {{ lipidico_form.as_p }}
@@ -97,14 +97,14 @@
         <div class="d-flex justify-content-center">
           <input type="reset" value="cancelar" class="btn btn-secondary">  
           &nbsp;
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" id="btnLipidico" class="btn btn-primary">Enviar</button>
         </div>  
       </form>
     </div>
     <!-- GLICEMIA -->
     <div class="card col-sm-4">
       <h4>Ingresar exámen: Glicemia</h4>
-      <form id="formLip" method="post">
+      <form id="formGlicemia" method="post">
         {% csrf_token %}
         <table>
           {{ glicemia_form.as_p }}
@@ -112,14 +112,14 @@
         <div class="d-flex justify-content-center">
           <input type="reset" value="cancelar" class="btn btn-secondary">  
           &nbsp;
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" id="btnGlicemia" class="btn btn-primary">Enviar</button>
         </div>
       </form>
     </div>
     <!-- COAGULACION -->
     <div class="card col-sm-4">
       <h4>Ingresar exámen: Coagulacion</h4>
-      <form id="formLip" method="post">
+      <form id="formCoagulacion" method="post">
         {% csrf_token %}
         <table>
           {{ coagulacion_form.as_p }}
@@ -127,7 +127,7 @@
         <div class="d-flex justify-content-center">
           <input type="reset" value="cancelar" class="btn btn-secondary">  
           &nbsp;
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" id="btnCoagulacion" class="btn btn-primary">Enviar</button>
         </div>
       </form>
     </div>
@@ -139,7 +139,7 @@
     <!-- BIOQUIMICO -->
     <div class="card col-sm-4">
       <h4>Ingresar exámen: Perfil bioquimico</h4>
-      <form id="formUs" method="post">
+      <form id="formBioquimico" method="post">
         {% csrf_token %}
         <table>
           {{ bioquimico_form.as_p }}
@@ -147,14 +147,14 @@
         <div class="d-flex justify-content-center">
           <input type="reset" value="cancelar" class="btn btn-secondary">  
           &nbsp;
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" id="btnBioquimico" class="btn btn-primary">Enviar</button>
         </div>  
       </form>
     </div>
     <!-- ORINA -->
     <div class="card col-sm-4">
       <h4>Ingresar exámen: Orina</h4>
-      <form id="formLip" method="post">
+      <form id="formOrina" method="post">
         {% csrf_token %}
         <table>
           {{ orina_form.as_p }}
@@ -162,14 +162,14 @@
         <div class="d-flex justify-content-center">
           <input type="reset" value="cancelar" class="btn btn-secondary">  
           &nbsp;
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" id="Orina" class="btn btn-primary">Enviar</button>
         </div>
       </form>
     </div>
     <!-- HEMOGRAMA -->
     <div class="card col-sm-4">
       <h4>Ingresar exámen: Hemograma</h4>
-      <form id="formLip" method="post">
+      <form id="formHemograma" method="post">
         {% csrf_token %}
         <table>
           {{ hemograma_form.as_p }}
@@ -177,7 +177,7 @@
         <div class="d-flex justify-content-center">
           <input type="reset" value="cancelar" class="btn btn-secondary">  
           &nbsp;
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" id="btnHemograma" class="btn btn-primary">Enviar</button>
         </div>
       </form>
     </div>
