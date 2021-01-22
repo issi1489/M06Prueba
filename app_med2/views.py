@@ -28,6 +28,26 @@ class EliminarUsuario(DeleteView):
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_usuarios')
 
+class ListarDiagnostico(ListView):
+    model=Diagnostico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_diagnosticos')
+
+class CrearDiagnostico(CreateView):
+    model=Diagnostico
+    fields='_all_'
+    success_url=reverse_lazy('app_med2:listar_diagnosticos')
+    
+class UpdateDiagnostico(UpdateView):
+    model=Diagnostico
+    fields='_all_'
+    success_url=reverse_lazy('app_med2:editar_diagnosticos')
+
+class EliminarDiagnostico(DeleteView):
+    model=Diagnostico
+    fields='_all_'
+    success_url=reverse_lazy('app_med2:eliminar_diagnosticos')
+
 
 
 

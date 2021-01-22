@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'app_med2/css/med_style.css' %}">
+</head>
+<body>
+
+    
+    <h2> Diagnosticos</h2>
+    <h4><a class= "boton" action="{% url 'app_med2:listar_diagnosticos' %}">Crear Diagnostico</a></h4>
+
+    <table class="table">
+        <tr>
+         
+            <th>Fecha</th>
+            <th>rutUsuario</th>
+            <th>diagnostico</th>
+            <th></th>
+            <th></th>
+        </tr>    
+
+    {% for diagnostico in diagnostico_list %}
+        <tr>
+
+            <td>{{diagnostico.fecha_diagnostico}}</td>
+            <td>{{diagnostico.fk_rutUsuario}}</td>
+            <td>{{diagnostico.diagnostico}}</td>
+            <td>
+                <a class="boton" href="{% url 'app_med2:editar_diagnostico' pk=diagnostico.rutUsuario %}"> Editar Diagnostico</a>
+            </td>
+            <td>
+                <a class="boton" href="{% url 'app_med2:eliminar_diagnostico' pk=diagnostico.rutUsuario %}"> Eliminar Diagnostico</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+    
+    
+    
+</body>
+</html>

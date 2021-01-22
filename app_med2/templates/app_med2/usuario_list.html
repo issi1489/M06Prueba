@@ -10,6 +10,11 @@
 <body>
     <h2>Listado Actualizado de Nuestros Usuarios</h2>
     <h4><a class= "boton" href="{% url 'app_med2:crear_usuario' %}">Crear otro Usuario</a></h4>
+    <h4><a class= "boton" href="{% url 'app_med2:listar_diagnosticos' %}">Crear Diagnostico</a></h4>
+    
+
+
+
     <table class="table">
         <tr>
             <th>Id</th>
@@ -22,7 +27,8 @@
             <th>Password</th>
             <th></th>
             <th></th>
-        </tr>    
+        </tr>
+        
 
     {% for usuario in usuario_list %}
         <tr>
@@ -43,6 +49,30 @@
     {% endfor %}
     </table>
 
-    
+    <table class="table">
+        <tr>
+         
+            <th>Fecha</th>
+            <th>rutUsuario</th>
+            <th>diagnostico</th>
+            <th></th>
+            <th></th>
+        </tr>    
+
+    {% for diagnostico in diagnostico_list %}
+        <tr>
+
+            <td>{{diagnostico.fecha_diagnostico}}</td>
+            <td>{{diagnostico.fk_rutUsuario}}</td>
+            <td>{{diagnostico.diagnostico}}</td>
+            <td>
+                <a class="boton" href="{% url 'app_med2:editar_diagnostico' pk=diagnostico.rutUsuario %}"> Editar Diagnostico</a>
+            </td>
+            <td>
+                <a class="boton" href="{% url 'app_med2:eliminar_diagnostico' pk=diagnostico.rutUsuario %}"> Eliminar Diagnostico</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
 </body>
 </html>
