@@ -9,14 +9,6 @@ urlpatterns = [
 
     
     path('admin', views.admin, name='admin'),
-    path('usuario', views.usuario, name= 'usuario'),
-    path('diagnostico', views.diagnostico, name= 'diagnostico'),
-    path('perfil', views.PerBioquimico, name= 'perfil'),
-    path('hemograma', views.hemograma, name= 'hemograma'),
-    path('coagulacion', views.coagulacion, name= 'coagolacion'),
-    path('glicemia', views.glicemia, name= 'glicemia'),
-    path('orina', views.orina, name= 'orina'),
-    path('perfilLipidico', views.perfilLipidico, name= 'perfilLipidico'),
     path('base', views.base, name='base'),
     path('registroExamen',views.registroExamen, name='registroExamen'),
     path('crear_usuario/', views.CrearUsuario.as_view(), name="crear_usuario"),
