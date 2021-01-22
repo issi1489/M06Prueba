@@ -6,11 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{% url 'app_med2:eliminar_diagnosticos' pk=diagnostico.fecha_diagnostico %}" method="POST"> 
+    <form action="{% url 'app_med2:eliminar_perfillipidico' pk=perfillipidico.id_plipidico %}" method="POST"> 
         {% csrf_token %} 
-        Está seguro de eliminar el diagnostico con id = {{diagnostico.fecha_diagnostico}}? 
+        Está seguro de eliminar el examen con id = {{perfillipidico.id_plipidico}}? 
         <input type="submit" value="Sí" /> 
-        <a href="{% url 'app_med2:listar_diagnosticos' %}">Cancelar</a> 
+        <a href="{% url 'app_med2:listar_perfillipidico' %}">Cancelar</a> 
     </form> 
 </body>
 </html>

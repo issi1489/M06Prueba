@@ -69,21 +69,21 @@
             <th>ELIMINAR</th>
         </tr>    
 
-    {% for plipidico in perfillipidico_list %}
+    {% for perfillipidico in perfillipidico_list %}
         <tr>
-            <td>{{plipidico.id_plipidico}}</td>
-            <td>{{plipidico.rutUsuario_id}}</td>
-            <td>{{plipidico.fecha_plipidico}}</td>
-            <td>{{plipidico.colesterol}}</td>
-            <td>{{plipidico.colesterol_ldl}}</td>
-            <td>{{plipidico.colesterol_hdl}}</td>
-            <td>{{plipidico.trigliceridos}}</td>
-            <td>{{plipidico.observacion_plipidico}}</td>
+            <td>{{perfillipidico.id_plipidico}}</td>
+            <td>{{perfillipidico.rutUsuario_id}}</td>
+            <td>{{perfillipidico.fecha_plipidico}}</td>
+            <td>{{perfillipidico.colesterol}}</td>
+            <td>{{perfillipidico.colesterol_ldl}}</td>
+            <td>{{perfillipidico.colesterol_hdl}}</td>
+            <td>{{perfillipidico.trigliceridos}}</td>
+            <td>{{perfillipidico.observacion_plipidico}}</td>
             <td>
-                
+                <a class="boton" href="{% url 'app_med2:editar_perfillipidico' pk=perfillipidico.id_plipidico %}">Editar</a>
             </td>
             <td>
-                
+              <a class="boton" href="{% url 'app_med2:eliminar_perfillipidico' pk=perfillipidico.id_plipidico %}"> Eliminar</a>
             </td>
            
         </tr>

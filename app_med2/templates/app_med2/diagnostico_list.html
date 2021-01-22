@@ -71,10 +71,10 @@
             <td>{{diagnostico.rutUsuario_id}}</td>
             <td>{{diagnostico.diagnostico}}</td>
             <td>
-                <a class="boton" href="{% url 'app_med2:editar_diagnostico' pk=diagnostico.rutUsuario %}"> Editar Diagnostico</a>
+                <a class="boton" href="{% url 'app_med2:editar_diagnosticos' pk=diagnostico.fecha_diagnostico %}"> Editar </a>
             </td>
             <td>
-                <a class="boton" href="{% url 'app_med2:eliminar_diagnostico' pk=diagnostico.rutUsuario %}"> Eliminar Diagnostico</a>
+                <a class="boton" href="{% url 'app_med2:eliminar_diagnosticos' pk=diagnostico.fecha_diagnostico %}"> Eliminar </a>
             </td>
         </tr>
     {% endfor %}

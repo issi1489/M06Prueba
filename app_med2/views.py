@@ -152,13 +152,13 @@ class ListarDiagnostico(ListView):
     
 class UpdateDiagnostico(UpdateView):
     model=Diagnostico
-    fields='_all_'
-    success_url=reverse_lazy('app_med2:editar_diagnosticos')
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_diagnosticos')
 
 class EliminarDiagnostico(DeleteView):
     model=Diagnostico
-    fields='_all_'
-    success_url=reverse_lazy('app_med2:eliminar_diagnosticos')
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_diagnosticos')
 
 # CRUD PERFIL LIPIDICO
 class ListarPerfilLipidico(ListView):
@@ -168,13 +168,13 @@ class ListarPerfilLipidico(ListView):
     
 class UpdatePerfilLipidico(UpdateView):
     model=PerfilLipidico
-    fields='_all_'
-    success_url=reverse_lazy('app_med2:editar_perfillipidico')
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_perfillipidico')
 
 class EliminarPerfilLipidico(DeleteView):
     model=PerfilLipidico
-    fields='_all_'
-    success_url=reverse_lazy('app_med2:eliminar_perfillipidico')
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_perfillipidico')
 
 
 

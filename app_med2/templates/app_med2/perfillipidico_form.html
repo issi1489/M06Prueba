@@ -8,14 +8,14 @@
 <body>
 
     <div>
-    <h1> Editar Diagnostico </h1>
+    <h1>Perfil lipidico </h1>
     <form action="" method="post" novalidate>
         {% csrf_token %}
         <table border="1">
             {{form.as_table}}
         </table>
         <input type="submit" value="Guardar">
-        <a href="{% url 'app_med2:listar_diagnosticos' %}"><button type="button">Cancelar</button></a>
+        <a href="{% url 'app_med2:listar_perfillipidico' %}"><button type="button">Cancelar</button></a>
     </form>
     </div>
 

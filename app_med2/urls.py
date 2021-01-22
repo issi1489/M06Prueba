@@ -12,14 +12,17 @@ urlpatterns = [
 
     #path crud diagnostico
     path('listar_diagnosticos/', views.ListarDiagnostico.as_view(), name="listar_diagnosticos"),
-    path('<pk>/editar_diagnostico', views.UpdateDiagnostico.as_view(), name="editar_diagnostico"),
-    path('<pk>/eliminar_diagnostico', views.EliminarDiagnostico.as_view(), name="eliminar_diagnostico"),
+    path('<pk>/editar_diagnostico', views.UpdateDiagnostico.as_view(), name="editar_diagnosticos"),
+    path('<pk>/eliminar_diagnostico', views.EliminarDiagnostico.as_view(), name="eliminar_diagnosticos"),
     
     path('listar_usuarios/', views.ListarUsuario.as_view(), name="listar_usuarios"),
     path('<pk>/editar_usuario', views.UpdateUsuario.as_view(), name="editar_usuario"),
     path('<pk>/eliminar_usuario', views.EliminarUsuario.as_view(), name="eliminar_usuario"),
     #crud perfil lipidico
-    path('listar_perfillipidico/', views.ListarPerfilLipidico.as_view(), name="listar_usuarios"),
+    path('listar_perfillipidico/', views.ListarPerfilLipidico.as_view(), name="listar_perfillipidico"),
+    path('<pk>/editar_perfillipidico', views.UpdatePerfilLipidico.as_view(), name="editar_perfillipidico"),
+    path('<pk>/eliminar_perfillipidico', views.EliminarPerfilLipidico.as_view(), name="eliminar_perfillipidico"),
+    
 ]
 
 '''
