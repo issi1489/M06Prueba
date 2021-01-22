@@ -29,16 +29,16 @@ urlpatterns = [
 
 
     #path crud hemograma
-    path('crear_hemograma/',views.CrearDiagnostico.as_view(),  name="crear_hemograma"),
-    path('listar_hemograma/', views.ListarDiagnostico.as_view(), name="listar_hemograma"),
-    path('<pk>/editar_hemograma', views.UpdateDiagnostico.as_view(), name="editar_hemograma"),
-    path('<pk>/eliminar_hemograma', views.EliminarDiagnostico.as_view(), name="eliminar_hemograma"),
+    path('crear_hemograma/',views.CrearHemograma.as_view(),  name="crear_hemograma"),
+    path('listar_hemograma/', views.ListarHemograma.as_view(), name="listar_hemograma"),
+    path('<pk>/editar_hemograma', views.UpdateHemograma.as_view(), name="editar_hemograma"),
+    path('<pk>/eliminar_hemograma', views.EliminarHemograma.as_view(), name="eliminar_hemograma"),
 
 
     #path crud coagulacion
-    path('crear_coagulacion/',views.CrearDiagnostico.as_view(),  name="crear_coagulacion"),
-    path('listar_coagulacion/', views.ListarDiagnostico.as_view(), name="listar_coagulacion"),
-    path('<pk>/editar_coagulacion', views.UpdateDiagnostico.as_view(), name="editar_coagulacion"),
-    path('<pk>/eliminar_coagulacion', views.EliminarDiagnostico.as_view(), name="eliminar_coagulacion"),
+    path('crear_coagulacion/',views.CrearCoagulacion.as_view(),  name="crear_coagulacion"),
+    path('listar_coagulacion/', views.ListarCoagulacion.as_view(), name="listar_coagulacion"),
+    path('<pk>/editar_coagulacion', views.UpdateCoagulacion.as_view(), name="editar_coagulacion"),
+    path('<pk>/eliminar_coagulacion', views.EliminarCoagulacion.as_view(), name="eliminar_coagulacion"),
 
 ]
