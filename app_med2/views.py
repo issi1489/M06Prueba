@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from .forms import FormularioUsuario, UsuarioForms, DiagnosticoForms, PerfilBioquimicoForms, HemogramaForms
 from .forms import CoagulacionForms, GlicemiaForms, OrinaForms, PerfilLipidicoForms
+from django.template.response import TemplateResponse
 
 class ListarUsuario(ListView):
     model=Usuario
@@ -195,9 +196,18 @@ def paciente(request):
 
 # CODIGO PRUEBA 1
 
-from django.template.response import TemplateResponse
+
 
 def registroExamen(request):
+    '''
+    Función registroExamen:
+        * Carga los formularios en el template reg_examen.html es este orden:
+            | usuario | diagnostico |
+            |perfil lipidico| glicemia | coagulacion |
+            |perfil bioquimico | orina | hemograma |
+
+        * Permite insertar datos de los formularios a la BD en PostgreSQL
+    '''
     context = {
             'usuario_form': UsuarioForms(),
             'diagnostico_form': DiagnosticoForms(),
@@ -208,11 +218,9 @@ def registroExamen(request):
             'orina_form': OrinaForms(),
             'hemograma_form': HemogramaForms()
         }
-    
-        
+            
     if request.method == 'POST':
         
-
         usuario_form = UsuarioForms(request.POST)
         diagnostico_form = DiagnosticoForms(request.POST)
         lipidico_form = PerfilLipidicoForms(request.POST)
@@ -221,7 +229,6 @@ def registroExamen(request):
         bioquimico_form = PerfilBioquimicoForms(request.POST)
         orina_form = OrinaForms(request.POST)
         hemograma_form = HemogramaForms(request.POST)
-
 
         if usuario_form.is_valid():
             usuario_form.save()
@@ -281,56 +288,3 @@ def registroExamen(request):
         }
 
     return TemplateResponse(request, 'app_med2/agregar/reg_examen.html', context)
-    '''
-    if request.method == 'POST':
-
-        usuario_form = UsuarioForms(request.POST)
-        diagnostico_form = DiagnosticoForms(request.POST)
-        lipidico_form = PerfilLipidicoForms(request.POST)
-        glicemia_form = GlicemiaForms(request.POST)
-        coagulacion_form = CoagulacionForms(request.POST)
-        bioquimico_form = PerfilBioquimicoForms(request.POST)
-        orina_form = OrinaForms(request.POST)
-        hemograma_form = HemogramaForms(request.POST)
-
-
-        if usuario_form.is_valid() or diagnostico_form.is_valid() or lipidico_form.is_valid() or glicemia_form.is_valid() or coagulacion_form.is_valid() or bioquimico_form.is_valid() or orina_form.is_valid() or hemograma_form.is_valid():
-
-            usuario_form.save()
-            diagnostico_form.save()
-            lipidico_form.save()
-            glicemia_form.save()
-            coagulacion_form.save()
-            bioquimico_form.save()
-            orina_form.save()
-            hemograma_form.save()
-            #return HttpResponseRedirect('/success')        
-
-        else:
-            context = {
-                'usuario_form': usuario_form,
-                'diagnostico_form': diagnostico_form,
-                'lipidico_form': lipidico_form,
-                'glicemia_form': glicemia_form,
-                'coagulacion_form': coagulacion_form,
-                'bioquimico_form': bioquimico_form,
-                'orina_form': orina_form,
-                'hemograma_form': hemograma_form
-
-            }
-
-    else:
-        context = {
-            'usuario_form': UsuarioForms(),
-            'diagnostico_form': DiagnosticoForms(),
-            'lipidico_form': PerfilLipidicoForms(),
-            'glicemia_form': GlicemiaForms(),
-            'coagulacion_form': CoagulacionForms(),
-            'bioquimico_form': PerfilBioquimicoForms(),
-            'orina_form': OrinaForms(),
-            'hemograma_form': HemogramaForms()
-        }
-    '''
-    
-
-
