@@ -124,7 +124,22 @@ def gestionRegistro(request):
 
 # Vista paciente
 def paciente(request):
-    return render(request,'../templates/app_med2/paciente.html')
+
+    datos_us = Usuario.objects.filter(rutUsuario='17684562-7')
+    diagnostico_us = Diagnostico.objects.filter(rutUsuario='17684562-7')
+    pBioquimico_us = PerfilBioquimico.objects.filter(rutUsuario='17684562-7')
+    hemograma_us = Hemograma.objects.filter(rutUsuario='17684562-7')
+    coagulacion_us = Coagulacion.objects.filter(rutUsuario='17684562-7')
+    glicemia_us = Glicemia.objects.filter(rutUsuario='17684562-7')
+    orina_us = Orina.objects.filter(rutUsuario='17684562-7')
+    pLipidico_us = PerfilLipidico.objects.filter(rutUsuario='17684562-7')
+
+    context = {'datos':datos_us,'diagnostico':diagnostico_us,
+                'pBioquimico':pBioquimico_us, 'hemograma':hemograma_us,
+                'coagulacion':coagulacion_us, 'glicemia':glicemia_us,
+                'orina':orina_us, 'pLipidico':pLipidico_us}
+
+    return render(request,'../templates/app_med2/paciente.html',context)
 
 #----------------------------------- CRUDS ---------------------------------
 
