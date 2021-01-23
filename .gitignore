@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> e4bfd58af289747fea4cbbb520b1e0019924d95b
 venv*
 *~
 *pyc
 *.log
 __pycache__*
 db.sqlite*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> e4bfd58af289747fea4cbbb520b1e0019924d95b
->>>>>>> ad4bfbe6620d20801b9f314fe8941a0f0391e518
+vscode*
+*vscode
+vscode

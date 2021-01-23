@@ -1,5 +1,4 @@
 from django.db import models
-#acceder a rutUsuario con rutUsuario_id
 from django.db.models.fields import BooleanField, CharField
 from django.core import validators
 from django.forms.formsets import ORDERING_FIELD_NAME
@@ -65,7 +64,7 @@ class Diagnostico(models.Model):
 class PerfilBioquimico(models.Model):
 
     #pk
-    id_pbioquimico = models.AutoField(primary_key=True,default=None)
+    id_pbioquimico = models.AutoField(primary_key=True,default=None, )
     #fk
     rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
@@ -90,7 +89,7 @@ class PerfilBioquimico(models.Model):
 class Hemograma(models.Model):
 
     #pk
-    id_hemograma = models.AutoField(primary_key=True,default=None)
+    id_hemograma = models.AutoField(primary_key=True,default=None, )
     #fk
     rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
@@ -123,7 +122,7 @@ class Coagulacion(models.Model):
 class Glicemia(models.Model):
      
     #pk
-    id_glicemia = models.AutoField(primary_key=True,default=None)
+    id_glicemia = models.AutoField(primary_key=True,default=None, )
     #fk
     rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
@@ -137,7 +136,7 @@ class Glicemia(models.Model):
 class Orina(models.Model):
 
     #pk
-    id_orina = models.AutoField(primary_key=True,default=None)
+    id_orina = models.AutoField(primary_key=True,default=None, )
     #fk
     rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
@@ -155,7 +154,7 @@ class Orina(models.Model):
 class PerfilLipidico(models.Model):
 
     #pk
-    id_plipidico = models.AutoField(primary_key=True,default=None)
+    id_plipidico = models.AutoField(primary_key=True,default=None, )
     #fk
     rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
