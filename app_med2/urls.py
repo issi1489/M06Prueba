@@ -1,8 +1,12 @@
 from django.urls import path
-from . import views
+from .import views
 
 app_name = 'app_med2'
 urlpatterns = [
+
+    # url formulario login
+    path('login/', views.user_login, name="login"),
+
     path('', views.home, name='home'),
     path('admin/', views.admin, name='admin'),
     path('paciente/', views.paciente, name= 'paciente'),

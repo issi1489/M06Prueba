@@ -1,0 +1,39 @@
+{% extends'app_med2/home.html' %}
+
+{% block top_title %}
+    <h2 class="text-center">Login</h2>
+{% endblock %}
+
+{% block form_include %}
+    <div class="row">
+        <div class="col-md-12 text-center">
+        <p>Por favor, utilice el siguiente formulariopara ingresar:</p>              
+    </div>
+    </div>
+        <form action="." method="post">
+            {% csrf_token %}
+            <div class="row">           
+                <div class="col-md-6 text-right">
+                    {{ form.nombre_usuario.label }}:
+                </div>
+                <div class="col-md-6 text-left">
+                    {{ form.nombre_usuario }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-right">
+                    {{ form.password.label }}:
+                </div>
+                <div class="col-md-6 text-left">
+                    {{ form.password }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center" style="margin-top:1rem;">
+                    <p>
+                        <input type="submit" value="Ingresar">
+                    </p>
+                </div>
+            </div>
+        </form>
+{% endblock %

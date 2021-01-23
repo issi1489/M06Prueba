@@ -3,6 +3,22 @@ from django.forms import widgets
 from .models import *
 
 
+#### Formulario login 
+
+class LoginForm(forms.Form):
+    usuario = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
+
+
+
+
+
+
+
+
+
+
+
 
 
 class FormularioUsuario(forms.ModelForm):

@@ -6,6 +6,37 @@ from django.views.generic import ListView
 from .forms import FormularioUsuario, UsuarioForms, DiagnosticoForms, PerfilBioquimicoForms, HemogramaForms
 from .forms import CoagulacionForms, GlicemiaForms, OrinaForms, PerfilLipidicoForms
 
+######### Import para Formulario login
+from django.http import HttpResponse
+from django.contrib.auth import authenticate, login
+from .forms import LoginForm
+##################
+
+def user_login(request):
+    ''' Funcion para formulario Login '''
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            usuario = authenticate(request,
+                                    username=cd['nombre_usuario'],
+                                    password=cd['password'])
+            if usuario is not None:
+                if usuario.is_active:
+                    login(request, usuario)
+                    return HttpResponse('Autenticado exitosamente')
+                else:
+                    return HttpResponse('Cuenta deshabilitada')
+            else:
+                return HttpResponse('Login inválido')
+        else:  
+            form = LoginForm()
+            return render(request,
+                        'app_med2/login.html',
+                         {'form': form})
+
+
+
 class ListarUsuario(ListView):
     model=Usuario
     fields='__all__'
