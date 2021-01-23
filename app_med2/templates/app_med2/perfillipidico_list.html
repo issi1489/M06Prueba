@@ -1,20 +1,4 @@
 {% load static %}
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'app_med2/css/med_style.css' %}">
-</head>
-<body>
-
-    
-    <h2> Diagnosticos</h2>
-    <h4><a class= "boton" href="{% url 'app_med2:crear_diagnostico' %}">Crear Diagnostico</a></h4>
-
-=======
 <!doctype html>
 <html lang="es">
   <head>
@@ -66,48 +50,42 @@
         </div>
         <div class="col-sm-8">
           <!-- datos personales-->
-          <p style="font-size: xx-large; padding: 9%;">Listado Actualizado de Diagnosticos</p>
+          <p style="font-size: xx-large; padding: 9%;">Listado actualizado de Examen Perfil Lipidico</p>
         </div>
     </div>
     <!-- fin  Bienvenida: foto, texto, datos usuario admin-->
->>>>>>> 6735ab1b4e5029bac9c5b61f891910a5d258ab79
     <table class="table">
         <tr>
-         
-            <th>Fecha</th>
+
+            <th>Id</th>
             <th>rutUsuario</th>
-            <th>diagnostico</th>
-<<<<<<< HEAD
-            <th></th>
-            <th></th>
-=======
+            <th>fecha</th>
+            <th>colesterol total</th>
+            <th>ldh</th>
+            <th>hdl</th>
+            <th>trigliceridos</th>
+            <th>observacion</th>
             <th>EDITAR</th>
             <th>ELIMINAR</th>
->>>>>>> 6735ab1b4e5029bac9c5b61f891910a5d258ab79
         </tr>    
 
-    {% for diagnostico in diagnostico_list %}
+    {% for perfillipidico in perfillipidico_list %}
         <tr>
-
-            <td>{{diagnostico.fecha_diagnostico}}</td>
-<<<<<<< HEAD
-            <td>{{diagnostico.fk_rutUsuario}}</td>
-            <td>{{diagnostico.diagnostico}}</td>
+            <td>{{perfillipidico.id_plipidico}}</td>
+            <td>{{perfillipidico.rutUsuario_id}}</td>
+            <td>{{perfillipidico.fecha_plipidico}}</td>
+            <td>{{perfillipidico.colesterol}}</td>
+            <td>{{perfillipidico.colesterol_ldl}}</td>
+            <td>{{perfillipidico.colesterol_hdl}}</td>
+            <td>{{perfillipidico.trigliceridos}}</td>
+            <td>{{perfillipidico.observacion_plipidico}}</td>
             <td>
-                <a class="boton" href="{% url 'app_med2:editar_diagnostico' pk=diagnostico.fk_rutUsuario %}"> Editar Diagnostico</a>
+                <a class="boton" href="{% url 'app_med2:editar_perfillipidico' pk=perfillipidico.id_plipidico %}">Editar</a>
             </td>
             <td>
-                <a class="boton" href="{% url 'app_med2:eliminar_diagnostico' pk=diagnostico.fk_rutUsuario %}"> Eliminar Diagnostico</a>
-=======
-            <td>{{diagnostico.rutUsuario_id}}</td>
-            <td>{{diagnostico.diagnostico}}</td>
-            <td>
-                <a class="boton" href="{% url 'app_med2:editar_diagnosticos' pk=diagnostico.fecha_diagnostico %}"> Editar </a>
+              <a class="boton" href="{% url 'app_med2:eliminar_perfillipidico' pk=perfillipidico.id_plipidico %}"> Eliminar</a>
             </td>
-            <td>
-                <a class="boton" href="{% url 'app_med2:eliminar_diagnosticos' pk=diagnostico.fecha_diagnostico %}"> Eliminar </a>
->>>>>>> 6735ab1b4e5029bac9c5b61f891910a5d258ab79
-            </td>
+           
         </tr>
     {% endfor %}
     </table>

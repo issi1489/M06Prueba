@@ -1,206 +1,77 @@
-{% load static%}
+{% load static %}
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Ficha Paciente</title>
-      <link rel="shortcut icon" href="#" />
+    <head>
 
-      <!-- BOOTSTRAP -->
-      <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous">
-      <link rel="stylesheet" href="../static/css/med_style.css">
-      <link 
-      rel="stylesheet" 
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
-      crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One" 
-        rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/style.css">
+        <title>Medical Services App.</title>
+        <meta charset="utf-8">
+        <meta name="viewport" 
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Loading Bootstrap CSS -->
+        <link 
+        rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+        crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Poiret+One" 
+            rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../static/app_med2/css/med_style.css">
     
+    </head>
 
-      
-  </head>
-
-  <body>
-
-    <!-- Navigation Bar (Paciente) -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <a class="navbar-brand" href="index.html">Medical Services App.</a>
-  
-        <!-- Navigation Bar Hamburger-->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navigation"
-          aria-expanded="false"
-          aria-controls="navigation" 
-          aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- End Navigation Bar Hamburger -->
-  
-        <!-- Navigation Links -->
-        <div class="collapse navbar-collapse" id="navigation">
-           <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a
-                  class="nav-link scroll-trigger" 
-                  href="index.html#compromiso">
-                    Nuestro compromiso
-                </a>
-              </li>
-              <li class="nav-item">
-                <a 
-                  class="nav-link scroll-trigger" 
-                  href="index.html#noticias">
-                    Noticias
-                </a>
-              </li>
-              <li class="nav-item">
-                <a 
-                  class="nav-link scroll-trigger" 
-                  href="index.html#proveedores">
-                    Proveedores
-                </a>
-              </li>
-
-              <!--MENU PORTAL INTERNO-->
-              <li class="nav-item dropdown">
-                <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    data-toggle="dropdown"
-                    role="button"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-                        Perfil <span class="caret"></span>
-                </a>
+    <body>
+    
+        <!-- inicio barra navegacion-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <a class="navbar-brand" href="#">Medical Services App.</a>
                 
-                <div class="dropdown-menu dropdown-menu-right">
-                    <!-- -->
-                    <a 
-                      class="dropdown-item scroll-trigger"
-                      href="privada_paciente.html">
-                        Ficha Paciente
-                    </a>
-                    <!-- -->
-                    <a 
-                      class="dropdown-item scroll-trigger"
-                      href="citas_medicas.html">
-                        Citas Médicas
-                    </a>
-                    <!-- -->
-                    <a 
-                      class="dropdown-item scroll-trigger"
-                      href="historial_medico.html">
-                        Historial Médico
-                    </a>
-                    <!-- -->
-                    <a 
-                      class="dropdown-item scroll-trigger"
-                      href="usuarios.html">
-                        Usuarios Autorizados
-                    </a>
-                    <!-- -->
-                    <a 
-                    class="dropdown-item scroll-trigger"
-                    href="perfil.html">
-                      Perfil
-                    </a>
-                    <!--LOGOUT-->
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item scroll-trigger" href="index.html">
-                        Logout
-                    </a>
-                </div>
-              </li>
-          </ul>
-           
-        </div>
-        <!-- Navigation Links -->
-    </nav>
-    <!-- End Navigation Bar (Paciente)-->
-    
+            <div class="col-sm-12 col-md-6">
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                <a class="nav-link scroll-trigger" href="/">INICIO</a>
+                </li>
+            </ul>
+            </div> 
+        </nav>
+        <!-- fin barra navegacion-->
+
     <br>
     <br>
-
-    <!-- DATOS DIAGNOSTICOS -->
-    <div class="row">
-        <div class="col-sm-12">
-            <table>
-
-                <td>fecha_diagnostico</td><td>rutUsuario</td><td>diagnostico</td>
-                {{diagnostico}}
-                {% for d in diagnostico.all %}
-          
-                    {% if d.rutUsuario= '17684562-7' %}
-                 <br>
-                  <p > {{ d.fecha_diagnostico}}</p>
-                  <p > {{ d.rutUsuario}}</p>
-                  <p > {{ d.diagnostico}}</p>
-                    {% endif %}
-                <hr>
-             
-                {% endfor %}      
-        </div>
-    </div>
-
-
-
-
-
-
-
-    <!-- Combobox para cambiar la vista de cada usuario-->
-    <div class="row">
-        <div class="col-sm-9"></div><div class="col-sm-3">
-            <form action="" method="POST">
-                {% csrf_token %}
-                <table>
-                    {{form_rut}}
-                </table>
-                <input type="submit" value="Agregar">
-            </form>
-        </div>
-    </div>
-    
-
-
-
-
     <!-- BODY PERFIL USUARIO -->
     <div class="card col-sm-12">
       <!--información del usuario-->
         <div class="container">
           <!--imagen-->
-            <div class="row">
-                <div class="col-sm-3">
-                    
-                    
-                    <img class="img-fluid" src="{% static '{{img_src}}'' %}" alt="Generic placeholder  image", style="border-radius: 60%; width: 60%;">
-                </div>
-                <div class="col-sm-3">
-                    <ul>
-                        <li>Nombre: {{nombre_us}}</li>
-                        <li>Edad: {{edad_us}}</li>
-                        <li>Dirección: {{direccion_us}}</li>
-                    </ul>
-                </div>
-
-                <div class="col-sm-6">
-                    <p style="font-size: xx-large; padding: 9%;">Bienvenid@ {{nombre_us}} !</p>
-                </div>
+            <!-- inicio  Bienvenida: foto, texto, datos usuario admin-->
+        <div class="row">
+            <div class="col-sm-2">
+            <!--foto -->
+            <img class="img-fluid" src="{% static '../static/app_med2/img/foto_perfil_medico.jpg' %}" alt="Generic placeholder  image", style="border-radius: 85%; width: 85%;">
             </div>
+            <div class="col-sm-4">
+            <!-- datos personales-->
+            <p style="font-size: xx-large; padding: 9%;">Bienvenid@ {{nombre_us}} !</p>
+              
+            </div>
+            <div class="col-sm-6">
+                {% for values in datos %} 
+                    <ul> 
+                        <li>Rut: {{values.rutUsuario}}</li>
+                        <li>nombre: {{values.nombre}}</li>
+                        <li>edad: {{values.edad}}</li>
+                        <li>direccion: {{values.direccion}}</li>
+                        <li>usuario: {{values.usuario}}</li>
+                        <li>password: {{values.password}}</li>
+                    </ul> 
+                {% endfor %}
+            </div>
+        </div>
+        <!-- fin  Bienvenida: foto, texto, datos usuario admin-->
         </div> 
     </div>
 
+    
     <!-- DATOS EXÁMENES -->
 
     <!--[Contenedor botones para seleccionar el exámen]-->
@@ -354,14 +225,14 @@
                 <div class="row">
                     <table>
                     <td>rut</td><td>fecha</td><td>Tiempo_protrombina</td><td>Porc_Protrombina</td><td>Observaciones</td>                  
-                    {% for values in coag_rut%}   
+                    {% for values in coagulacion%}   
                         <tr>    
-                            <td>rut_paciente</td>
-                            <td>{{values.fecha}}</td>
-                            <td>{{values.Tiempo_protrombina}}</td>
-                            <td>{{values.Porc_Protrombina}}</td>
-                            <td>{{values.Observaciones}}</td>
-                            <td><a href="">Eliminar</a></td>
+                            <td>{{values.rutUsuario}}</td>
+                            <td>{{values.fecha_coagulacion}}</td>
+                            <td>{{values.tiempo_protrombina}}</td>
+                            <td>{{values.porc_protrombina}}</td>
+                            <td>{{values.observaciones_coagulacion}}</td>
+                            
                         </tr>
                     {% endfor %}
                     </table>

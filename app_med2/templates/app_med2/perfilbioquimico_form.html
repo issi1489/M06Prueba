@@ -6,13 +6,19 @@
     <title>Document</title>
 </head>
 <body>
+
+    <div>
+    <h1>Glicemia</h1>
     <form action="" method="post" novalidate>
         {% csrf_token %}
         <table border="1">
             {{form.as_table}}
         </table>
         <input type="submit" value="Guardar">
-        <a href="{% url 'app_med2:listar_usuarios' %}"><button type="button">Cancelar</button></a>
+        <a href="{% url 'app_med2:listar_perfilbioquimico' %}"><button type="button">Cancelar</button></a>
     </form>
+    </div>
+
+id_pbioquimico
 </body>
 </html>

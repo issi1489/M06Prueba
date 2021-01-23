@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen de Orina</title>
+</head>
+<body>
+    <form action="{% url 'app_med2:eliminar_orina' pk=orina.id_orina %}" method="POST"> 
+        {% csrf_token %} 
+        Está seguro de eliminar el examen con id = {{orina.id_orina}}? 
+        <input type="submit" value="Sí" /> 
+        <a href="{% url 'app_med2:listar_orina' %}">Cancelar</a> 
+    </form> 
+</body>
+</html>

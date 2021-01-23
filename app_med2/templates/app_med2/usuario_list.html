@@ -1,30 +1,75 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'app_med2/css/med_style.css' %}">
-</head>
-<body>
-    <h2>Listado Actualizado de Nuestros Usuarios</h2>
-    <h4><a class= "boton" href="{% url 'app_med2:crear_usuario' %}">Crear otro Usuario</a></h4>
-    <table class="table">
-        <tr>
-            <th>Id</th>
-            <th>Rut</th>
-            <th>Nombre</th>
-            <th>Edad</th>
-            <th>Direccion</th>
-            <th>Staff</th>
-            <th>Usuario</th>
-            <th>Password</th>
-            <th></th>
-            <th></th>
-        </tr>    
+<!doctype html>
+<html lang="es">
+  <head>
 
-    {% for usuario in usuario_list %}
+      <title>Medical Services App.</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Loading Bootstrap CSS -->
+      <link 
+      rel="stylesheet" 
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+      crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="../static/app_med2/css/med_style.css">
+    
+  </head>
+
+  <body>
+    
+    <!-- inicio barra navegacion-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <a class="navbar-brand" href="#">Medical Services App.</a>
+                
+      <div class="col-sm-12 col-md-6">
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+            <a class="nav-link scroll-trigger" href="/">INICIO</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link scroll-trigger" href="/nuevosRegistros">NUEVOS REGISTROS</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link scroll-trigger" href="/gestionarRegistros">GESTIONAR REGISTROS</a>
+            </li>
+        </ul>
+      </div> 
+    </nav>
+    <!-- fin barra navegacion-->
+
+    <br><br><br>
+        
+    <!-- inicio  Bienvenida: foto, texto, datos usuario admin-->
+    <div class="row">
+        <div class="col-sm-2">
+          <!--foto -->
+          <img class="img-fluid" src="{% static '../static/app_med2/img/adminIcon.png' %}" alt="Generic placeholder  image", style="border-radius: 85%; width: 85%;">
+        </div>
+        <div class="col-sm-8">
+          <!-- datos personales-->
+          <p style="font-size: xx-large; padding: 9%;">Listado Actualizado de Nuestros Usuarios</p>
+        </div>
+    </div>
+    <!-- fin  Bienvenida: foto, texto, datos usuario admin-->
+
+    <table class="table">
+      <tr>
+        <th>Rut</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Direccion</th>
+        <th>Staff</th>
+        <th>Usuario</th>
+        <th>Password</th>
+        <th>EDITAR</th>
+        <th>ELIMINAR</th>
+      </tr>
+        
+
+      {% for usuario in usuario_list %}
         <tr>
             <td>{{usuario.rutUsuario}}</td>
             <td>{{usuario.nombre}}</td>
@@ -40,8 +85,14 @@
                 <a class="boton" href="{% url 'app_med2:eliminar_usuario' pk=usuario.rutUsuario %}"> Eliminar</a>
             </td>
         </tr>
+<<<<<<< HEAD
     {% endfor %}
     </table>
     
 </body>
+=======
+      {% endfor %}
+    </table> 
+  </body>
+>>>>>>> 6735ab1b4e5029bac9c5b61f891910a5d258ab79
 </html>

@@ -1,20 +1,4 @@
 {% load static %}
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'app_med2/css/med_style.css' %}">
-</head>
-<body>
-
-    
-    <h2> Diagnosticos</h2>
-    <h4><a class= "boton" href="{% url 'app_med2:crear_diagnostico' %}">Crear Diagnostico</a></h4>
-
-=======
 <!doctype html>
 <html lang="es">
   <head>
@@ -66,52 +50,52 @@
         </div>
         <div class="col-sm-8">
           <!-- datos personales-->
-          <p style="font-size: xx-large; padding: 9%;">Listado Actualizado de Diagnosticos</p>
+          <p style="font-size: xx-large; padding: 9%;">Listado actualizado de Examen Coagulacion</p>
         </div>
     </div>
     <!-- fin  Bienvenida: foto, texto, datos usuario admin-->
->>>>>>> 6735ab1b4e5029bac9c5b61f891910a5d258ab79
     <table class="table">
-        <tr>
-         
-            <th>Fecha</th>
-            <th>rutUsuario</th>
-            <th>diagnostico</th>
-<<<<<<< HEAD
-            <th></th>
-            <th></th>
-=======
-            <th>EDITAR</th>
-            <th>ELIMINAR</th>
->>>>>>> 6735ab1b4e5029bac9c5b61f891910a5d258ab79
-        </tr>    
+      <tr>
+       
+          <th>id</th>
+          <th>rut</th>
+          <th>fecha</th>
+          <th>eritrocitos</th>
+          <th>leucocitos</th>
+          <th>hemoglobina</th>
+          <th>hematocrito</th>
+          <th>vcm</th>
+          <th>chcm</th>
+          <th>plaquetas</th>
+          <th>observaciones</th>
+          <th>EDITAR</th>
+          <th>ELIMINAR</th>
+      </tr>    
 
-    {% for diagnostico in diagnostico_list %}
-        <tr>
+  {% for hemograma in hemograma_list %}
+      <tr>
 
-            <td>{{diagnostico.fecha_diagnostico}}</td>
-<<<<<<< HEAD
-            <td>{{diagnostico.fk_rutUsuario}}</td>
-            <td>{{diagnostico.diagnostico}}</td>
-            <td>
-                <a class="boton" href="{% url 'app_med2:editar_diagnostico' pk=diagnostico.fk_rutUsuario %}"> Editar Diagnostico</a>
-            </td>
-            <td>
-                <a class="boton" href="{% url 'app_med2:eliminar_diagnostico' pk=diagnostico.fk_rutUsuario %}"> Eliminar Diagnostico</a>
-=======
-            <td>{{diagnostico.rutUsuario_id}}</td>
-            <td>{{diagnostico.diagnostico}}</td>
-            <td>
-                <a class="boton" href="{% url 'app_med2:editar_diagnosticos' pk=diagnostico.fecha_diagnostico %}"> Editar </a>
-            </td>
-            <td>
-                <a class="boton" href="{% url 'app_med2:eliminar_diagnosticos' pk=diagnostico.fecha_diagnostico %}"> Eliminar </a>
->>>>>>> 6735ab1b4e5029bac9c5b61f891910a5d258ab79
-            </td>
-        </tr>
-    {% endfor %}
-    </table>
-    
+          <td>{{hemograma.id_hemograma}}</td>
+          <td>{{hemograma.rutUsuario_id}}</td>
+          <td>{{hemograma.fecha_hemograma}}</td>
+          <td>{{hemograma.nombre_hemograma}}</td>
+          <td>{{hemograma.eritrocito}}</td>
+          <td>{{hemograma.leucocitos}}</td>
+          <td>{{hemograma.hemoglobina}}</td>
+          <td>{{hemograma.hematocrito}}</td>
+          <td>{{hemograma.vcm}}</td>
+          <td>{{hemograma.chcm}}</td>
+          <td>{{hemograma.plaquetas}}</td>
+          <td>{{hemograma.observaciones_hemograma}}</td>
+          <td>
+              <a class="boton" href="{% url 'app_med2:editar_hemograma' pk=hemograma.id_hemograma %}"> Editar</a>
+          </td>
+          <td>
+              <a class="boton" href="{% url 'app_med2:eliminar_hemograma' pk=hemograma.id_hemograma %}"> Eliminar</a>
+          </td>
+      </tr>
+  {% endfor %}
+  </table>
     
     
 </body>

@@ -1,20 +1,4 @@
 {% load static %}
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'app_med2/css/med_style.css' %}">
-</head>
-<body>
-
-    
-    <h2> Diagnosticos</h2>
-    <h4><a class= "boton" href="{% url 'app_med2:crear_diagnostico' %}">Crear Diagnostico</a></h4>
-
-=======
 <!doctype html>
 <html lang="es">
   <head>
@@ -66,48 +50,60 @@
         </div>
         <div class="col-sm-8">
           <!-- datos personales-->
-          <p style="font-size: xx-large; padding: 9%;">Listado Actualizado de Diagnosticos</p>
+          <p style="font-size: xx-large; padding: 9%;">Listado actualizado de Examen Perfil Bioquimico</p>
         </div>
     </div>
     <!-- fin  Bienvenida: foto, texto, datos usuario admin-->
->>>>>>> 6735ab1b4e5029bac9c5b61f891910a5d258ab79
     <table class="table">
         <tr>
-         
+
+            <th>Id</th>
+            <th>RutUsuario</th>
             <th>Fecha</th>
-            <th>rutUsuario</th>
-            <th>diagnostico</th>
-<<<<<<< HEAD
-            <th></th>
-            <th></th>
-=======
+            <th>glucosa</th>
+            <th>nitrogeno ureico</th>
+            <th>calcio</th>
+            <th>fosforo</th>
+            <th>proteinas totales</th>
+            <th>albumina</th>
+            <th>colesterol total</th>
+            <th>acido urico</th>
+            <th>fosfatas alcalinas</th>
+            <th>bilirrubina total</th>
+            <th>ldh</th>
+            <th>got ast</th>
+            <th>creatinina</th>
+            <th>observaciones</th>
             <th>EDITAR</th>
             <th>ELIMINAR</th>
->>>>>>> 6735ab1b4e5029bac9c5b61f891910a5d258ab79
         </tr>    
 
-    {% for diagnostico in diagnostico_list %}
+    {% for perfilbioquimico in perfilbioquimico_list %}
         <tr>
-
-            <td>{{diagnostico.fecha_diagnostico}}</td>
-<<<<<<< HEAD
-            <td>{{diagnostico.fk_rutUsuario}}</td>
-            <td>{{diagnostico.diagnostico}}</td>
+            <td>{{perfilbioquimico.id_pbioquimico}}</td>
+            <td>{{perfilbioquimico.rutUsuario_id}}</td>
+            <td>{{perfilbioquimico.fecha_pbioquimico}}</td>
+            <td>{{perfilbioquimico.glucosa}}</td>
+            <td>{{perfilbioquimico.nitrogeno_ureico}}</td>
+            <td>{{perfilbioquimico.calcio}}</td>
+            <td>{{perfilbioquimico.fosforo}}</td>
+            <td>{{perfilbioquimico.proteinas_totales}}</td>
+            <td>{{perfilbioquimico.albumina}}</td>
+            <td>{{perfilbioquimico.colesterol_total}}</td>
+            <td>{{perfilbioquimico.acido_urico}}</td>
+            <td>{{perfilbioquimico.fosfatas_alcalinas}}</td>
+            <td>{{perfilbioquimico.bilirrubina_total}}</td>
+            <td>{{perfilbioquimico.ldh}}</td>
+            <td>{{perfilbioquimico.got_ast}}</td>
+            <td>{{perfilbioquimico.creatinina}}</td>
+            <td>{{perfilbioquimico.observaciones_pbioquimico}}</td>
             <td>
-                <a class="boton" href="{% url 'app_med2:editar_diagnostico' pk=diagnostico.fk_rutUsuario %}"> Editar Diagnostico</a>
+                <a class="boton" href="{% url 'app_med2:editar_perfilbioquimico' pk=perfilbioquimico.id_pbioquimico %}">Editar</a>
             </td>
             <td>
-                <a class="boton" href="{% url 'app_med2:eliminar_diagnostico' pk=diagnostico.fk_rutUsuario %}"> Eliminar Diagnostico</a>
-=======
-            <td>{{diagnostico.rutUsuario_id}}</td>
-            <td>{{diagnostico.diagnostico}}</td>
-            <td>
-                <a class="boton" href="{% url 'app_med2:editar_diagnosticos' pk=diagnostico.fecha_diagnostico %}"> Editar </a>
+              <a class="boton" href="{% url 'app_med2:eliminar_perfilbioquimico' pk=perfilbioquimico.id_pbioquimico %}"> Eliminar</a>
             </td>
-            <td>
-                <a class="boton" href="{% url 'app_med2:eliminar_diagnosticos' pk=diagnostico.fecha_diagnostico %}"> Eliminar </a>
->>>>>>> 6735ab1b4e5029bac9c5b61f891910a5d258ab79
-            </td>
+           
         </tr>
     {% endfor %}
     </table>

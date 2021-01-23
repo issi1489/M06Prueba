@@ -6,11 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{% url 'app_med2:eliminar_usuario' pk=usuario.rutUsuario %}" method="POST"> 
+    <form action="{% url 'app_med2:eliminar_glicemia' pk=glicemia.id_glicemia %}" method="POST"> 
         {% csrf_token %} 
-        Está seguro de eliminar el usuario con id = {{usuario.rutUsuario}}? 
+        Está seguro de eliminar el examen con id = {{glicemia.id_glicemia}}? 
         <input type="submit" value="Sí" /> 
-        <a href="{% url 'app_med2:listar_usuarios' %}">Cancelar</a> 
+        <a href="{% url 'app_med2:listar_glicemia' %}">Cancelar</a> 
     </form> 
 </body>
 </html>
