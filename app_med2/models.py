@@ -1,14 +1,13 @@
 from django.db import models
 #acceder a rutUsuario con rutUsuario_id
-from django.db.models.fields import BooleanField, CharField
-from django.core import validators
+
 
 
 
 
 class Usuario(models.Model):
     #pk
-    rutUsuario = models.CharField(max_length=10, primary_key=True, default=None)
+    rutUsuario = models.CharField(max_length=15, primary_key=True, default=None)
     #atributos
     nombre = models.CharField(max_length=45)
     edad = models.IntegerField( )
@@ -22,12 +21,12 @@ class Usuario(models.Model):
 
 class Diagnostico(models.Model):
     #pk
-    fecha_diagnostico = models.DateField(primary_key=True, default=None)
+    
     #fk
-    rutUsuario = models.ForeignKey(Usuario,on_delete=models.CASCADE, default=None)
+    rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
     diagnostico = models.CharField(max_length=100)
-    fecha_diagnostico = models.DateTimeField(primary_key=True, default=None)
+    
 
 
 class PerfilBioquimico(models.Model):

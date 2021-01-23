@@ -1,12 +1,10 @@
 from django.shortcuts import render
 from .forms import *
+from .models import *
 
 
 
 
-def base(request):
-
-    return render(request, 'app_med2/agregar/base.html')
 
 def admin(request):
 
@@ -167,9 +165,30 @@ def home(request):
 def paciente(request):
     return render(request,'../templates/app_med2/paciente.html')
 
+def informacion(request):
+    data ={
+            
+            'diagnostico': DiagnosticoForms(), 'usuario':UsuarioForms()
+    }
+    if request.method == 'POST':
+        formulario =  UsuarioForms(data=request.POST, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "info guardada"
+        else:
+            data["usuario"] = formulario
+    
+    if request.method == 'POST':
+        formulario =  DiagnosticoForms(data=request.POST, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "info guardada"
+        else:
+            data["diagnostico"] = formulario
 
+    return render(request, 'app_med2/agregar/reg_examen.html', data)
 # NO TOCAR DE AQUI EN ADELANTE!
-
+'''
 def registroExamen(request, template="pruebas_forms.html"):
     """
     Handle Multiple <form></form> elements
@@ -244,6 +263,19 @@ def registroExamen(request, template="pruebas_forms.html"):
                 formulario.save()
                 data["mensaje"] = "contacto guardado"
             else:
-                data["usuario"] = formulario    
+                data["usuario"] = formulario 
+        
+                
+    return render(request, 'app_med2/agregar/reg_examen.html', data)'''
 
-    return render(request, 'app_med2/agregar/reg_examen.html', data)
+
+def producto(request):
+    nombres = Usuario.objects.all()  
+    diagnostico = Diagnostico.objects.all()
+
+    data ={
+        "nombres" : nombres,
+        "diagnostico": diagnostico
+    }
+    return render(request, 'app_med2/agregar/hemograma_form.html', data)
+

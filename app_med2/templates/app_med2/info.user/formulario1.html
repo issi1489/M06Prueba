@@ -93,3 +93,192 @@
   </script>
 </body>
 </html>
+
+
+<!--
+  <h1>Diagnostico</h1>
+  <table id="customers">
+      <tr>
+          <th>Fecha Diagnostico</th>
+          <th>Rut Usario</th>
+          <th>Diagnostico</th>
+          
+      </tr>
+      
+      {% for i in diagnostico %}
+      <tr>
+          <td>{{ i.Fecha_Diagnostico | title }}</td>
+          <td>{{ i.Rut_usario | title}}</td>
+          <td>{{ i.Diagnostico | title}}</td>
+  
+      </tr>
+        
+      {% endfor %}
+  </table>-->
+
+<!--
+    <h1> Perfil Bioquimico </h1>
+    <table id="customers" >
+        <tr >
+            <th>id_pbioquimico</th>
+            <th>rutUsuario</th>
+            <th>fecha_pbioquimico</th>
+            <th>nombre_pbioquimico</th>
+            <th>nitrogeno_ureico</th>
+            <th>calcio</th>
+            <th>fosforo</th>
+            <th>proteinas_totales</th>
+            <th>albumina</th>
+            <th>acido_urico</th>
+            <th>fosfatas_alcalinas</th>
+            <th>bilirrubina_total</th>
+            <th>ldh</th>
+            <th>got_ast</th>
+            <th>creatinina</th>
+            <th>observaciones_pbioquimico</th>
+            
+        </tr>
+        {% for sen in plipidico %}
+        <tr>
+            <td>{{ sen.id_pbioquimic title }}</td>
+            <td>{{ sen.rutUsuario | title }}</td>
+            <td>{{ sen.fecha_pbioquimico | title }}</td>
+            <td>{{ sen.nombre_pbioquimico | title }}</td>
+            <td>{{ sen.nitrogeno_ureico | title }}</td>
+            <td>{{ sen.calcio | title}}</td>
+            <td>{{ sen.fosforo | title}}</td>
+            <td>{{ sen.proteinas_totales | title }}</td>
+            <td>{{ sen.albumina | title }}</td>
+            <td>{{ sen.acido_urico | title }}</td>
+            <td>{{ sen.fosfatas_alcalinas | title }}</td>
+            <td>{{ sen.bilirrubina_total | title }}</td>
+            <td>{{ sen.ldh | title}}</td>
+            <td>{{ sen.got_ast | title}}</td>
+            <td>{{ sen.ldh | title }}</td>
+            <td>{{ sen.creatinina | title }}</td>
+            <td>{{ sen.observaciones_pbioquimico | title }}</td>
+            
+    
+    
+        </tr>
+        {% endfor %}
+    </table>
+
+class Hemograma(models.Model):
+
+  #pk
+  id_hemograma = models.AutoField(primary_key=True,default=None)
+  #fk
+  rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+  #atributos
+  fecha_hemograma = models.DateField()
+  nombre_hemograma = models.CharField(max_length=30,default='Examen de Hemograma')
+  eritrocito = models.DecimalField(max_digits=4, decimal_places=1)
+  leucocitos = models.DecimalField(max_digits=4, decimal_places=1)
+  hemoglobina = models.DecimalField(max_digits=4, decimal_places=1)
+  hematocrito = models.DecimalField(max_digits=4, decimal_places=1)
+  vcm = models.DecimalField(max_digits=4, decimal_places=1)
+  chcm = models.DecimalField(max_digits=4, decimal_places=1)
+  plaquetas = models.DecimalField(max_digits=4, decimal_places=1)
+  observaciones_hemograma = models.CharField(max_length=100, default="Parametros normales")
+  
+
+class Coagulacion(models.Model):
+
+  #pk
+  id_coagulacion = models.AutoField(primary_key=True,default=None)
+  #fk
+  rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+  #atributos
+  nombre_coagulacion = models.CharField(max_length=30,default='Examen de Coagulacion')
+  tiempo_protrombina = models.DecimalField(max_digits=4, decimal_places=1)
+  porc_protrombina = models.DecimalField(max_digits=4, decimal_places=1)
+  observaciones_coagulacion = models.CharField(max_length=100, default="Parametros normales")
+              
+
+class Glicemia(models.Model):
+   
+  #pk
+  id_glicemia = models.AutoField(primary_key=True,default=None)
+  #fk
+  rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+  #atributos
+  fecha_glicemia = models.DateField()
+  nombre_glicemia = models.CharField(max_length=30,default='Examen de Glicemia')
+  glicemia_basal = models.DecimalField(max_digits=4, decimal_places=1)
+  glicemia_120min= models.DecimalField(max_digits=4, decimal_places=1)
+                         
+
+class Orina(models.Model):
+
+  #pk
+  id_orina = models.AutoField(primary_key=True,default=None)
+  #fk
+  rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+  #atributos
+  fecha_orina = models.DateField()
+  nombre_orina = models.CharField(max_length=30,default="Examen de Orina")
+  color = models.CharField(max_length=25)
+  densidad = models.DecimalField(max_digits=4, decimal_places=1)
+  glucosa = models.DecimalField(max_digits=4, decimal_places=1)
+  cetonas = models.DecimalField(max_digits=4, decimal_places=1)
+  urobilinogeno = models.DecimalField(max_digits=4, decimal_places=1)
+  billirubina = models.DecimalField(max_digits=4, decimal_places=1)
+  observaciones_orina = models.CharField(max_length=100, default="Parametros normales")
+  
+
+
+class PerfilLipidico(models.Model):
+
+  #pk
+  id_plipidico = models.AutoField(primary_key=True,default=None)
+  #fk
+  rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+  #atributos
+  fecha_plipidico = models.DateField()
+  nombre_plipidico = models.CharField(max_length=30,default="Examen de Perfil Lipidico")
+  colesterol = models.DecimalField(max_digits=4, decimal_places=1)
+  colesterol_ldl = models.DecimalField(max_digits=4, decimal_places=1)
+  colesterol_hdl = models.DecimalField(max_digits=4, decimal_places=1)
+  trigliceridos = models.DecimalField(max_digits=4, decimal_places=1)
+  observacion_plipidico = models.CharField(max_length=100, default="Parametros normales")
+
+
+  
+
+    <h1>Nivel de gasolina</h1>
+    <table id="customers">
+        <tr>
+            <th>Ultrasónicos</th>
+            <th>Capacitivo</th>
+            <th>Flotador</th>
+        </tr>
+        
+        {% for i in Nivel %}
+        <tr>
+            <td>{{ i.Ultrasónicos | title }}</td>
+            <td>{{ i.Capacitivo | title}}</td>
+            <td>{{ i.Flotador | title}}</td>
+    
+        </tr>
+          
+        {% endfor %}
+    </table>
+    <h1>Nombre Sensor</h1>
+    <table id="customers">
+        <tr>
+            <th>nombre</th>
+            <th>fecha</th>
+            
+        </tr>
+        
+        {% for i in codigo %}
+        <tr>
+            <td>{{ i.nombre | title }}</td>
+            <td>{{ i.fecha | title }}</td>
+           
+    
+        </tr>
+          
+        {% endfor %}
+    </table>-->

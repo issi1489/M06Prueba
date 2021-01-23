@@ -78,3 +78,143 @@
           
         {% endfor %}
     </table>
+
+    <div class="col-sm-4">
+        <form id="formLip" method="post">
+          <h4>Examen de Diagnostico</h4>
+            {% csrf_token %}
+            <table>
+                {{diagnostico}}
+            </table>
+            <br>
+            <br>
+            <div class="d-flex justify-content-center">
+             <input type="reset" value="cancelar" class="btn btn-secondary">  
+             &nbsp;
+             <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+            </div>
+            
+        </form>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              
+                <div class="card col-sm-12">
+                    <!-- Título sección creación nuevos pacientes -->
+                      <!-- FORM CREAR PACIENTE-->
+                      
+               <!--   <br>
+                    <div class="col-sm-4">
+                          <form id="formLip" method="post">
+                            <h4>Examen de Coagulacion</h4>
+                              {% csrf_token %}
+                              <table>
+                                {{coagulacion}}
+                              </table>
+                              <br>
+                              <br>
+                              <div class="d-flex justify-content-center">
+                      <input type="reset" value="cancelar" class="btn btn-secondary">  
+                      &nbsp;
+                      <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+                              </div>
+                              
+                          </form>
+                    </div>      
+                      
+                    <div class="col-sm-4">
+                      <form id="formLip" method="post">
+                        <h4>Examen de Glicemia</h4>
+                          {% csrf_token %}
+                          <table>
+                            {{glicemia}}
+                          </table>
+                          <br>
+                          <br>
+                          <div class="d-flex justify-content-center">
+                           <input type="reset" value="cancelar" class="btn btn-secondary">  
+                           &nbsp;
+                           <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+                          </div>
+                          
+                      </form>
+                        </div>
+       
+                      <div class="row">
+                          <div class="col-sm-12"> -->
+                          <!-- 
+                              <div class="card col-sm-12">-->
+                                  <!-- Título sección creación nuevos pacientes -->
+                                  
+                                    <!-- FORM CREAR PACIENTE-->
+                               <!--     
+                                  <br>
+                                  <div class="col-sm-4">
+                                        <form id="formLip" method="post">
+                                          <h4>Examen de Bioquimico</h4>
+                                            {% csrf_token %}
+                                            <table>
+                                              {{bioquimico}}
+                                            </table>
+                                            <br>
+                                            <br>
+                                            <div class="d-flex justify-content-center">
+                                    <input type="reset" value="cancelar" class="btn btn-secondary">  
+                                    &nbsp;
+                                    <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+                                            </div>
+                                            
+                                        </form>
+                                  </div>      
+                                    
+                                  <div class="col-sm-4">
+                                    <form id="formLip" method="post">
+                                      <h4>Examen de Plipidico</h4>
+                                        {% csrf_token %}
+                                        <table>
+                                          {{plipidico}}
+                                        </table>
+                                        <br>
+                                        <br>
+                                        <div class="d-flex justify-content-center">
+                                         <input type="reset" value="cancelar" class="btn btn-secondary">  
+                                         &nbsp;
+                                         <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+                                        </div>
+                                        
+                                    </form>
+                                      </div>   
+                                      <div class="col-sm-4">
+                                        <form id="formLip" method="post">
+                                          <h4>Examen de Orina</h4>
+                                            {% csrf_token %}
+                                            <table>
+                                              {{orina}}
+                                            </table>
+                                            <br>
+                                            <br>
+                                            <div class="d-flex justify-content-center">
+                                    <input type="reset" value="cancelar" class="btn btn-secondary">  
+                                    &nbsp;
+                                    <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+                                            </div>
+                                            
+                                        </form>
+                                  </div>
+                                  <div class="col-sm-4">
+                                    <form id="formLip" method="post">
+                                      <h4>Examen de Hemograma</h4>
+                                        {% csrf_token %}
+                                        <table>
+                                          {{hemograma}}
+                                        </table>
+                                        <br>
+                                        <br>
+                                        <div class="d-flex justify-content-center">
+                                <input type="reset" value="cancelar" class="btn btn-secondary">  
+                                &nbsp;
+                                <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+                                        </div>
+                                        
+                                    </form>
+                              </div>--> 
