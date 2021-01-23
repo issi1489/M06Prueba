@@ -1,0 +1,309 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+    <head>
+
+        <title>Medical Services App.</title>
+        <meta charset="utf-8">
+        <meta name="viewport" 
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Loading Bootstrap CSS -->
+        <link 
+        rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+        crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Poiret+One" 
+            rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../static/app_med2/css/med_style.css">
+    
+    </head>
+
+    <body>
+    
+        <!-- inicio barra navegacion-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <a class="navbar-brand" href="#">Medical Services App.</a>
+                
+            <div class="col-sm-12 col-md-6">
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                <a class="nav-link scroll-trigger" href="/">INICIO</a>
+                </li>
+            </ul>
+            </div> 
+        </nav>
+        <!-- fin barra navegacion-->
+
+    <br>
+    <br>
+    <!-- BODY PERFIL USUARIO -->
+    <div class="card col-sm-12">
+      <!--información del usuario-->
+        <div class="container">
+          <!--imagen-->
+            <!-- inicio  Bienvenida: foto, texto, datos usuario admin-->
+        <div class="row">
+            <div class="col-sm-2">
+            <!--foto -->
+            <img class="img-fluid" src="{% static '../static/app_med2/img/foto_perfil_medico.jpg' %}" alt="Generic placeholder  image", style="border-radius: 85%; width: 85%;">
+            </div>
+            <div class="col-sm-4">
+            <!-- datos personales-->
+            <p style="font-size: xx-large; padding: 9%;">Bienvenid@ {{nombre_us}} !</p>
+              
+            </div>
+            <div class="col-sm-6">
+                {% for values in datos %} 
+                    <ul> 
+                        <li>Rut: {{values.rutUsuario}}</li>
+                        <li>nombre: {{values.nombre}}</li>
+                        <li>edad: {{values.edad}}</li>
+                        <li>direccion: {{values.direccion}}</li>
+                        <li>usuario: {{values.usuario}}</li>
+                        <li>password: {{values.password}}</li>
+                    </ul> 
+                {% endfor %}
+            </div>
+        </div>
+        <!-- fin  Bienvenida: foto, texto, datos usuario admin-->
+        </div> 
+    </div>
+
+    <!-- INICIO TABLA DIAGNOSTICO -->
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <table>
+                <td>Fecha</td><td>Rut</td><td>Diagnostico</td>
+                {% for values in diagnostico%}   
+                    <tr>    
+                        <td>{{values.fecha_diagnostico}}</td>
+                        <td>{{values.rutUsuario_id}}</td>
+                        <td>{{values.diagnostico}}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <!-- FIN TABLA DIAGNOSTICO -->
+    
+    <br>
+    
+    <!-- DATOS EXÁMENES -->
+        <!--[Contenedor botones para seleccionar el exámen]-->
+    <div class="container">
+        <!--Botones -->
+        <div class="row">
+            <div class="col-sm-12 ">
+                <h4>Selecciona el examen</h4>
+            </div>
+            <!--Links a examenes-->
+            <div class="col-sm-12 col-md-10">
+                <p>
+                    <a class="btn btn-dark collapsed" data-toggle="collapse" href="#Hemograma" aria-expanded="false" aria-controls="collapseExample">
+                    Hemograma</a>
+                    <a class="btn btn-dark collapsed" data-toggle="collapse" href="#perfil_bioquimico" aria-expanded="false" aria-controls="collapseExample">
+                    perfil_bioquimico</a>
+                    <a class="btn btn-dark collapsed" data-toggle="collapse" href="#perfil_lipidico" aria-expanded="false" aria-controls="collapseExample">
+                    perfil_lipidico</a>
+                    <a class="btn btn-dark collapsed" data-toggle="collapse" href="#orina" aria-expanded="false" aria-controls="collapseExample">
+                    orina</a>
+                    <a class="btn btn-dark collapsed" data-toggle="collapse" href="#coagulacion" aria-expanded="false" aria-controls="collapseExample">
+                    coagulacion</a>
+                    <a class="btn btn-dark collapsed" data-toggle="collapse" href="#glicemia" aria-expanded="false" aria-controls="collapseExample">
+                    glicemia</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--[Fin Contenedor botones]-->
+
+    <!-- [Datos del exámen ]-->
+    <div class="container">
+        <!-- Listado de exámenes -->
+        <div class="card col-sm-12">
+            <!-- TÍTULO -->
+            <div class="row">
+                <h3>Listado de Exámenes</h3>
+            </div>
+            <!-- HEMOGRANA OK-->
+            <div class="collapse" id="Hemograma">
+                <h4>Hemograma</h4>
+                <div class="row">
+                    <table>
+                    <td>Rut</td><td>Fecha</td><td>eritrocito</td><td>leucocitos</td><td>hemoglobina</td>
+                    <td>hematocrito</td><td>VCM</td><td>CHCM</td><td>plaquetas</td><td>Observaciones</td>
+                    {% for values in hemograma%}   
+                        <tr>    
+                            <td>{{values.rutUsuario_id}}</td>
+                            <td>{{values.fecha_hemograma}}</td>
+                            <td>{{values.eritrocito}}</td>
+                            <td>{{values.leucocitos}}</td>
+                            <td>{{values.hemoglobina}}</td>
+                            <td>{{values.hematocrito}}</td>
+                            <td>{{values.vcm}}</td>
+                            <td>{{values.chcm}}</td>
+                            <td>{{values.plaquetas}}</td>
+                            <td>{{values.observaciones_hemograma}}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+            </div>
+
+            <!-- PERFIL BIOQUIMICO OK-->
+            <div class="collapse" id="perfil_bioquimico">
+                <h4>Perfil bioquimico</h4>
+                <div class="row">
+                    <table>
+                        <td>rut</td><td>fecha</td><td>Glucosa</td><td>Nitrogeno_ureico</td><td>Calcio</td><td>Fosforo</td>
+                        <td>Proteinas_totales</td><td>Albumina</td><td>Colesterol_Total</td><td>Acido_urico</td>
+                        <td>Fosfatasas_alcalinas</td><td>Bilirrubina_total</td><td>LDH</td><td>got|ast</td>
+                        <td>Creatinina</td><td>Observaciones</td>
+                    
+                        {% for values in pBioquimico%}   
+                            <tr>    
+                                <td>{{values.rutUsuario_id}}</td>
+                                <td>{{values.fecha_pbioquimico}}</td>
+                                <td>{{values.glucosa}}</td>
+                                <td>{{values.nitrogeno_ureico}}</td>
+                                <td>{{values.calcio}}</td>
+                                <td>{{values.fosforo}}</td>
+                                <td>{{values.proteinas_totales}}</td>
+                                <td>{{values.albumina}}</td>
+                                <td>{{values.colesterol_total}}</td>
+                                <td>{{values.acido_urico}}</td>
+                                <td>{{values.fosfatas_alcalinas}}</td>
+                                <td>{{values.bilirrubina_total}}</td>
+                                <td>{{values.ldh}}</td>
+                                <td>{{values.got_ast}}</td>
+                                <td>{{values.creatinina}}</td>
+                                <td>{{values.observaciones_pbioquimico}}</td>
+                    
+                            </tr>
+                        {% endfor %}
+                        </table>
+                </div>
+            </div>
+
+            <!-- PERFIL LIPIDICO OK-->
+            <div class="collapse" id="perfil_lipidico">
+                <h4>Perfil lipidico</h4>
+                
+                <div class="row">
+                    <table>
+                    <td>rut</td><td>fecha</td><td>Colesterol_total</td><td>Colesterol_LDL</td>
+                    <td>Colesterol_HDL</td><td>trigliceridos</td><td>Observaciones</td>
+                    {% for values in pLipidico%}   
+                        <tr>    
+                            <td>{{values.rutUsuario_id}}</td>
+                            <td>{{values.fecha_plipidico}}</td>
+                            <td>{{values.colesterol}}</td>
+                            <td>{{values.colesterol_ldl}}</td>
+                            <td>{{values.colesterol_hdl}}</td>
+                            <td>{{values.trigliceridos}}</td>
+                            <td>{{values.observacion_plipidico}}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+            </div>
+
+            <!-- ORINA PENDIENTE-->
+            <div class="collapse" id="orina">
+                <h4>Orina</h4>         
+                <div class="row">
+                    <table>
+                    <td>rut</td><td>fecha</td><td>Color</td><td>Densidad</td><td>Glucosa</td><td>Cetonas</td>
+                    <td>Urobilinogeno</td><td>Bilirrubina</td><td>Observaciones</td>
+                    
+                    {% for values in orina%}   
+                        <tr>    
+                            <td>{{values.rutUsuario_id}}</td>
+                            <td>{{values.fecha_orina}}</td>
+                            <td>{{values.color}}</td>
+                            <td>{{values.densidad}}</td>
+                            <td>{{values.glucosa}}</td>
+                            <td>{{values.cetonas}}</td>
+                            <td>{{values.urobilinogeno}}</td>
+                            <td>{{values.billirubina}}</td>
+                            <td>{{values.observaciones_orina}}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+            </div>
+
+            <!--LISTADO COAGULACION: OK-->
+            <div class="collapse" id="coagulacion">
+                <h4>Coagulacion</h4>
+                <div class="row">
+                    <table>
+                    <td>rut</td><td>fecha</td><td>Tiempo_protrombina</td><td>Porc_Protrombina</td><td>Observaciones</td>                  
+                    {% for values in coagulacion%}   
+                        <tr>    
+                            <td>{{values.rutUsuario_id}}</td>
+                            <td>{{values.fecha_coagulacion}}</td>
+                            <td>{{values.tiempo_protrombina}}</td>
+                            <td>{{values.porc_protrombina}}</td>
+                            <td>{{values.observaciones_coagulacion}}</td>
+                            
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+            </div>
+
+            <!-- GLICEMIA  : OK-->
+            <div class="collapse" id="glicemia">
+                <h4>Glicemia</h4>
+                <div class="row">
+                    <table>
+                    <td>rut</td><td>fecha</td><td>Glicemia_basal</td><td>Glicemia_120min</td><td>Observaciones</td>                  
+                    {% for values in glicemia%}   
+                        <tr>    
+                            <td>{{values.rutUsuario_id}}</td>
+                            <td>{{values.fecha_glicemia}}</td>
+                            <td>{{values.glicemia_basal}}</td>
+                            <td>{{values.glicemia_120min}}</td>
+                            <td>{{values.observaciones_glicemia}}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-------------- fin Listado de exámenes -------------->
+       
+    </div>
+
+    <!-- FIN BODY PERFIL USUARIO -->
+
+    </div>
+    <!-- SCRIPTS BOOTSTRAP -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous">
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous">
+    </script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous">
+    </script>
+
+  </body>
+</html>
+
+<!--chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
