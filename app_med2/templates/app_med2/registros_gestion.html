@@ -1,0 +1,154 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+    <head>
+
+        <title>Medical Services App.</title>
+        <meta charset="utf-8">
+        <meta name="viewport" 
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Loading Bootstrap CSS -->
+        <link 
+        rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+        crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Poiret+One" 
+            rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../static/app_med2/css/med_style.css">
+    
+    </head>
+
+    <body>
+    
+        <!-- inicio barra navegacion-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <a class="navbar-brand" href="#">Medical Services App.</a>
+                
+            <div class="col-sm-12 col-md-6">
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                <a class="nav-link scroll-trigger" href="/">INICIO</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link scroll-trigger" href="/nuevosRegistros">NUEVOS REGISTROS</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link scroll-trigger" href="#">GESTIONAR REGISTROS</a>
+                </li>
+            </ul>
+            </div> 
+        </nav>
+        <!-- fin barra navegacion-->
+
+        <br><br><br>
+        
+        <!-- inicio  Bienvenida: foto, texto, datos usuario admin-->
+        <div class="row">
+            <div class="col-sm-2">
+            <!--foto -->
+            <img class="img-fluid" src="{% static '../static/app_med2/img/adminIcon.png' %}" alt="Generic placeholder  image", style="border-radius: 85%; width: 85%;">
+            </div>
+            <div class="col-sm-8">
+            <!-- datos personales-->
+            <p style="font-size: xx-large; padding: 9%;">Bienvenid@ {{nombre_us}} ! Elige una opción para visualizar los registros correspondientes</p>
+            
+            </div>
+        </div>
+        <!-- fin  Bienvenida: foto, texto, datos usuario admin-->
+
+
+        <!-- INICIO BOTONES -->
+        <div class="row">
+            <!--Usuarios-->
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <H5>USUARIOS</H5>
+                <a class="navbar-brand" href="/listar_usuarios">
+                    <img class="img-fluid" src="{% static '../static/app_med2/img/icono_paciente.png' %}" alt="Generic placeholder  image", style="border-radius: 85%; width: 85%;">
+                </a>
+            </div>
+            <!--Diagnosticos-->
+            <div class="col-sm-2">
+                <H5>DIAGNOSTICOS</H5>
+                <a class="navbar-brand" href="/listar_diagnosticos">
+                    <img class="img-fluid" src="{% static '../static/app_med2/img/icono_medico.png' %}" alt="Generic placeholder  image", style="border-radius: 85%; width: 85%;">
+                </a>
+            </div>
+            <div class="col-sm-2"></div>
+            <!--Perfil lipidico-->
+            <div class="col-sm-2">
+                <H5>PERFIL LIPIDICO</H5>
+                <a class="navbar-brand" href="/listar_perfillipidico">
+                    <img class="img-fluid" src="{% static '../static/app_med2/img/icono_estomago.png' %}" alt="Generic placeholder  image", style="border-radius: 85%; width: 85%;">
+                </a>
+            </div>
+            <!--Glicemia-->
+            <div class="col-sm-2">
+                <H5>GLICEMIA</H5>
+                <a class="navbar-brand" href="/listar_glicemia">
+                    <img class="img-fluid" src="{% static '../static/app_med2/img/icono_alerta.png' %}" alt="Generic placeholder  image", style="border-radius: 85%; width: 85%;">
+                </a>
+            </div> 
+            <div class="col-sm-1"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <!--bioquimico-->
+            <div class="col-sm-2">
+                <H5>PERFIL BIOQUIMICO</H5>
+                <a class="navbar-brand" href="listar_perfilbioquimico/">
+                    <img class="img-fluid" src="{% static '../static/app_med2/img/icono_laboratorio.png' %}" alt="Generic placeholder  image", style="border-radius: 85%; width: 85%;">
+                </a>
+            </div>
+            <!--orina-->
+            <div class="col-sm-2">
+                <H5>ORINA</H5>
+                <a class="navbar-brand" href="listar_orina/">
+                    <img class="img-fluid" src="{% static '../static/app_med2/img/icono_gota2.png' %}" alt="Generic placeholder  image", style="border-radius: 85%; width: 85%;">
+                </a>
+            </div>
+            <div class="col-sm-2"></div>
+            <!--hemograma-->
+            <div class="col-sm-2">
+                <H5>HEMOGRAMA</H5>
+                <a class="navbar-brand" href="listar_hemograma/">
+                    <img class="img-fluid" src="{% static '../static/app_med2/img/icono_gota.png' %}" alt="Generic placeholder  image", style="border-radius: 85%; width: 85%;">
+                </a>
+            </div>
+            <!--<div class="col-sm-1"></div>-->
+            <!--coagulacion-->
+            <div class="col-sm-2">
+                <H5>COAGULACIÓN</H5>
+                <a class="navbar-brand" href="listar_coagulacion/">
+                    <img class="img-fluid" src="{% static '../static/app_med2/img/icono_corazon.png' %}" alt="Generic placeholder  image", style="border-radius: 85%; width: 85%;">
+                </a>
+            </div>  
+            <div class="col-sm-1"></div>
+            
+
+
+        </div>
+        <!-- FIN BOTONES -->     
+
+        
+      
+        <script 
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" 
+            crossorigin="anonymous">
+        </script>
+    </body>
+</html>
