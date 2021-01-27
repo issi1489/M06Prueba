@@ -111,7 +111,7 @@ def nuevoRegistro(request):
             'hemograma_form': HemogramaForms()
         }
 
-    return TemplateResponse(request, 'app_med2/registros_nuevos.html', context)
+    return TemplateResponse(request, '../templates/app_med2/registros_nuevos.html', context)
 
 # Vista admin: Template intermedio con links a listas
 def gestionRegistro(request):
@@ -140,6 +140,7 @@ def paciente(request):
                 'orina':orina_us, 'pLipidico':pLipidico_us}
 
     return render(request,'../templates/app_med2/paciente.html',context)
+
 
 #----------------------------------- CRUDS ---------------------------------
 
@@ -270,6 +271,11 @@ class EliminarHemograma(DeleteView):
     model=Hemograma
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_hemograma')
+
+
+# CLAUDIO vista medico
+def vista_medico(request):
+    return render(request,'app_med2/vista_medico.html')
 
 
 # ----------- CODIGO QUE DEBE ELIMINARSE AL CONFIRMAR QUE NO SE USARÁ -------------
