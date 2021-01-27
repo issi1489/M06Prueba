@@ -1,22 +1,7 @@
+
 from django import forms
 from django.forms import widgets
 from .models import *
-
-
-#### Formulario login 
-
-class LoginForm(forms.Form):
-    usuario = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
-
-
-
-
-
-
-
-
-
 
 
 
@@ -25,13 +10,6 @@ class FormularioUsuario(forms.ModelForm):
     
     class Meta:
         model=Usuario
-        fields='__all__'
-
-
-class FormularioDiagnostico(forms.ModelForm):
-    
-    class Meta:
-        model=Diagnostico
         fields='__all__'
 
 
@@ -136,4 +114,5 @@ class PerfilLipidicoForms(forms.ModelForm):
         Widget = {
             "Fecha_Fabricacion": forms.SelectDateWidget()
         }
+
 

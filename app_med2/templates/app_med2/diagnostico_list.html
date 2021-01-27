@@ -1,20 +1,4 @@
 {% load static %}
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'app_med2/css/med_style.css' %}">
-</head>
-<body>
-
-    
-    <h2> Diagnosticos</h2>
-    <h4><a class= "boton" href="{% url 'app_med2:crear_diagnostico' %}">Crear Diagnostico</a></h4>
-
-=======
 <!doctype html>
 <html lang="es">
   <head>
@@ -70,35 +54,20 @@
         </div>
     </div>
     <!-- fin  Bienvenida: foto, texto, datos usuario admin-->
->>>>>>> 6735ab1b4e5029bac9c5b61f891910a5d258ab79
     <table class="table">
         <tr>
          
             <th>Fecha</th>
             <th>rutUsuario</th>
             <th>diagnostico</th>
-<<<<<<< HEAD
-            <th></th>
-            <th></th>
-=======
             <th>EDITAR</th>
             <th>ELIMINAR</th>
->>>>>>> 6735ab1b4e5029bac9c5b61f891910a5d258ab79
         </tr>    
 
     {% for diagnostico in diagnostico_list %}
         <tr>
 
             <td>{{diagnostico.fecha_diagnostico}}</td>
-<<<<<<< HEAD
-            <td>{{diagnostico.fk_rutUsuario}}</td>
-            <td>{{diagnostico.diagnostico}}</td>
-            <td>
-                <a class="boton" href="{% url 'app_med2:editar_diagnostico' pk=diagnostico.fk_rutUsuario %}"> Editar Diagnostico</a>
-            </td>
-            <td>
-                <a class="boton" href="{% url 'app_med2:eliminar_diagnostico' pk=diagnostico.fk_rutUsuario %}"> Eliminar Diagnostico</a>
-=======
             <td>{{diagnostico.rutUsuario_id}}</td>
             <td>{{diagnostico.diagnostico}}</td>
             <td>
@@ -106,7 +75,6 @@
             </td>
             <td>
                 <a class="boton" href="{% url 'app_med2:eliminar_diagnosticos' pk=diagnostico.fecha_diagnostico %}"> Eliminar </a>
->>>>>>> 6735ab1b4e5029bac9c5b61f891910a5d258ab79
             </td>
         </tr>
     {% endfor %}

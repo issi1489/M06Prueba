@@ -154,39 +154,38 @@
                 </div>
             </div>
 
-            <!-- PERFIL BIOQUIMICO PENDIENTE-->
+            <!-- PERFIL BIOQUIMICO OK-->
             <div class="collapse" id="perfil_bioquimico">
                 <h4>Perfil bioquimico</h4>
                 <div class="row">
                     <table>
-                    <td>rut</td><td>fecha</td><td>Glucosa</td><td>Nitrogeno_ureico</td><td>Calcio</td><td>Fosforo</td>
-                    <td>Proteinas_totales</td><td>Albumina</td><td>Colesterol_Total</td><td>Acido_urico</td>
-                    <td>Fosfatasas_alcalinas</td><td>Bilirrubina_total</td><td>LDH</td>
-                    <td>Creatinina</td><td>Observaciones</td>
-
-                    {% for values in pBioquimico%}   
-                        <tr>    
-                            <td>{{values.rutUsuario_id}}</td>
-                            <td>{{values.fecha_pbioquimico}}</td>
-                            <td>{{values.nombre_pbioquimico}}</td>
-                            <td>{{values.glucosa}}</td>
-                            <td>{{values.nitrogeno_ureico}}</td>
-                            <td>{{values.calcio}}</td>
-                            <td>{{values.fosforo}}</td>
-                            <td>{{values.proteinas_totales}}</td>
-                            <td>{{values.albumina}}</td>
-                            <td>{{values.colesterol_total}}</td>
-                            <td>{{values.acido_urico}}</td>
-                            <td>{{values.fosfatas_alcalinas}}</td>
-                            <td>{{values.bilirrubina_total}}</td>
-                            <td>{{values.ldh}}</td>
-                            <td>{{values.got_ast}}</td>
-                            <td>{{values.creatinina}}</td>
-                            <td>{{values.observaciones_pbioquimico}}</td>
-        
-                        </tr>
-                    {% endfor %}
-                    </table>
+                        <td>rut</td><td>fecha</td><td>Glucosa</td><td>Nitrogeno_ureico</td><td>Calcio</td><td>Fosforo</td>
+                        <td>Proteinas_totales</td><td>Albumina</td><td>Colesterol_Total</td><td>Acido_urico</td>
+                        <td>Fosfatasas_alcalinas</td><td>Bilirrubina_total</td><td>LDH</td><td>got|ast</td>
+                        <td>Creatinina</td><td>Observaciones</td>
+                    
+                        {% for values in pBioquimico%}   
+                            <tr>    
+                                <td>{{values.rutUsuario_id}}</td>
+                                <td>{{values.fecha_pbioquimico}}</td>
+                                <td>{{values.glucosa}}</td>
+                                <td>{{values.nitrogeno_ureico}}</td>
+                                <td>{{values.calcio}}</td>
+                                <td>{{values.fosforo}}</td>
+                                <td>{{values.proteinas_totales}}</td>
+                                <td>{{values.albumina}}</td>
+                                <td>{{values.colesterol_total}}</td>
+                                <td>{{values.acido_urico}}</td>
+                                <td>{{values.fosfatas_alcalinas}}</td>
+                                <td>{{values.bilirrubina_total}}</td>
+                                <td>{{values.ldh}}</td>
+                                <td>{{values.got_ast}}</td>
+                                <td>{{values.creatinina}}</td>
+                                <td>{{values.observaciones_pbioquimico}}</td>
+                    
+                            </tr>
+                        {% endfor %}
+                        </table>
                 </div>
             </div>
 
