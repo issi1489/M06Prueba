@@ -3,13 +3,15 @@ from . import views
 
 app_name = 'app_med2'
 urlpatterns = [
-    path('', views.home, name='home'),
     #path('admin/', views.admin, name='admin'),
+    #HOME
+    path('', views.home, name='home'),
+    #VISTA PACIENTE-FAMILIAR
     path('paciente/', views.paciente, name= 'paciente'),
+    path('familiar/',views.familiar, name= 'familiar'), 
     # Vista admin
     path('nuevosRegistros',views.nuevoRegistro, name='registroExamen'),
     path('gestionarRegistros',views.gestionRegistro, name='registroExamen'),
-
     #crud diagnostico
     path('listar_diagnosticos/', views.ListarDiagnostico.as_view(), name="listar_diagnosticos"),
     path('<pk>/editar_diagnostico', views.UpdateDiagnostico.as_view(), name="editar_diagnosticos"),

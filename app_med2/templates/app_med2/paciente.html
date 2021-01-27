@@ -38,6 +38,9 @@
 
     <br>
     <br>
+
+    {% block infoFamiliar%}{% endblock %}
+
     <!-- BODY PERFIL USUARIO -->
     <div class="card col-sm-12">
       <!--información del usuario-->
@@ -51,8 +54,11 @@
             </div>
             <div class="col-sm-4">
             <!-- datos personales-->
-            <p style="font-size: xx-large; padding: 9%;">Bienvenid@ {{nombre_us}} !</p>
-              
+            {% block fichaPaciente%}
+                {% for values in datos %} 
+                <p style="font-size: xx-large; padding: 9%;">Bienvenid@ {{values.nombre}}!</p>
+                {% endfor %}   
+            {% endblock %}
             </div>
             <div class="col-sm-6">
                 {% for values in datos %} 
@@ -93,7 +99,8 @@
     <br>
     
     <!-- DATOS EXÁMENES -->
-        <!--[Contenedor botones para seleccionar el exámen]-->
+
+    <!--[Contenedor botones para seleccionar el exámen]-->
     <div class="container">
         <!--Botones -->
         <div class="row">
@@ -281,6 +288,33 @@
         <!-------------- fin Listado de exámenes -------------->
        
     </div>
+    <!-- [FIN Datos del exámen ]-->
+    <!-- FIN DATOS EXÁMENES --> 
+
+    <!-- INICIO FORM FAMILIAR -->
+    {% block form_familiar %}
+    <div class="row">
+        <!-- USUARIO -->
+        <div class="card col-sm-4"></div>
+        <div class="card col-sm-4">
+          <h4>Añadir Familiar Autorizado</h4>
+          <form id="formUsuario" method="post">
+            {% csrf_token %}
+            <table>
+              {{ familiar_form.as_p }}
+            </table>
+            <div class="d-flex justify-content-center">
+              <input type="reset" value="cancelar" class="btn btn-secondary">  
+              &nbsp;
+              <button type="submit" id="btnUsuario" class="btn btn-primary">Enviar</button>
+            </div>  
+          </form>
+        </div>
+        <div class="card col-sm-4"></div>
+    </div>
+    {% endblock %}
+    <!-- FIN FORM FAMILIAR -->
+
 
     <!-- FIN BODY PERFIL USUARIO -->
 

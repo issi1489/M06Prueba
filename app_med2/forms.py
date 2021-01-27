@@ -25,6 +25,15 @@ class UsuarioForms(forms.ModelForm):
             "Fecha_Fabricacion": forms.SelectDateWidget()
         }
 
+class FamiliarForms(forms.ModelForm):
+    
+    class Meta:
+        model = Familiar
+        fields = '__all__'
+        Widget = {
+            "Fecha_Fabricacion": forms.SelectDateWidget()
+        }
+
 
 class DiagnosticoForms(forms.ModelForm):
 

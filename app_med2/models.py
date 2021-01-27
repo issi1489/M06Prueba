@@ -51,6 +51,34 @@ class Usuario(models.Model):
                     validators.MaxLengthValidator(15, "Error, la dirección puede contener hasta 15 caracteres ")]
                     )
 
+class Familiar(models.Model):
+    #pk
+    rutFamiliar = models.CharField(max_length =10, primary_key=True, default=None,
+                    validators=[validators.MinLengthValidator(9, "Ingresar dni en el siguiente formato 77111666-5"), 
+                                validators.MaxLengthValidator(10, "Ingresar dni en el siguiente formato 77111666-5")]
+                    )
+    #fk
+    rutUsuario = models.ForeignKey(Usuario,on_delete=models.CASCADE, default=None)
+    #atributos
+    nombre = models.CharField(max_length =45,
+                    validators=[validators.MinLengthValidator(10, "El nombre debe tener minimo 10 caracteres"), 
+                                validators.MaxLengthValidator(45, "El nombre puede tener hasta 45 caracteres")]
+                    )
+
+    direccion = models.CharField(max_length =45,
+                    validators=[validators.MinLengthValidator(10, "Error, la dirección debe contener más de 10 caracteres"),
+                                validators.MaxLengthValidator(45, "Error, la dirección puede contener hasta 45 caracteres ")]
+                    )
+    
+    usuario = models.CharField(max_length =15,
+                    validators=[validators.MinLengthValidator(5, "Error, el usuario debe tener mínimo 5 caracteres"),
+                    validators.MaxLengthValidator(15, "Error, el usuario debe contener hasta 15 caracteres ")]
+                    )
+    password = models.CharField(max_length =15,
+                    validators=[validators.MinLengthValidator(6, "Error, la contraseña debe contener más de 6 caracteres"),
+                    validators.MaxLengthValidator(15, "Error, la dirección puede contener hasta 15 caracteres ")]
+                    )
+
 
 class Diagnostico(models.Model):
     #pk

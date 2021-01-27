@@ -1,0 +1,31 @@
+
+{% extends 'app_med2/paciente.html' %}
+
+{% block infoFamiliar%}
+
+<!-- DATOS FAMILIAR -->
+<div class="row">
+    <div class="col-sm-6">
+        {% for values in datos %} 
+            <p style="font-size: xx-large; padding: 9%;">Bienvenid@ {{values.nombre}}!</p>
+        {% endfor %}    
+    </div>
+    <div class="col-sm-6">
+        <br>
+        {% for values in datos %} 
+        <ul> 
+            <li>Rut: {{values.rutUsuario}}</li>
+            <li>nombre: {{values.nombre}}</li>
+            <li>edad: {{values.edad}}</li>
+            <li>direccion: {{values.direccion}}</li>
+            <li>usuario: {{values.usuario}}</li>
+            <li>password: {{values.password}}</li>
+        </ul> 
+        {% endfor %}   
+    </div>
+</div>
+{% endblock %}
+
+{% block fichaPaciente%}<p style="font-size: xx-large; padding: 9%;">DATOS PACIENTE</p>{% endblock %}
+{% block form_familiar %}{% endblock %}
+

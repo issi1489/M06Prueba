@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from .forms import FormularioUsuario, UsuarioForms, DiagnosticoForms, PerfilBioquimicoForms, HemogramaForms
-from .forms import CoagulacionForms, GlicemiaForms, OrinaForms, PerfilLipidicoForms
+from .forms import CoagulacionForms, GlicemiaForms, OrinaForms, PerfilLipidicoForms, FamiliarForms
 from django.template.response import TemplateResponse
 
 # Home 
@@ -134,13 +134,52 @@ def paciente(request):
     orina_us = Orina.objects.filter(rutUsuario='17684562-7')
     pLipidico_us = PerfilLipidico.objects.filter(rutUsuario='17684562-7')
 
-    context = {'datos':datos_us,'diagnostico':diagnostico_us,
+    context = {'familiar_form': FamiliarForms(),'datos':datos_us,'diagnostico':diagnostico_us,
+                'pBioquimico':pBioquimico_us, 'hemograma':hemograma_us,
+                'coagulacion':coagulacion_us, 'glicemia':glicemia_us,
+                'orina':orina_us, 'pLipidico':pLipidico_us}
+                
+    if request.method == 'POST':
+        familiar_form = FamiliarForms(request.POST)
+        if familiar_form.is_valid():
+            familiar_form.save()
+            return render(request,'../templates/app_med2/paciente.html',context) 
+        else:
+            context = {'familiar_form': familiar_form,'datos':datos_us,'diagnostico':diagnostico_us,
+                'pBioquimico':pBioquimico_us, 'hemograma':hemograma_us,
+                'coagulacion':coagulacion_us, 'glicemia':glicemia_us,
+                'orina':orina_us, 'pLipidico':pLipidico_us}
+    else:
+        context = {'familiar_form': FamiliarForms(),'datos':datos_us,'diagnostico':diagnostico_us,
                 'pBioquimico':pBioquimico_us, 'hemograma':hemograma_us,
                 'coagulacion':coagulacion_us, 'glicemia':glicemia_us,
                 'orina':orina_us, 'pLipidico':pLipidico_us}
 
+    
+    '''
+    context = {'familiar_form': FamiliarForms(),'datos':datos_us,'diagnostico':diagnostico_us,
+                'pBioquimico':pBioquimico_us, 'hemograma':hemograma_us,
+                'coagulacion':coagulacion_us, 'glicemia':glicemia_us,
+                'orina':orina_us, 'pLipidico':pLipidico_us}'''
+
     return render(request,'../templates/app_med2/paciente.html',context)
 
+def familiar(request):
+    datos_us = Usuario.objects.filter(rutUsuario='17684562-7')
+    diagnostico_us = Diagnostico.objects.filter(rutUsuario='17684562-7')
+    pBioquimico_us = PerfilBioquimico.objects.filter(rutUsuario='17684562-7')
+    hemograma_us = Hemograma.objects.filter(rutUsuario='17684562-7')
+    coagulacion_us = Coagulacion.objects.filter(rutUsuario='17684562-7')
+    glicemia_us = Glicemia.objects.filter(rutUsuario='17684562-7')
+    orina_us = Orina.objects.filter(rutUsuario='17684562-7')
+    pLipidico_us = PerfilLipidico.objects.filter(rutUsuario='17684562-7')
+
+    context = {'datos':datos_us,'diagnostico':diagnostico_us,
+                'pBioquimico':pBioquimico_us, 'hemograma':hemograma_us,
+                'coagulacion':coagulacion_us, 'glicemia':glicemia_us,
+                'orina':orina_us, 'pLipidico':pLipidico_us}
+    return render(request,'../templates/app_med2/familiar.html',context)
+    
 #----------------------------------- CRUDS ---------------------------------
 
 # CRUD USUARIO
