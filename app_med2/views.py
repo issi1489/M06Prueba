@@ -1,4 +1,4 @@
-  from django.shortcuts import render
+from django.shortcuts import render
 from .models import Usuario, PerfilLipidico, Orina, Coagulacion, Glicemia, Diagnostico, Hemograma, PerfilBioquimico
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -149,6 +149,10 @@ class ListarUsuario(ListView):
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_usuarios')
 
+class UpdateUsuario(UpdateView):
+    model=Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
 
 class EliminarUsuario(DeleteView):
     model= Usuario

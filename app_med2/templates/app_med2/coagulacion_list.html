@@ -33,7 +33,7 @@
             <a class="nav-link scroll-trigger" href="/nuevosRegistros">NUEVOS REGISTROS</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link scroll-trigger" href="/gestionarRegistros">GESTIONAR REGISTROS</a>
+            <a class="nav-link scroll-trigger" href="/gestionarRegistros">PACIENTES A CARGO</a>
             </li>
         </ul>
       </div> 
@@ -50,7 +50,7 @@
         </div>
         <div class="col-sm-8">
           <!-- datos personales-->
-          <p style="font-size: xx-large; padding: 9%;">Listado actualizado de Examen Coagulacion</p>
+          <p style="font-size: xx-large; padding: 9%;">Listado De Examenes Coagulacion</p>
         </div>
     </div>
     <!-- fin  Bienvenida: foto, texto, datos usuario admin-->
@@ -63,8 +63,6 @@
           <th>tiempo protombina</th>
           <th>protombina(%)</th>
           <th>observaciones</th>
-          <th>EDITAR</th>
-          <th>ELIMINAR</th>
       </tr>    
 
     {% for coagulacion in coagulacion_list %}
@@ -76,12 +74,7 @@
           <td>{{coagulacion.tiempo_protrombina}}</td>
           <td>{{coagulacion.porc_protrombina}}</td>
           <td>{{coagulacion.observaciones_coagulacion}}</td>
-          <td>
-              <a class="boton" href="{% url 'app_med2:editar_coagulacion' pk=coagulacion.id_coagulacion %}"> Editar</a>
-          </td>
-          <td>
-              <a class="boton" href="{% url 'app_med2:eliminar_coagulacion' pk=coagulacion.id_coagulacion %}"> Eliminar</a>
-          </td>
+         
       </tr>
   {% endfor %}
   </table>

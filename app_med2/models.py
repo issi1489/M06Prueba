@@ -13,7 +13,7 @@ class Usuario(models.Model):
                     )
 
     #atributos
-    nombre = models.CharField(max_length =45,
+    nombre = models.CharField(max_length = 45,
                     validators=[validators.MinLengthValidator(10, "El nombre debe tener minimo 10 caracteres"), 
                                 validators.MaxLengthValidator(45, "El nombre puede tener hasta 45 caracteres")]
                     )

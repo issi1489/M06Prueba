@@ -33,7 +33,7 @@
             <a class="nav-link scroll-trigger" href="/nuevosRegistros">NUEVOS REGISTROS</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link scroll-trigger" href="/gestionarRegistros">GESTIONAR REGISTROS</a>
+            <a class="nav-link scroll-trigger" href="/gestionarRegistros">PACIENTES A CARGO</a>
             </li>
         </ul>
       </div> 
@@ -50,7 +50,7 @@
         </div>
         <div class="col-sm-8">
           <!-- datos personales-->
-          <p style="font-size: xx-large; padding: 9%;">Listado actualizado de Examen Orina</p>
+          <p style="font-size: xx-large; padding: 9%;">Listado De Examenes Orina</p>
         </div>
     </div>
     <!-- fin  Bienvenida: foto, texto, datos usuario admin-->
@@ -67,8 +67,7 @@
             <th>urobilinogeno</th>
             <th>billirubina</th>
             <th>observaciones</th>
-            <th>EDITAR</th>
-            <th>ELIMINAR</th>
+
         </tr>    
 
     {% for orina in orina_list %}
@@ -83,13 +82,7 @@
             <td>{{orina.urobilinogeno}}</td>
             <td>{{orina.billirubina}}</td>
             <td>{{orina.observaciones_orina}}</td>
-            <td>
-                <a class="boton" href="{% url 'app_med2:editar_orina' pk=orina.id_orina %}">Editar</a>
-            </td>
-            <td>
-              <a class="boton" href="{% url 'app_med2:eliminar_orina' pk=orina.id_orina %}"> Eliminar</a>
-            </td>
-           
+
         </tr>
     {% endfor %}
     </table>

@@ -33,7 +33,7 @@
             <a class="nav-link scroll-trigger" href="/nuevosRegistros">NUEVOS REGISTROS</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link scroll-trigger" href="/gestionarRegistros">GESTIONAR REGISTROS</a>
+            <a class="nav-link scroll-trigger" href="/gestionarRegistros">PACIENTES A CARGO</a>
             </li>
         </ul>
       </div> 
@@ -50,7 +50,7 @@
         </div>
         <div class="col-sm-8">
           <!-- datos personales-->
-          <p style="font-size: xx-large; padding: 9%;">Listado actualizado de Examen Perfil Bioquimico</p>
+          <p style="font-size: xx-large; padding: 9%;">Listado De Examenes Perfil Bioquimico</p>
         </div>
     </div>
     <!-- fin  Bienvenida: foto, texto, datos usuario admin-->
@@ -74,8 +74,7 @@
             <th>got ast</th>
             <th>creatinina</th>
             <th>observaciones</th>
-            <th>EDITAR</th>
-            <th>ELIMINAR</th>
+
         </tr>    
 
     {% for perfilbioquimico in perfilbioquimico_list %}
@@ -97,12 +96,6 @@
             <td>{{perfilbioquimico.got_ast}}</td>
             <td>{{perfilbioquimico.creatinina}}</td>
             <td>{{perfilbioquimico.observaciones_pbioquimico}}</td>
-            <td>
-                <a class="boton" href="{% url 'app_med2:editar_perfilbioquimico' pk=perfilbioquimico.id_pbioquimico %}">Editar</a>
-            </td>
-            <td>
-              <a class="boton" href="{% url 'app_med2:eliminar_perfilbioquimico' pk=perfilbioquimico.id_pbioquimico %}"> Eliminar</a>
-            </td>
            
         </tr>
     {% endfor %}

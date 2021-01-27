@@ -35,7 +35,7 @@
                 <a class="nav-link scroll-trigger" href="/nuevosRegistros">NUEVOS REGISTROS</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link scroll-trigger" href="#">GESTIONAR REGISTROS</a>
+                <a class="nav-link scroll-trigger" href="#">PACIENTES A CARGO</a>
                 </li>
             </ul>
             </div> 
@@ -52,7 +52,7 @@
             </div>
             <div class="col-sm-8">
             <!-- datos personales-->
-            <p style="font-size: xx-large; padding: 9%;">Bienvenid@ {{nombre_us}} ! Elige una opción para visualizar los registros correspondientes</p>
+            <p style="font-size: xx-large; padding: 9%;">Bienvenid@! {{login_personal_a_cargo}}</p>
             
             </div>
         </div>
@@ -64,7 +64,7 @@
             <!--Usuarios-->
             <div class="col-sm-1"></div>
             <div class="col-sm-2">
-                <H5>USUARIOS</H5>
+                <H5>PACIENTES</H5>
                 <a class="navbar-brand" href="/listar_usuarios">
                     <img class="img-fluid" src="{% static '../static/app_med2/img/icono_paciente.png' %}" alt="Generic placeholder  image", style="border-radius: 85%; width: 85%;">
                 </a>
