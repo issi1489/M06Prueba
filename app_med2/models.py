@@ -42,6 +42,8 @@ class Usuario(models.Model):
                     )
     staff = models.BooleanField()
     
+    rol = models.CharField(max_length=50, default="sin asignar")
+    
     usuario = models.CharField(max_length =15,
                     validators=[validators.MinLengthValidator(5, "Error, el usuario debe tener mínimo 5 caracteres"),
                     validators.MaxLengthValidator(15, "Error, el usuario debe contener hasta 15 caracteres ")]

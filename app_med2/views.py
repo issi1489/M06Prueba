@@ -8,6 +8,10 @@ from .forms import CoagulacionForms, GlicemiaForms, OrinaForms, PerfilLipidicoFo
 from django.template.response import TemplateResponse
 
 # Home 
+
+def user_login(request):
+    return render(request, 'app_med2/login')
+
 def home(request):
     '''
     Home page de el proyecto
