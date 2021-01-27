@@ -115,7 +115,7 @@ def nuevoRegistro(request):
             'hemograma_form': HemogramaForms()
         }
 
-    return TemplateResponse(request, 'app_med2/registros_nuevos.html', context)
+    return TemplateResponse(request, '../templates/app_med2/registros_nuevos.html', context)
 
 # Vista admin: Template intermedio con links a listas
 def gestionRegistro(request):
@@ -144,6 +144,7 @@ def paciente(request):
                 'orina':orina_us, 'pLipidico':pLipidico_us}
 
     return render(request,'../templates/app_med2/paciente.html',context)
+
 
 #----------------------------------- CRUDS ---------------------------------
 
@@ -274,6 +275,80 @@ class EliminarHemograma(DeleteView):
     model=Hemograma
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_hemograma')
+
+
+# CLAUDIO vista medico
+def vista_medico(request):
+
+       
+    if request.method == 'POST':
+        
+        usuario_form = UsuarioForms(request.POST)
+        diagnostico_form = DiagnosticoForms(request.POST)
+        lipidico_form = PerfilLipidicoForms(request.POST)
+        glicemia_form = GlicemiaForms(request.POST)
+        coagulacion_form = CoagulacionForms(request.POST)
+        bioquimico_form = PerfilBioquimicoForms(request.POST)
+        orina_form = OrinaForms(request.POST)
+        hemograma_form = HemogramaForms(request.POST)
+
+        if usuario_form.is_valid():
+            usuario_form.save()
+            return render(request,'app_med2/registros_nuevos.html',context) 
+
+        elif diagnostico_form.is_valid():
+            diagnostico_form.save()
+            return render(request,'app_med2/registros_nuevos.html',context)     
+
+        elif lipidico_form.is_valid():
+            lipidico_form.save()
+            return render(request,'app_med2/registros_nuevos.html',context)
+
+        elif glicemia_form.is_valid():
+            glicemia_form.save()
+            return render(request,'app_med2/registros_nuevos.html',context)
+
+        elif coagulacion_form.is_valid():
+            coagulacion_form.save()
+            return render(request,'app_med2/registros_nuevos.html',context)
+
+        elif bioquimico_form.is_valid():
+            bioquimico_form.save()
+            return render(request,'app_med2/registros_nuevos.html',context)
+
+        elif orina_form.is_valid():
+            orina_form.save()
+            return render(request,'app_med2/registros_nuevos.html',context)
+
+        elif hemograma_form.is_valid():
+            hemograma_form.save()
+            return render(request,'app_med2/registros_nuevos.html',context)   
+
+        else:
+            context = {
+                'usuario_form': usuario_form,
+                'diagnostico_form': diagnostico_form,
+                'lipidico_form': lipidico_form,
+                'glicemia_form': glicemia_form,
+                'coagulacion_form': coagulacion_form,
+                'bioquimico_form': bioquimico_form,
+                'orina_form': orina_form,
+                'hemograma_form': hemograma_form
+
+            }
+
+    else:
+        context = {
+            'usuario_form': UsuarioForms(),
+            'diagnostico_form': DiagnosticoForms(),
+            'lipidico_form': PerfilLipidicoForms(),
+            'glicemia_form': GlicemiaForms(),
+            'coagulacion_form': CoagulacionForms(),
+            'bioquimico_form': PerfilBioquimicoForms(),
+            'orina_form': OrinaForms(),
+            'hemograma_form': HemogramaForms()
+        }
+    return render(request,'app_med2/vista_medico.html', context)
 
 
 # ----------- CODIGO QUE DEBE ELIMINARSE AL CONFIRMAR QUE NO SE USARÁ -------------

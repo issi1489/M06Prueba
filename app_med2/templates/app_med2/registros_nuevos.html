@@ -3,7 +3,7 @@
 <html lang="es">
   <head>
 
-    <title>Medical Services App.</title>
+    <title>  Medical Services App.</title>
     <meta charset="utf-8">
     <meta name="viewport" 
         content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -60,8 +60,12 @@
 
   <!-------------- INICIO USUARIO Y DIAGNOSTICOS -------------->
   <div class="row">
+
+
     <!-- USUARIO -->
+    
     <div class="card col-sm-6">
+      {% block usuario %}
       <h4>Nuevo Usuario</h4>
       <form id="formUsuario" method="post">
         {% csrf_token %}
@@ -74,7 +78,10 @@
           <button type="submit" id="btnUsuario" class="btn btn-primary">Enviar</button>
         </div>  
       </form>
+      {% endblock%}
     </div>
+  
+
     <!-- DIAGNOSTICO -->
     <div class="card col-sm-6">
       <h4>Nuevo diagnostico</h4>
