@@ -43,7 +43,7 @@ urlpatterns = [
     path('<pk>/editar_hemograma', views.UpdateHemograma.as_view(), name="editar_hemograma"),
     path('<pk>/eliminar_hemograma', views.EliminarHemograma.as_view(), name="eliminar_hemograma"),
     
-    # CLAUDIO Vista medico
+    # Vista medico
     path('vista_medico/', views.vista_medico, name="vista_medico"),
 
 
