@@ -1,40 +1,52 @@
 from django.db import models
 #acceder a rutUsuario con rutUsuario_id
-
-
-
+from django.db.models.fields import BooleanField, CharField
+from django.core import validators
+from django.forms.formsets import ORDERING_FIELD_NAME
 
 
 class Usuario(models.Model):
     #pk
-    rutUsuario = models.CharField(max_length=15, primary_key=True, default=None)
-    #atributos
-    nombre = models.CharField(max_length=45)
-    edad = models.IntegerField( )
-    direccion = models.CharField( max_length=45)
-    staff = models.BooleanField( )
-    usuario = models.CharField( max_length=10)
-    password = models.CharField(max_length=10)
+    rutUsuario = models.CharField(max_length =10, primary_key=True, default=None,
+                    validators=[validators.MinLengthValidator(9, "Ingresar dni en el siguiente formato 77111666-5"), 
+                                validators.MaxLengthValidator(10, "Ingresar dni en el siguiente formato 77111666-5")]
+                    )
 
+    #atributos
+    nombre = models.CharField(max_length =45,
+                    validators=[validators.MinLengthValidator(10, "El nombre debe tener minimo 10 caracteres"), 
+                                validators.MaxLengthValidator(45, "El nombre puede tener hasta 45 caracteres")]
+                    )
+
+    edad = models.IntegerField(
+                    validators=[validators.MinValueValidator(1, "Error, la edad no puede ser menor a 1 "),
+                                validators.MaxValueValidator(99, "Error, la edad no puede tener menos más de 3 números")]
+                    )
+
+    direccion = models.CharField(max_length =45,
+                    validators=[validators.MinLengthValidator(10, "Error, la dirección debe contener más de 10 caracteres"),
+                                validators.MaxLengthValidator(45, "Error, la dirección puede contener hasta 45 caracteres ")]
+                    )
+    staff = models.BooleanField()
+    
+    usuario = models.CharField(max_length =15,
+                    validators=[validators.MinLengthValidator(5, "Error, el usuario debe tener mínimo 5 caracteres"),
+                    validators.MaxLengthValidator(15, "Error, el usuario debe contener hasta 15 caracteres ")]
+                    )
+    password = models.CharField(max_length =15,
+                    validators=[validators.MinLengthValidator(6, "Error, la contraseña debe contener más de 6 caracteres"),
+                    validators.MaxLengthValidator(15, "Error, la dirección puede contener hasta 15 caracteres ")]
+                    )
 
 
 
 class Diagnostico(models.Model):
     #pk
-<<<<<<< HEAD
-    
-=======
     fecha_diagnostico = models.DateTimeField(primary_key=True, auto_now_add=True)
->>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
     #fk
-    rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
+    rutUsuario = models.ForeignKey(Usuario,on_delete=models.CASCADE, default=None)
     #atributos
     diagnostico = models.CharField(max_length=100)
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
 
 
 class PerfilBioquimico(models.Model):
@@ -62,6 +74,7 @@ class PerfilBioquimico(models.Model):
     observaciones_pbioquimico = models.CharField(max_length=100, default="Parametros normales")
 
 
+
 class Hemograma(models.Model):
 
     #pk
@@ -80,6 +93,7 @@ class Hemograma(models.Model):
     plaquetas = models.DecimalField(max_digits=4, decimal_places=1)
     observaciones_hemograma = models.CharField(max_length=100, default="Parametros normales")
     
+    
 
 class Coagulacion(models.Model):
 
@@ -88,10 +102,12 @@ class Coagulacion(models.Model):
     #fk
     rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
+    fecha_coagulacion = models.DateField()
     nombre_coagulacion = models.CharField(max_length=30,default='Examen de Coagulacion')
     tiempo_protrombina = models.DecimalField(max_digits=4, decimal_places=1)
     porc_protrombina = models.DecimalField(max_digits=4, decimal_places=1)
     observaciones_coagulacion = models.CharField(max_length=100, default="Parametros normales")
+                
                 
 
 class Glicemia(models.Model):
@@ -141,4 +157,3 @@ class PerfilLipidico(models.Model):
     colesterol_hdl = models.DecimalField(max_digits=4, decimal_places=1)
     trigliceridos = models.DecimalField(max_digits=4, decimal_places=1)
     observacion_plipidico = models.CharField(max_length=100, default="Parametros normales")
-

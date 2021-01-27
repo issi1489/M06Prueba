@@ -6,13 +6,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     #path('admin/', views.admin, name='admin'),
     path('paciente/', views.paciente, name= 'paciente'),
-<<<<<<< HEAD
-    path('admin', views.admin, name='admin'),
-    path('registroExamen',views.informacion, name='registroExamen'),
-    path('producto/', views.producto, name='producto'),
-
-]
-=======
     # Vista admin
     path('nuevosRegistros',views.nuevoRegistro, name='registroExamen'),
     path('gestionarRegistros',views.gestionRegistro, name='registroExamen'),
@@ -58,4 +51,3 @@ Paths en desuso por funcion nuevoRegistro
 path('crear_usuario/', views.CrearUsuario.as_view(), name="crear_usuario"),
 path('crear_diagnostico/',views.CrearDiagnostico.as_view(),  name="crear_diagnostico"),
 '''
->>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202

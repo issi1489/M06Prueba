@@ -3,23 +3,16 @@ from django import forms
 from django.forms import widgets
 from .models import *
 
-<<<<<<< HEAD
-class UsuarioForms(forms.ModelForm):
- 
-=======
 
 
 
 class FormularioUsuario(forms.ModelForm):
     
->>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
     class Meta:
         model=Usuario
         fields='__all__'
 
 
-<<<<<<< HEAD
-=======
 class UsuarioForms(forms.ModelForm):
 
     #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
@@ -33,7 +26,7 @@ class UsuarioForms(forms.ModelForm):
         }
 
 
->>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
+
 class DiagnosticoForms(forms.ModelForm):
 
     #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
@@ -42,16 +35,14 @@ class DiagnosticoForms(forms.ModelForm):
         model = Diagnostico
         #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
         fields = '__all__'
-<<<<<<< HEAD
-       
-=======
+
         Widget = {
             "Fecha_Fabricacion": forms.SelectDateWidget()
         }
 
 
 
->>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
+
 class PerfilBioquimicoForms(forms.ModelForm):
 
     #nombre = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
