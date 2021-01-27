@@ -78,6 +78,8 @@ h1, h2, h3, h4, h5, h6, .navbar, .modal,label,.card {
  .card {
     margin-top: 20px;
     margin-bottom: 20px;
+    background: rgb(0, 0, 0);
+    color: white;
 }
 
 .media {

@@ -21,12 +21,20 @@ class Usuario(models.Model):
 
 class Diagnostico(models.Model):
     #pk
+<<<<<<< HEAD
     
+=======
+    fecha_diagnostico = models.DateTimeField(primary_key=True, auto_now_add=True)
+>>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
     #fk
     rutUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=None)
     #atributos
     diagnostico = models.CharField(max_length=100)
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
 
 
 class PerfilBioquimico(models.Model):
@@ -97,6 +105,7 @@ class Glicemia(models.Model):
     nombre_glicemia = models.CharField(max_length=30,default='Examen de Glicemia')
     glicemia_basal = models.DecimalField(max_digits=4, decimal_places=1)
     glicemia_120min= models.DecimalField(max_digits=4, decimal_places=1)
+    observaciones_glicemia = models.CharField(max_length=100, default="Parametros normales")
                        	  
 
 class Orina(models.Model):

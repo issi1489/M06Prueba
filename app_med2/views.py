@@ -20,8 +20,25 @@ def home(request):
     data = {
         'usuario': UsuarioForms()
     }
+=======
+class EliminarUsuario(DeleteView):
+    model= Usuario
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
     
+# CRUD DIAGNOSTICO
+class ListarDiagnostico(ListView):
+    model=Diagnostico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_diagnosticos')
+>>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
+    
+class UpdateDiagnostico(UpdateView):
+    model=Diagnostico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_diagnosticos')
 
+<<<<<<< HEAD
     if request.method == 'POST':
         formulario = UsuarioForms(data=request.POST)
         if formulario.is_valid():
@@ -38,8 +55,25 @@ def home(request):
     data = {
         'diagnostico': DiagnosticoForms()
     }
-    
+=======
+class EliminarDiagnostico(DeleteView):
+    model=Diagnostico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_diagnosticos')
 
+# CRUD PERFIL LIPIDICO
+class ListarPerfilLipidico(ListView):
+    model=PerfilLipidico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_perfillipidico')
+>>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
+    
+class UpdatePerfilLipidico(UpdateView):
+    model=PerfilLipidico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_perfillipidico')
+
+<<<<<<< HEAD
     if request.method == 'POST':
         formulario = DiagnosticoForms(data=request.POST)
         if formulario.is_valid():
@@ -57,8 +91,25 @@ def home(request):
     data = {
         'perfil':PerfilBioquimicoForms()
     }
-    
+=======
+class EliminarPerfilLipidico(DeleteView):
+    model=PerfilLipidico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_perfillipidico')
 
+#CRUD GLICEMIA
+class ListarGlicemia(ListView):
+    model=Glicemia
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_glicemia')
+>>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
+    
+class UpdateGlicemia(UpdateView):
+    model=Glicemia
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_glicemia')
+
+<<<<<<< HEAD
     if request.method == 'POST':
         formulario = PerfilBioquimicoForms(data=request.POST)
         if formulario.is_valid():
@@ -75,8 +126,25 @@ def home(request):
     data = {
         'hemograma': HemogramaForms()
     }
-    
+=======
+class EliminarGlicemia(DeleteView):
+    model=Glicemia
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_glicemia')
 
+#CRUD PerfilBioquimico
+class ListarPerfilBioquimico(ListView):
+    model=PerfilBioquimico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_perfilbioquimico')
+>>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
+    
+class UpdatePerfilBioquimico(UpdateView):
+    model=PerfilBioquimico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_perfilbioquimico')
+
+<<<<<<< HEAD
     if request.method == 'POST':
         formulario = HemogramaForms(data=request.POST)
         if formulario.is_valid():
@@ -94,8 +162,25 @@ def home(request):
     data = {
         'coagulacion': CoagulacionForms()
     }
-    
+=======
+class EliminarPerfilBioquimico(DeleteView):
+    model=PerfilBioquimico
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_perfilbioquimico')
 
+#CRUD Orina
+class ListarOrina(ListView):
+    model=Orina
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_orina')
+>>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
+    
+class UpdateOrina(UpdateView):
+    model=Orina
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_orina')
+
+<<<<<<< HEAD
     if request.method == 'POST':
         formulario = CoagulacionForms(data=request.POST)
         if formulario.is_valid():
@@ -129,8 +214,25 @@ def home(request):
     data = {
         'orina': OrinaForms()
     }
-    
+=======
+class EliminarOrina(DeleteView):
+    model=Orina
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_orina')
 
+#CRUD Coagulacion
+class ListarCoagulacion(ListView):
+    model=Coagulacion
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_coagulacion')
+>>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
+    
+class UpdateCoagulacion(UpdateView):
+    model=Coagulacion
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_coagulacion')
+
+<<<<<<< HEAD
     if request.method == 'POST':
         formulario = OrinaForms(data=request.POST)
         if formulario.is_valid():
@@ -148,8 +250,25 @@ def home(request):
     data = {
         'plipidico':PerfilLipidicoForms()
     }
-    
+=======
+class EliminarCoagulacion(DeleteView):
+    model=Coagulacion
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_coagulacion')
 
+#CRUD Hemograma
+class ListarHemograma(ListView):
+    model=Hemograma
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_hemograma')
+>>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
+    
+class UpdateHemograma(UpdateView):
+    model=Hemograma
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_hemograma')
+
+<<<<<<< HEAD
     if request.method == 'POST':
         formulario = PerfilLipidicoForms(data=request.POST)
         if formulario.is_valid():
@@ -161,10 +280,15 @@ def home(request):
 
     return render(request, 'app_med2/agregar/formulario8.html', data)'''
 
+=======
+class EliminarHemograma(DeleteView):
+    model=Hemograma
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_hemograma')
+>>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202
 
-def paciente(request):
-    return render(request,'../templates/app_med2/paciente.html')
 
+<<<<<<< HEAD
 def informacion(request):
     data ={
             
@@ -279,3 +403,22 @@ def producto(request):
     }
     return render(request, 'app_med2/agregar/hemograma_form.html', data)
 
+=======
+# ----------- CODIGO QUE DEBE ELIMINARSE AL CONFIRMAR QUE NO SE USARÁ -------------
+'''
+CRUD: CREAR USUARIO Y DIAGNOSTICO
+class CrearUsuario(CreateView):
+    model=Usuario
+    template_name='app_med2/usuario_form.html'
+    fields='__all__'
+    success_url=reverse_lazy('app_med2:listar_usuarios')
+
+
+class CrearDiagnostico(CreateView):
+    model=Diagnostico
+    fields='_all_'
+    success_url=reverse_lazy('app_med2:listar_diagnosticos')
+
+
+'''
+>>>>>>> cdcf2c8ecf05ed93136ff1c30dcd9edb66917202

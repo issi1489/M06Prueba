@@ -1,0 +1,96 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+
+      <title>Medical Services App.</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Loading Bootstrap CSS -->
+      <link 
+      rel="stylesheet" 
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+      crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="../static/app_med2/css/med_style.css">
+    
+  </head>
+
+  <body>
+    
+    <!-- inicio barra navegacion-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <a class="navbar-brand" href="#">Medical Services App.</a>
+                
+      <div class="col-sm-12 col-md-6">
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+            <a class="nav-link scroll-trigger" href="/">INICIO</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link scroll-trigger" href="/nuevosRegistros">NUEVOS REGISTROS</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link scroll-trigger" href="/gestionarRegistros">GESTIONAR REGISTROS</a>
+            </li>
+        </ul>
+      </div> 
+    </nav>
+    <!-- fin barra navegacion-->
+
+    <br><br><br>
+        
+    <!-- inicio  Bienvenida: foto, texto, datos usuario admin-->
+    <div class="row">
+        <div class="col-sm-2">
+          <!--foto -->
+          <img class="img-fluid" src="{% static '../static/app_med2/img/adminIcon.png' %}" alt="Generic placeholder  image", style="border-radius: 85%; width: 85%;">
+        </div>
+        <div class="col-sm-8">
+          <!-- datos personales-->
+          <p style="font-size: xx-large; padding: 9%;">Listado actualizado de Examen Perfil Lipidico</p>
+        </div>
+    </div>
+    <!-- fin  Bienvenida: foto, texto, datos usuario admin-->
+    <table class="table">
+        <tr>
+
+            <th>Id</th>
+            <th>rutUsuario</th>
+            <th>fecha</th>
+            <th>colesterol total</th>
+            <th>ldh</th>
+            <th>hdl</th>
+            <th>trigliceridos</th>
+            <th>observacion</th>
+            <th>EDITAR</th>
+            <th>ELIMINAR</th>
+        </tr>    
+
+    {% for perfillipidico in perfillipidico_list %}
+        <tr>
+            <td>{{perfillipidico.id_plipidico}}</td>
+            <td>{{perfillipidico.rutUsuario_id}}</td>
+            <td>{{perfillipidico.fecha_plipidico}}</td>
+            <td>{{perfillipidico.colesterol}}</td>
+            <td>{{perfillipidico.colesterol_ldl}}</td>
+            <td>{{perfillipidico.colesterol_hdl}}</td>
+            <td>{{perfillipidico.trigliceridos}}</td>
+            <td>{{perfillipidico.observacion_plipidico}}</td>
+            <td>
+                <a class="boton" href="{% url 'app_med2:editar_perfillipidico' pk=perfillipidico.id_plipidico %}">Editar</a>
+            </td>
+            <td>
+              <a class="boton" href="{% url 'app_med2:eliminar_perfillipidico' pk=perfillipidico.id_plipidico %}"> Eliminar</a>
+            </td>
+           
+        </tr>
+    {% endfor %}
+    </table>
+    
+    
+    
+</body>
+</html>
