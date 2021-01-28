@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from .forms import FormularioUsuario, UsuarioForms, DiagnosticoForms, PerfilBioquimicoForms, HemogramaForms
-from .forms import CoagulacionForms, GlicemiaForms, OrinaForms, PerfilLipidicoForms, FamiliarForms
+from .forms import CoagulacionForms, GlicemiaForms, OrinaForms, PerfilLipidicoForms, FamiliarForms, UserLoginForms
 from django.template.response import TemplateResponse
 
 # Home 
@@ -33,6 +33,7 @@ def nuevoRegistro(request):
         * Permite insertar datos de los formularios a la BD en PostgreSQL
     '''
     context = {
+            'loginUs_form':UserLoginForms(),
             'usuario_form': UsuarioForms(),
             'diagnostico_form': DiagnosticoForms(),
             'lipidico_form': PerfilLipidicoForms(),
@@ -44,7 +45,7 @@ def nuevoRegistro(request):
         }
             
     if request.method == 'POST':
-        
+        loginUs_form = UserLoginForms(request.POST)
         usuario_form = UsuarioForms(request.POST)
         diagnostico_form = DiagnosticoForms(request.POST)
         lipidico_form = PerfilLipidicoForms(request.POST)
@@ -56,6 +57,10 @@ def nuevoRegistro(request):
 
         if usuario_form.is_valid():
             usuario_form.save()
+            return render(request,'app_med2/registros_nuevos.html',context) 
+
+        elif loginUs_form.is_valid():
+            loginUs_form.save()
             return render(request,'app_med2/registros_nuevos.html',context) 
 
         elif diagnostico_form.is_valid():
@@ -88,6 +93,7 @@ def nuevoRegistro(request):
 
         else:
             context = {
+                'loginUs_form': loginUs_form,
                 'usuario_form': usuario_form,
                 'diagnostico_form': diagnostico_form,
                 'lipidico_form': lipidico_form,
@@ -101,6 +107,7 @@ def nuevoRegistro(request):
 
     else:
         context = {
+            'loginUs_form':UserLoginForms(),
             'usuario_form': UsuarioForms(),
             'diagnostico_form': DiagnosticoForms(),
             'lipidico_form': PerfilLipidicoForms(),
@@ -165,6 +172,7 @@ def paciente(request):
     return render(request,'../templates/app_med2/paciente.html',context)
 
 def familiar(request):
+
     datos_us = Usuario.objects.filter(rutUsuario='17684562-7')
     diagnostico_us = Diagnostico.objects.filter(rutUsuario='17684562-7')
     pBioquimico_us = PerfilBioquimico.objects.filter(rutUsuario='17684562-7')

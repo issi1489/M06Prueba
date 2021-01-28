@@ -4,6 +4,10 @@ from . import views
 app_name = 'app_med2'
 urlpatterns = [
     #path('admin/', views.admin, name='admin'),
+    #LOGIN
+    
+    #path('login/',views.LoginView.as_view(), name='login'),
+    #path('logout/',views.LogoutView.as_view(), name='logout'),
     #HOME
     path('', views.home, name='home'),
     #VISTA PACIENTE-FAMILIAR

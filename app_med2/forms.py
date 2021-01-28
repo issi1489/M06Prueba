@@ -12,6 +12,13 @@ class FormularioUsuario(forms.ModelForm):
         model=Usuario
         fields='__all__'
 
+class UserLoginForms(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username','password']
+        Widget = {
+            "Fecha_Fabricacion": forms.SelectDateWidget()
+        }
 
 class UsuarioForms(forms.ModelForm):
 
@@ -19,7 +26,9 @@ class UsuarioForms(forms.ModelForm):
 
     class Meta:
         model = Usuario
-        #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
+        #user django : ['first_name','last_name','username','password']
+        # user proyecto 
+        #fields = ['id','first_name','last_name','username','password','email']
         fields = '__all__'
         Widget = {
             "Fecha_Fabricacion": forms.SelectDateWidget()

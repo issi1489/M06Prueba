@@ -3,22 +3,22 @@ from django.db import models
 from django.db.models.fields import BooleanField, CharField
 from django.core import validators
 from django.forms.formsets import ORDERING_FIELD_NAME
+from django.contrib.auth.models import User
 
-
-"""
-class Usuario(models.Model):
-    #pk
-    rutUsuario = models.CharField(max_length=10, primary_key=True, default=None)
-    #atributos
-    nombre = models.CharField(max_length=45)
-    edad = models.IntegerField( )
-    direccion = models.CharField( max_length=45)
-    staff = models.BooleanField( )
-    usuario = models.CharField( max_length=10)
-    password = models.CharField(max_length=10)
-"""
 
 class Usuario(models.Model):
+    '''
+    Atributos User Django:
+        * nombre
+        * apellido
+        * correo_electronico
+        * activo 
+        * staff
+        * superusuario
+    '''
+
+    usuario = models.OneToOneField(User, on_delete = models.CASCADE, default=None)
+
     #pk
     rutUsuario = models.CharField(max_length =10, primary_key=True, default=None,
                     validators=[validators.MinLengthValidator(9, "Ingresar dni en el siguiente formato 77111666-5"), 
@@ -26,11 +26,11 @@ class Usuario(models.Model):
                     )
 
     #atributos
-    nombre = models.CharField(max_length =45,
+    nombre = models.CharField(max_length =45, default=None,
                     validators=[validators.MinLengthValidator(10, "El nombre debe tener minimo 10 caracteres"), 
                                 validators.MaxLengthValidator(45, "El nombre puede tener hasta 45 caracteres")]
                     )
-
+    
     edad = models.IntegerField(
                     validators=[validators.MinValueValidator(1, "Error, la edad no puede ser menor a 1 "),
                                 validators.MaxValueValidator(99, "Error, la edad no puede tener menos más de 3 números")]
@@ -40,16 +40,10 @@ class Usuario(models.Model):
                     validators=[validators.MinLengthValidator(10, "Error, la dirección debe contener más de 10 caracteres"),
                                 validators.MaxLengthValidator(45, "Error, la dirección puede contener hasta 45 caracteres ")]
                     )
-    staff = models.BooleanField()
     
-    usuario = models.CharField(max_length =15,
-                    validators=[validators.MinLengthValidator(5, "Error, el usuario debe tener mínimo 5 caracteres"),
-                    validators.MaxLengthValidator(15, "Error, el usuario debe contener hasta 15 caracteres ")]
-                    )
-    password = models.CharField(max_length =15,
-                    validators=[validators.MinLengthValidator(6, "Error, la contraseña debe contener más de 6 caracteres"),
-                    validators.MaxLengthValidator(15, "Error, la dirección puede contener hasta 15 caracteres ")]
-                    )
+    list_rol=(('admin','admin'),('medico','medico'),('paciente','paciente'),('cuidador','cuidador'),('familiar','familiar')) 
+    rol = models.CharField(max_length=15,choices= list_rol,default="admin")
+
 
 class Familiar(models.Model):
     #pk
@@ -69,6 +63,8 @@ class Familiar(models.Model):
                     validators=[validators.MinLengthValidator(10, "Error, la dirección debe contener más de 10 caracteres"),
                                 validators.MaxLengthValidator(45, "Error, la dirección puede contener hasta 45 caracteres ")]
                     )
+
+    staff = models.BooleanField(default = False)
     
     usuario = models.CharField(max_length =15,
                     validators=[validators.MinLengthValidator(5, "Error, el usuario debe tener mínimo 5 caracteres"),
