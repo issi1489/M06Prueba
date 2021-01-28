@@ -6,8 +6,10 @@ from django.views.generic import ListView
 from .forms import FormularioUsuario, UsuarioForms, DiagnosticoForms, PerfilBioquimicoForms, HemogramaForms
 from .forms import CoagulacionForms, GlicemiaForms, OrinaForms, PerfilLipidicoForms, FamiliarForms, UserLoginForms
 from django.template.response import TemplateResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Home 
+# Home
 def home(request):
     '''
     Home page de el proyecto
@@ -15,6 +17,7 @@ def home(request):
     return render(request, 'app_med2/home.html')
 
 # Vista admin
+@login_required(login_url='accounts/login')
 def admin(request):
     '''
     (No funcional aún) Debe mostrar el perfil del usuario admin que ingresó
@@ -22,6 +25,7 @@ def admin(request):
     return render(request, 'app_med2/admin.html')
 
 # Vista admin: Crear nuevos registros
+@login_required(login_url='accounts/login')
 def nuevoRegistro(request):
     '''
     Función registroExamen:
@@ -121,6 +125,7 @@ def nuevoRegistro(request):
     return TemplateResponse(request, 'app_med2/registros_nuevos.html', context)
 
 # Vista admin: Template intermedio con links a listas
+@login_required(login_url='accounts/login')
 def gestionRegistro(request):
     '''
     Función para visualizar un template intermedio que permite ingresar
@@ -130,6 +135,7 @@ def gestionRegistro(request):
 
 
 # Vista paciente
+@login_required(login_url='accounts/login')
 def paciente(request):
 
     datos_us = Usuario.objects.filter(rutUsuario='17684562-7')
@@ -170,7 +176,7 @@ def paciente(request):
                 'orina':orina_us, 'pLipidico':pLipidico_us}'''
 
     return render(request,'../templates/app_med2/paciente.html',context)
-
+@login_required(login_url='accounts/login')
 def familiar(request):
 
     datos_us = Usuario.objects.filter(rutUsuario='17684562-7')
@@ -191,129 +197,129 @@ def familiar(request):
 #----------------------------------- CRUDS ---------------------------------
 
 # CRUD USUARIO
-class ListarUsuario(ListView):
+class ListarUsuario(LoginRequiredMixin, ListView):
     model=Usuario
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_usuarios')
 
-class UpdateUsuario(UpdateView):
+class UpdateUsuario(LoginRequiredMixin, UpdateView):
     model=Usuario
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_usuarios')
 
-class EliminarUsuario(DeleteView):
+class EliminarUsuario(LoginRequiredMixin, DeleteView):
     model= Usuario
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_usuarios')
 
 # CRUD DIAGNOSTICO
-class ListarDiagnostico(ListView):
+class ListarDiagnostico(LoginRequiredMixin, ListView):
     model=Diagnostico
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_diagnosticos')
     
-class UpdateDiagnostico(UpdateView):
+class UpdateDiagnostico(LoginRequiredMixin, UpdateView):
     model=Diagnostico
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_diagnosticos')
 
-class EliminarDiagnostico(DeleteView):
+class EliminarDiagnostico(LoginRequiredMixin, DeleteView):
     model=Diagnostico
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_diagnosticos')
 
 # CRUD PERFIL LIPIDICO
-class ListarPerfilLipidico(ListView):
+class ListarPerfilLipidico(LoginRequiredMixin, ListView):
     model=PerfilLipidico
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_perfillipidico')
     
-class UpdatePerfilLipidico(UpdateView):
+class UpdatePerfilLipidico(LoginRequiredMixin, UpdateView):
     model=PerfilLipidico
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_perfillipidico')
 
-class EliminarPerfilLipidico(DeleteView):
+class EliminarPerfilLipidico(LoginRequiredMixin, DeleteView):
     model=PerfilLipidico
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_perfillipidico')
 
 #CRUD GLICEMIA
-class ListarGlicemia(ListView):
+class ListarGlicemia(LoginRequiredMixin, ListView):
     model=Glicemia
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_glicemia')
     
-class UpdateGlicemia(UpdateView):
+class UpdateGlicemia(LoginRequiredMixin, UpdateView):
     model=Glicemia
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_glicemia')
 
-class EliminarGlicemia(DeleteView):
+class EliminarGlicemia(LoginRequiredMixin, DeleteView):
     model=Glicemia
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_glicemia')
 
 #CRUD PerfilBioquimico
-class ListarPerfilBioquimico(ListView):
+class ListarPerfilBioquimico(LoginRequiredMixin, ListView):
     model=PerfilBioquimico
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_perfilbioquimico')
     
-class UpdatePerfilBioquimico(UpdateView):
+class UpdatePerfilBioquimico(LoginRequiredMixin, UpdateView):
     model=PerfilBioquimico
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_perfilbioquimico')
 
-class EliminarPerfilBioquimico(DeleteView):
+class EliminarPerfilBioquimico(LoginRequiredMixin, DeleteView):
     model=PerfilBioquimico
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_perfilbioquimico')
 
 #CRUD Orina
-class ListarOrina(ListView):
+class ListarOrina(LoginRequiredMixin, ListView):
     model=Orina
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_orina')
     
-class UpdateOrina(UpdateView):
+class UpdateOrina(LoginRequiredMixin, UpdateView):
     model=Orina
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_orina')
 
-class EliminarOrina(DeleteView):
+class EliminarOrina(LoginRequiredMixin, DeleteView):
     model=Orina
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_orina')
 
 #CRUD Coagulacion
-class ListarCoagulacion(ListView):
+class ListarCoagulacion(LoginRequiredMixin, ListView):
     model=Coagulacion
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_coagulacion')
     
-class UpdateCoagulacion(UpdateView):
+class UpdateCoagulacion(LoginRequiredMixin, UpdateView):
     model=Coagulacion
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_coagulacion')
 
-class EliminarCoagulacion(DeleteView):
+class EliminarCoagulacion(LoginRequiredMixin, DeleteView):
     model=Coagulacion
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_coagulacion')
 
 #CRUD Hemograma
-class ListarHemograma(ListView):
+class ListarHemograma(LoginRequiredMixin, ListView):
     model=Hemograma
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_hemograma')
     
-class UpdateHemograma(UpdateView):
+class UpdateHemograma(LoginRequiredMixin, UpdateView):
     model=Hemograma
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_hemograma')
 
-class EliminarHemograma(DeleteView):
+class EliminarHemograma(LoginRequiredMixin, DeleteView):
     model=Hemograma
     fields='__all__'
     success_url=reverse_lazy('app_med2:listar_hemograma')
