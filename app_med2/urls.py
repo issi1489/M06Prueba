@@ -9,7 +9,6 @@ urlpatterns = [
     # Vista admin
     path('nuevosRegistros',views.nuevoRegistro, name='registroExamen'),
     path('gestionarRegistros',views.gestionRegistro, name='registroExamen'),
-
     #crud diagnostico
     path('listar_diagnosticos/', views.ListarDiagnostico.as_view(), name="listar_diagnosticos"),
     path('<pk>/editar_diagnostico', views.UpdateDiagnostico.as_view(), name="editar_diagnosticos"),

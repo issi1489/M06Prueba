@@ -20,7 +20,14 @@
     </head>
 
     <body>
-    
+            {% if user.is_authenticated %}
+            <p><b>Usuario Id:</b> {{user.id}}<br><b>Nombre:</b> {{ user.get_full_name }}<br><b>Email:</b> {{ user.email }}</p>
+            <p><a href="{% url 'logout' %}?next={% url 'app_med2:home' %}">{{request.get_host}}{% url 'logout' %}?next={% url 'app_med2:registroExamen' %}</a></p>
+
+            {% else %}
+            <p><a href="{% url 'login' %}?next={{ request.path }}">{{request.get_host}}{% url 'login' %}?next={{ request.path }}</a> <br>Página de Login - Autentica y vuelve a esta página</p>
+            {% endif %}
+
         <!-- inicio barra navegacion-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <a class="navbar-brand" href="#">Medical Services App.</a>

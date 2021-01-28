@@ -6,6 +6,7 @@ from django.views.generic import ListView
 from .forms import FormularioUsuario, UsuarioForms, DiagnosticoForms, PerfilBioquimicoForms, HemogramaForms
 from .forms import CoagulacionForms, GlicemiaForms, OrinaForms, PerfilLipidicoForms
 from django.template.response import TemplateResponse
+from django.contrib.auth.decorators import login_required
 
 # Home 
 def home(request):
@@ -15,13 +16,14 @@ def home(request):
     return render(request, 'app_med2/home.html')
 
 # Vista admin
-def admin(request):
-    '''
-    (No funcional aún) Debe mostrar el perfil del usuario admin que ingresó
-    '''
+def admin(request):     
     return render(request, 'app_med2/admin.html')
-
+ 
+# Vista admin
+def cuidador(request):
+    pass
 # Vista admin: Crear nuevos registros
+
 def nuevoRegistro(request):
     '''
     Función registroExamen:
@@ -123,6 +125,7 @@ def gestionRegistro(request):
 
 
 # Vista paciente
+@login_required(login_url='/accounts/login/')
 def paciente(request):
 
     datos_us = Usuario.objects.filter(rutUsuario='17684562-7')
